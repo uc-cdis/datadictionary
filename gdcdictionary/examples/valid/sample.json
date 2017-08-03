@@ -1,6 +1,6 @@
 {
     "type": "sample",
-    "submitter_id": "BLGSP-71-06-00019s",
+    "submitter_id": "sample_1",
     "biospecimen_anatomic_site": "Adipose",
     "time_to_freezer": "Not Applicable",
     "composition": "Cell",
@@ -24,6 +24,6 @@
     "tumor_code_id": "00",
     "tumor_descriptor": "NOS",
     "cases": {
-        "submitter_id": "BLGSP-71-06-00019"
+        "submitter_id": "case_1"
     }
 }

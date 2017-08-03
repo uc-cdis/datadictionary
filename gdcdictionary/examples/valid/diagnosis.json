@@ -1,6 +1,6 @@
 {
     "type": "diagnosis",
-    "submitter_id": "E9EDB78B-6897-4205-B9AA-0CEF8AAB5A1F_diagnosis",
+    "submitter_id": "diagnosis_1",
     "age_at_diagnosis": 47,
     "ann_arbor_b_symptoms": "Yes",
     "ann_arbor_extranodal_involvement": "No",
@@ -31,6 +31,6 @@
     "vital_status": "dead",
     "year_of_diagnosis": 2077,
     "cases": {
-        "submitter_id": "BLGSP-71-06-00019"
+        "submitter_id": "case_1"
     }
 }

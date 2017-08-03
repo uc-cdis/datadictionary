@@ -1,6 +1,6 @@
 {
     "type": "submitted_somatic_mutation",
-    "submitter_id": "somatic_mutations_from_x",
+    "submitter_id": "somatic_mutations_1",
     "data_category": "Sequencing Data",
     "data_type": "Somatic Mutations",
     "data_format": "VCF",
@@ -9,6 +9,6 @@
     "md5sum": "122dffad32",
     "experimental_strategy": "Targeted Sequencing",
     "read_groups": {
-        "submitter_id": "read_group_x"
+        "submitter_id": "read_group_1"
     }
 }

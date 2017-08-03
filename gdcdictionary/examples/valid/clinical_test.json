@@ -21,9 +21,6 @@
     "progesterone_receptor_percent_positive_ihc": "<1%",
     "progesterone_receptor_result_ihc": "Positive",
     "cases": {
-        "submitter_id": "Extra large case"
-    },
-    "diagnoses": {
-        "submitter_id": "BL Diagnosis"
+        "submitter_id": "case_1"
     }
 }

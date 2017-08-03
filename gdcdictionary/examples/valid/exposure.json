@@ -5,9 +5,9 @@
     "alcohol_intensity": "",
     "bmi": -1.0,
     "years_smoked": -1.0,
-    "submitter_id": "E9EDB78B-6897-4205-B9AA-0CEF8AAB5A1F_exposure",
+    "submitter_id": "exposure_1",
     "cases": {
-        "submitter_id": "BLGSP-71-06-00019"
+        "submitter_id": "case_1"
     },
     "height": -1.0,
     "type": "exposure"

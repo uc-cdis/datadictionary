@@ -8,6 +8,6 @@
     "data_type": "Experimental Metadata",
     "data_format": "SRA XML",
     "experiments": {
-	"submitter_id": "read_group_X"
+	    "submitter_id": "experiment_1"
     }
 }

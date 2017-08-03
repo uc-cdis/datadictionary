@@ -1,6 +1,5 @@
 {
-    "id": "7b460e40-27d9-42a5-9dee-8d97f3960c6d",
-    "submitter_id": "QC metrics for BAM_file_a",
+    "submitter_id": "read_group_qc_1",
     "type": "read_group_qc",
     "adapter_content": "PASS",
     "basic_statistics": "PASS",
@@ -21,7 +20,7 @@
     "total_sequences": 195523357,
     "workflow_link": "github.com/<owner>/<project>/commit/<hash>",
     "submitted_aligned_reads_files":
-        {"submitter_id": "bam_file_a"},
+        {"submitter_id": "submitted_aligned_reads_files_1"},
     "read_groups":
-        {"submitter_id": "read_group_a"}
+        {"submitter_id": "read_group_1"}
 }

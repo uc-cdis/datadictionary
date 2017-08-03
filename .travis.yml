@@ -1,7 +1,34 @@
 language: python
 python:
   - "2.7"
-before_script:
+git: 
+    depth: 1
+
+addons:
+  postgresql: '9.4'
+
+install:
     - yes | python setup.py install
-    - pip freeze
-script: "nosetests -v"
+    - pip install pytest
+    - pip install pyasn1
+before_script:
+    - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+    - cat ~/.netrc
+    - cd ..
+    - git clone https://github.com/uc-cdis/gdcapi.git
+
+    - cd gdcapi
+    - git checkout feat/dd-tests
+    - ./setup.sh
+    - yes | python setup.py install
+    - pip install -r requirements.txt
+    - pip install -r dev-requirements.txt
+    - pip install -e "git+https://$CI_USER_TOKEN@github.com/uc-cdis/user-api.git@78f5bbdeb9507318af5d4f81479ecf1150b5e266#egg=userapi"
+    - python bin/setup_test_database.py
+    - psql -c "create database test_userapi" -U postgres
+    - userdatamodel-init --db test_userapi
+    - python bin/setup_test_database.py --database test_userapi
+
+    - cd ../datadictionary
+script: 
+  - "PYTHONPATH=. py.test -vv tests/ gdcdictionary/"

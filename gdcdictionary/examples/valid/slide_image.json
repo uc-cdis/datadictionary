@@ -1,6 +1,6 @@
 {
     "type": "slide_image",
-    "submitter_id": "slide_image_X",
+    "submitter_id": "slide_image_1",
     "file_name": "slide.svs",
     "file_size": 21234,
     "md5sum": "84a72e8aaad3017348cb3f8459c5d5d9",
@@ -9,6 +9,6 @@
     "data_format": "SVS",
     "experimental_strategy": "Diagnostic Slide",
     "slides": {
-	"submitter_id": "slide_X"
+        "submitter_id": "slide_1"
     }
 }

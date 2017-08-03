@@ -1,6 +1,6 @@
 {
     "type": "treatment",
-    "submitter_id": "E9EDB78B-6897-4205-B9AA-0CEF8AAB5A1F_treatment",
+    "submitter_id": "treatment_1",
     "days_to_treatment": -1.0,
     "days_to_treatment_end": 14,
     "days_to_treatment_start": 25,
@@ -10,6 +10,6 @@
     "treatment_or_therapy": "unknown",
     "treatment_type": "Other",
     "diagnoses": {
-        "submitter_id": "E9EDB78B-6897-4205-B9AA-0CEF8AAB5A1F_diagnosis"
+        "submitter_id": "diagnosis_1"
     }
 }
