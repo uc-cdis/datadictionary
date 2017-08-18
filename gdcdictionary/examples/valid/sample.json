@@ -2,7 +2,6 @@
     "type": "sample",
     "submitter_id": "sample_1",
     "biospecimen_anatomic_site": "Adipose",
-    "time_to_freezer": "Not Applicable",
     "composition": "Cell",
     "current_weight": 1,
     "days_to_collection": 25,

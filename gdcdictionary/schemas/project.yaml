@@ -23,7 +23,6 @@ systemProperties:
 required:
   - code 
   - name 
-  - programs
 
 uniqueKeys:
   - [ id ]
