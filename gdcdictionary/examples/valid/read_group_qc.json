@@ -20,7 +20,7 @@
     "total_sequences": 195523357,
     "workflow_link": "github.com/<owner>/<project>/commit/<hash>",
     "submitted_aligned_reads_files":
-        {"submitter_id": "submitted_aligned_reads_files_1"},
+        {"submitter_id": "submitted_aligned_reads_1"},
     "read_groups":
         {"submitter_id": "read_group_1"}
 }
