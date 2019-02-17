@@ -1,7 +1,16 @@
 language: python
 python:
   - "2.7"
-before_script:
-    - yes | python setup.py install
-    - pip freeze
-script: "nosetests -v"
+install:
+- pip install pipenv
+- pipenv install --dev
+- pipenv graph
+script: "pipenv run nosetests -v"
+deploy:
+  provider: pypi
+  user: uc-ctds
+  skip_existing: true
+  on:
+    tags: true
+  password:
+    secure: dS1agTnkKYwtr4D6m5+5BftfL4eOUIQhdNHf5V3Hicj5MwFDbnX2IlA2ZGRRLET+UQb+pzlBkxNpdduw74nRLXedPNbVutXOohMtXIEwQh7YqnQkj6uCY1UjFc/zM+F6ByaLYYc5WRJEq2zfNpDgHAtfx1yhY/7uNtLrTn6XpKCg+Kx+dZy59FrK/F4lAv4+IAthzGuj1SAlBaKYgG+hVCu1y7bITbljVsrjmpgP0eNE9AWENUfSJGrPqelNBppAf74KFIr5NmFPOHXOyFBjRju3N8hHSOZMutb/i0HCtET23CkEzQPEOgjiUVGhY515kjEn47Z5l1pGwI18qSe0ugGW8fD+TVePyWZZtjv80dAvQlSg1imFc0SWwYkqtMLHEJ8Sn6eUYoI/MfE1GPtlUp5FWubMnG9bfRj27J+oa6bc2e4mZAIx/BXnuU17xyvXjkhajurX716lNBPrfSMFRTckBTaDHEv2YwdVo2SBvdt96LmfLW17IPErLIxhuBDfYKsjRp7W11nDi+TSMPCBPTnuLMBGAmZUyGEr5e6UtECA37a4Z0NOkQUUBfddeRr+CX7xqbv2l5Gi1DzOwGj6LRlkXDH6NqDwG/NrUQiyVVMPDdo7ZPXOa1ymi+ay8QxAMKmEbjKPkhIdvB6cLL/gkpyb0L5JmtSuA/YM/Mgugeg=
