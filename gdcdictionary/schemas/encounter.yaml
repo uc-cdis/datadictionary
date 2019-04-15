@@ -40,7 +40,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "encounters" ]
+    enum: [ "encounter" ]
 
   id:
     $ref: "_definitions.yaml#/UUID"
