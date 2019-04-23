@@ -24,8 +24,8 @@ setup(
     license="Apache",
     packages=find_packages(),
     install_requires=[
-        'PyYAML==3.11',
-        'jsonschema==2.5.1',
+        'PyYAML>=3.11',
+        'jsonschema>=2.5.1',
         'dictionaryutils',
     ],
     dependency_links=[
