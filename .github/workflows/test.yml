@@ -1,0 +1,21 @@
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup
+      run: |
+        sudo apt-get update
+        sudo apt-get install libpq-dev
+        yes | python setup.py install --user
+        git clone https://github.com/uc-cdis/dictionaryutils
+        sudo pip install wheel
+    - name: Test dictionary
+      run: |
+        cd dictionaryutils
+        sudo ./run_tests.sh
+        cd ..
