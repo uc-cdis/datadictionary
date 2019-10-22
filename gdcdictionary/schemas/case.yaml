@@ -17,14 +17,6 @@ validators: null
 systemProperties:
   - id
 
-links:
-  - name: experiments
-    backref: cases
-    label: member_of
-    target_type: experiment
-    multiplicity: many_to_one
-    required: true
-
 required:
   - name
   - address
