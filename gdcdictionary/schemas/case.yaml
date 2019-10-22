@@ -9,20 +9,16 @@ program: '*'
 project: '*'
 description: >
   The collection of all data related to a specific subject in the
-  context of a specific experiment. 
+  context of a specific experiment.
 additionalProperties: false
 submittable: true
 validators: null
 
 systemProperties:
   - id
-  - project_id
-  - created_datetime
-  - updated_datetime
-  - state
 
 links:
-  - name: experiments 
+  - name: experiments
     backref: cases
     label: member_of
     target_type: experiment
@@ -30,42 +26,21 @@ links:
     required: true
 
 required:
-  - submitter_id
-  - type
-  - experiments
+  - name
+  - address
+  - phone_number
 
 uniqueKeys:
   - [id]
-  - [project_id, submitter_id]
 
 # Case properties
 properties:
-  type:
-    type: string
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-  consent_codes:
-    type: array
-    items:
-      type: string
-  primary_site:
-    description: "Primary site for the case."
+  name:
     type: string
-  disease_type:
-    description: "Name of the disease for the case."
+  address:
     type: string
-  experiments: 
-    $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+  phone_number:
+    type: string
