@@ -37,6 +37,12 @@ links:
         target_type: project
         multiplicity: many_to_one
         required: false
+      - name: cases
+        backref: reference_files
+        label: data_from
+        target_type: case
+        multiplicity: many_to_one
+        required: false
 
 required:
   - type
