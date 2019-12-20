@@ -114,3 +114,5 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   projects:
     $ref: "_definitions.yaml#/to_many_project"
+  cases:
+    $ref: "_definitions.yaml#/to_many"
