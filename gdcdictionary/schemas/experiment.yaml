@@ -106,3 +106,6 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+  exclude_from_aggregations:
+    description: "Should this study be excluded from aggregated statistics of all data in the commons?"
+    type: boolean
