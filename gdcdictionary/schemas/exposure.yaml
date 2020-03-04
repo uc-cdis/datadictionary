@@ -25,10 +25,10 @@ required:
   - type
 
 links:
-  - name: cases
+  - name: donors
     backref: exposures
     label: describes
-    target_type: case
+    target_type: donor
     multiplicity: many_to_one
     required: true
 
@@ -122,7 +122,7 @@ properties:
       $ref: "_terms.yaml#/years_smoked"
     type: number
 
-  cases:
+  donors:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

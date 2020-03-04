@@ -23,12 +23,13 @@ systemProperties:
 required:
   - submitter_id
   - type
+  - donors
 
 links:
-  - name: cases
+  - name: donors
     backref: family_histories
     label: describes
-    target_type: case
+    target_type: donor
     multiplicity: many_to_one
     required: true
 
@@ -88,7 +89,7 @@ properties:
       $ref: "_terms.yaml#/primary_diagnosis"
     type: string
 
-  cases:
+  donors:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

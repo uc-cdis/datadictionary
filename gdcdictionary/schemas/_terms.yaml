@@ -64,7 +64,7 @@ ajcc_clinical_n:
 ajcc_clinical_stage:
   description: >
     Stage group determined from clinical information on the tumor (T), regional node (N) and
-    metastases (M) and by grouping cases with similar prognosis for cancer.
+    metastases (M) and by grouping donors with similar prognosis for cancer.
   termDef:
     term: Neoplasm American Joint Committee on Cancer Clinical Group Stage
     source: caDSR
@@ -288,7 +288,7 @@ biomarker_name:
     term: Biomarker Name
     source: caDSR
     cde_id: 5473
-    cde_version: 11.0 
+    cde_version: 11.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=5473&version=2.31"
 
 biomarker_result:
@@ -618,7 +618,7 @@ dlco_ref_predictive_percent:
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2180255&version=1.0"
 
-encoding: 
+encoding:
   description: >
     Version of ASCII encoding of quality values found in the file.
   termDef:
@@ -1359,7 +1359,7 @@ race:
   description: >
     An arbitrary classification of a taxonomic group that is a division of a species. It usually
     arises as a consequence of geographical isolation within a species and is characterized by
-    shared heredity, physical attributes and behavior, and in the case of humans, by common history,
+    shared heredity, physical attributes and behavior, and for humans, by common history,
     nationality, or geographic distribution. The provided values are based on the categories defined
     by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
   termDef:

@@ -88,7 +88,7 @@ file_name:
 
 file_size:
     type: integer
-    term: 
+    term:
         $ref: "_terms.yaml#/file_size"
 
 file_format:
@@ -135,7 +135,7 @@ data_file_error_type:
 
 state:
     term:
-        $ref: "_terms.yaml#/state" 
+        $ref: "_terms.yaml#/state"
     default: validated
     downloadable:
         - uploaded
@@ -166,7 +166,7 @@ state:
 
 file_state:
     term:
-        $ref: "_terms.yaml#/file_state" 
+        $ref: "_terms.yaml#/file_state"
     default: registered
     enum:
         - registered
@@ -193,54 +193,82 @@ project_id:
     term:
         $ref: "_terms.yaml#/project_id"
 
-data_file_properties:
-  id:
-    $ref: "#/UUID"
-    systemAlias: node_id
-  submitter_id:
-    type:
-      - string
-      - "null"
-    description: "The file ID assigned by the submitter." # TOREVIEW
-  consent_codes:
+tcga_file_properties:
+  $ref: "#/data_file_properties"
+  analysis_type:
+    description: The type of analysis used to generate the file.
+    type: string
+  analysis_software:
+    description: The name and version of the software use to generate the file.
+    type: string
+  experimental_strategy:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  donor_ids:
+    description: A list of donor_ids related to this file.
     type: array
     items:
       type: string
+  aliquot_barcode:
+    description: The TCGA barcode for the corresponding aliquot.
+    type: string
+  participant_barcode:
+    description: The TCGA barcode for the corresponding donor or study participant.
+    type: string
+  sample_barcode:
+    description: The TCGA barcode for the corresponding sample.
+    type: string
+  primary_site:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  sample_ids:
+    description: A list of sample IDs corresponding to this file.
+    type: array
+    items:
+      type: string
+  specimen_ids:
+    description: A list of specimen IDs corresponding to this file.
+    type: array
+    items:
+      type: string
+  specimen_type:
+    description: A description of the corresponding biospecimen.
+    type: string
+  dcc_file_id:
+    description: The file ID (FI#) of the file in the dcc.icgc.org data exploration portal (e.g., "FI208496").
+    type: string
+  reference_genome_url:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  reference_genome_build:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  reference_genome_name:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+
+data_file_properties:
+  $ref: "#/ubiquitous_properties"
   file_name:
     $ref: "#/file_name"
   file_size:
     $ref: "#/file_size"
   md5sum:
-    $ref: "#/md5sum" 
-  file_state:
-    $ref: "#/file_state"
+    $ref: "#/md5sum"
   object_id:
     $ref: "#/object_id"
-  state:
-    $ref: "#/state"
-  error_type:
-    $ref: "#/data_file_error_type"
-  state_comment:
-    type: string
-    description: > 
-      Optional comment about why the file is in the
-      current state, mainly for invalid state.
-  project_id:
-    $ref: "#/project_id"
-  created_datetime:
-    $ref: "#/datetime"
-  updated_datetime:
-    $ref: "#/datetime"
+  consent_codes:
+    type: array
+    items:
+      type: string
+  storage_urls:
+    description: A list of URLs where the file is stored in the cloud.
+    type: array
+    items:
+      type: string
 
 workflow_properties:
-  id:
-    $ref: "#/UUID"
-    systemAlias: node_id
-  submitter_id:
-    type:
-      - string
-      - "null"
-    description: "The file ID assigned by the submitter." # TOREVIEW
+  $ref: "#/ubiquitous_properties"
   workflow_link:
     description: "Link to Github hash for the CWL workflow used."
     type: string
@@ -251,27 +279,22 @@ workflow_properties:
     $ref: "#/datetime"
   workflow_end_datetime:
     $ref: "#/datetime"
-  state:
-    $ref: "#/state"
-  project_id:
-    $ref: "#/project_id"
-  created_datetime:
-    $ref: "#/datetime"
-  updated_datetime:
-    $ref: "#/datetime"
 
 ubiquitous_properties:
   type:
+    description: The node_id of the node in the data model; the name of the node used in queries and API requests (e.g., "aligned_reads_file" for the "Aligned Reads File" node).
     type: string
   id:
     $ref: "#/UUID"
     systemAlias: node_id
   submitter_id:
-    type:
-      - string
-    description: >
-      A project-specific identifier for a node. This property is the calling card/nickname/alias for
-      a unit of submission. It can be used in place of the UUID for identifying or recalling a node.
+    description: "A human-readable, unique identifier for a record in the metadata database. It can be used in place of the UUID for identifying or recalling a record (e.g., in data queries or uploads/exports)."
+    type: string
+  subject_ids:
+    description: "The submitter_id of a subject in the study."
+    type: array
+    items:
+      type: string
   state:
     $ref: "#/state"
   project_id:

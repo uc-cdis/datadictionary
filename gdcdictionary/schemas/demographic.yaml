@@ -22,17 +22,17 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: cases
+  - name: donors
     backref: demographics
     label: describes
-    target_type: case
+    target_type: donor
     multiplicity: one_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - cases
+  - donors
 
 preferred:
   - year_of_death
@@ -104,7 +104,7 @@ properties:
       $ref: "_terms.yaml#/year_of_death"
     type: number
 
-  cases:
+  donors:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

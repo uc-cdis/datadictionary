@@ -1,16 +1,16 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "clinical_test"
-title: Clinical Test 
+title: Clinical Test
 type: object
 namespace: http://gdc.nci.nih.gov
-category: clinical 
+category: clinical
 project: '*'
 program: '*'
-description: > 
-  Metadata concerning any clinical tests used in relation to a case diagnosis. 
+description: >
+  Metadata concerning any clinical tests used in relation to a diagnosis.
 additionalProperties: false
-submittable: true 
+submittable: true
 validators: null
 
 systemProperties:
@@ -21,10 +21,10 @@ systemProperties:
   - state
 
 links:
-  - name: cases 
+  - name: donors
     backref: clinical_tests
-    label: performed_for 
-    target_type: case
+    label: performed_for
+    target_type: donor
     multiplicity: many_to_one
     required: true
   - name: diagnoses
@@ -40,7 +40,7 @@ required:
   - biomarker_name
   - biomarker_result
   - biomarker_test_method
-  - cases
+  - donors
 
 uniqueKeys:
   - [id]
@@ -174,7 +174,7 @@ properties:
       $ref: "_terms.yaml#/her2_erbb2_result_fish"
     enum:
       - Negative
-      - Not Performed 
+      - Not Performed
       - Positive
       - Unknown
 
@@ -230,12 +230,12 @@ properties:
       - Positive
       - Unknown
 
-  cases:
+  donors:
     $ref: "_definitions.yaml#/to_one"
   diagnoses:
     $ref: "_definitions.yaml#/to_many"
   project_id:
-    $ref: "_definitions.yaml#/project_id" 
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
