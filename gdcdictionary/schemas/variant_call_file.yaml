@@ -83,16 +83,6 @@ properties:
       - Annotated Somatic Mutation
       - Raw Simple Somatic Mutation
 
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - Low Pass WGS
-      - Targeted Sequencing
-      - Validation
-      - WGS
-      - WXS
-
   variant_calling_workflow:
     description: Indicate the variant calling workflow or pipeline used to generate
       the variant calls.

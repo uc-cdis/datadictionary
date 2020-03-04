@@ -54,7 +54,6 @@ required:
   - data_category
   - data_type
   - data_format
-  - experimental_strategy
 
 uniqueKeys:
   - [id]
@@ -62,7 +61,7 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/data_file_properties"
+  $ref: "_definitions.yaml#/tcga_file_properties"
 
   data_category:
     term:
@@ -85,20 +84,6 @@ properties:
       $ref: "_terms.yaml#/data_type"
     enum:
       - Unaligned Reads
-
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - ATAC-Seq
-      - Bisulfite-Seq
-      - ChIP-Seq
-      - Low Pass WGS
-      - RNA-Seq
-      - Targeted Sequencing
-      - WGS
-      - WXS
-      - miRNA-Seq
 
   read_pair_number:
     term:

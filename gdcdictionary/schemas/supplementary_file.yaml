@@ -25,12 +25,22 @@ systemProperties:
   - error_type
 
 links:
-  - name: core_metadata_collections
-    backref: supplementary_files
-    label: belongs_to
-    target_type: core_metadata_collection
-    multiplicity: many_to_one
+  - exclusive: false
     required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: supplementary_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: subjects
+        backref: supplementary_files
+        label: data_from
+        target_type: subject
+        multiplicity: many_to_one
+        required: false
+
 
 required:
   - submitter_id
@@ -48,7 +58,7 @@ uniqueKeys:
 
 properties:
 
-  $ref: "_definitions.yaml#/data_file_properties"
+  $ref: "_definitions.yaml#/tcga_file_properties"
 
   data_category:
     term:
@@ -71,4 +81,6 @@ properties:
     type: string
 
   core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+  subjects:
     $ref: "_definitions.yaml#/to_one"
