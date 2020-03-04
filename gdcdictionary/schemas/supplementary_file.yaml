@@ -1,0 +1,74 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "supplementary_file"
+title: Supplementary File
+type: object
+nodeTerms: null
+namespace: https://gen3.datacommons.io/
+category: data_file
+program: '*'
+project: '*'
+description: A file related to the study that provides additional context such as
+  documentation, notes, reference files, data dictionaries, or supplementary files
+  or figures.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - name: core_metadata_collections
+    backref: supplementary_files
+    label: belongs_to
+    target_type: core_metadata_collection
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_type
+  - data_format
+  - data_category
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - Supplementary File
+
+  data_description:
+    description: Provide a brief description of the supplementary file.
+    type: string
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    type: string
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    type: string
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"

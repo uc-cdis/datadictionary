@@ -3,11 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "publication"
 title: Publication
 type: object
-namespace: http://gdc.nci.nih.gov
+nodeTerms: null
+namespace: https://gen3.datacommons.io/
 category: administrative
 program: '*'
 project: '*'
-description: "Publication for a project."
+description: Publication for a project.
 additionalProperties: false
 submittable: true
 validators: null
@@ -33,30 +34,72 @@ required:
   - projects
 
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ] 
+  - [id]
+  - [project_id, submitter_id]
 
 properties:
-  type:
-    enum: [ "publication" ] 
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-  pmid:
+
+  acknowledgements:
+    description: A list of acknowledgees in the publication.
     type: string
-  doi:
+
+  affiliations:
+    description: A list of publication author affiliations.
     type: string
-  projects:
-    $ref: "_definitions.yaml#/to_many_project"
-  project_id:
+
+  authors:
+    description: A list of authors on the publication.
     type: string
+
+  citation:
+    description: The citation for the publication.
+    type: string
+
+  contact_info:
+    description: The contact info for the corresponding author of the publication.
+    type: string
+
+  corresponding_author:
+    description: The corresponding author for the publication.
+    type: string
+
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
+
+  doi:
+    description: The DOI of the publication.
+    type: string
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+
+  publication_id:
+    description: An standard identification code for a publication (PMID, PMCID, etc.).
+    type: string
+
+  publication_title:
+    description: The title of an association publication.
+    type: string
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    description: A project-specific identifier for a node. This property is the calling
+      card/nickname/alias for a unit of submission. It can be used in place of the
+      UUID for identifying or recalling a node.
+    type: string
+
+  type:
+    description: The node_id of this node.
+    enum:
+      - publication
+
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+
+  projects:
+    $ref: "_definitions.yaml#/to_many_project"

@@ -1,0 +1,134 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "expression_array"
+title: Expression Array
+type: object
+nodeTerms: null
+namespace: https://gen3.datacommons.io/
+category: data_file
+program: '*'
+project: '*'
+description: Data file containing raw intensity values from an expression array (CEL)
+  or final expression results after array aggregation and normalization.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: expression_arrays
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: aliquots
+        backref: expression_arrays
+        label: data_from
+        target_type: aliquot
+        multiplicity: one_to_one
+        required: false
+      - name: subjects
+        backref: expression_arrays
+        label: data_from
+        target_type: subject
+        multiplicity: one_to_one
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - data_category
+  - data_type
+  - data_format
+  - md5sum
+  - file_size
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - Expression Array Data
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - CEL
+      - TSV
+      - TXT
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Expression Array Variation
+      - Expression Raw Intensity
+
+  experimental_strategy:
+    term:
+      $ref: "_terms.yaml#/experimental_strategy"
+    enum:
+      - Expression Array
+      - Expression Array Genotyping
+
+  platform:
+    term:
+      $ref: "_terms.yaml#/platform"
+    type: string
+
+  version:
+    description: The version of the expression array file (e.g., version 3 for a CEL
+      file).
+    type: string
+
+  workflow_end_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  workflow_link:
+    description: If a specific workflow or pipeline was used to generate the file
+      (aggregation/normalization workflow), provide the name, location or link to
+      the workflow used.
+    type: string
+
+  workflow_start_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  workflow_type:
+    term:
+      $ref: "_terms.yaml#/workflow_type"
+    enum:
+      - Expression Array
+
+  workflow_version:
+    description: Major version for a workflow.
+    type: string
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"

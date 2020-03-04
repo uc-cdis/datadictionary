@@ -3,15 +3,15 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aliquot"
 title: Aliquot
 type: object
+nodeTerms: null
+namespace: https://gen3.datacommons.io/
 category: biospecimen
 program: '*'
 project: '*'
-description: >
-  Pertaining to a portion of the whole; any one of two or more samples of something, of the same
-  volume or weight.
+description: A portion of the original sample.
 additionalProperties: false
 submittable: true
-validators: []
+validators: null
 
 systemProperties:
   - id
@@ -19,6 +19,14 @@ systemProperties:
   - state
   - created_datetime
   - updated_datetime
+
+links:
+  - name: samples
+    backref: aliquots
+    label: derived_from
+    target_type: sample
+    multiplicity: many_to_many
+    required: true
 
 required:
   - submitter_id
@@ -29,75 +37,101 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links:
-  - name: samples
-    backref: aliquots
-    label: derived_from
-    multiplicity: many_to_many
-    target_type: sample
-    required: true
-
-constraints: null
-
-# Aliquot properties
 properties:
-  type:
-    type: string
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-    description: >
-      The legacy barcode used before prior to the use
-      UUIDs. For TCGA this is bcraliquotbarcode.
-  aliquot_quantity:
-    term:
-      $ref: "_terms.yaml#/aliquot_quantity"
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  a260_a280_ratio:
+    description: Ratio 260 and 280 nm
     type: number
+
+  aliquot_container:
+    description: The device in which the final aliquot is held.
+    type: string
+
   aliquot_volume:
-    term:
-      $ref: "_terms.yaml#/aliquot_volume"
+    description: The initial volume of the aliquot.
     type: number
-  amount:
-    term:
-      $ref: "_terms.yaml#/amount"
+
+  aliquot_weight:
+    description: The initial weight of the aliquot.
     type: number
-  analyte_type:
-    term:
-      $ref: "_terms.yaml#/analyte_type"
-    type: string
-  analyte_type_id:
-    term:
-      $ref: "_terms.yaml#/analyte_type_id"
+
+  analyte_qc_class:
+    description: Term that best describes the analyte's QC Class.
     enum:
-      - D
-      - E
-      - G
-      - H
-      - R
-      - S
-      - T
-      - W
-      - X
-      - Y
-  concentration:
-    term:
-      $ref: "_terms.yaml#/concentration"
-    type: number
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  source_center:
-    term:
-      $ref: "_terms.yaml#/source_center"
+      - Acceptable
+      - Does Not Meet Spec
+      - High
+      - Low
+
+  analyte_qc_status:
+    description: Analyte QC Status
+    enum:
+      - Complete
+      - Incomplete
+
+  analyte_type:
+    description: Any aspect of an aliquot used in an analysis or assay to characterize
+      the sample. These aspects range from molecules, such as DNA and RNA, that can
+      be extracted from the aliquot to general descriptions of the aliquot's components,
+      such as cell count and morphology (e.g., DNA, RNA, Leukocytes).
     type: string
+
+  clinical_or_contrived:
+    description: Is the aliquot clinical or contrived?
+    enum:
+      - Clinical
+      - Contrived
+
+  concentration:
+    description: Concentration of the analyte in the aliquot.
+    type: number
+
+  concentration_units:
+    description: The units used for the analyte's concentration in the aliquot.
+    type: string
+
+  contrivance_method:
+    description: The name or general description of the contrivance(s) added to the
+      biological aliquot. Alternatively, if you have provided a contrivance protocol,
+      enter its file_name here.
+    type: string
+
+  days_to_aliquoting:
+    description: The amount of time, in days, between the date used for index and
+      the time the aliquot was separated from the whole sample.
+    type: integer
+
+  days_to_assay:
+    description: The amount of time, in days, between the date used for index and
+      the assay used to address this analyte.
+    type: integer
+
+  isolation_method:
+    description: The name or general description of the method used to isolate the
+      analyte. Alternatively, if you have provided a protocol, put the file_name here.
+    type: string
+
+  label_name:
+    description: The name of the label used in preparation of the analyte for analysis
+      (e.g., Biotin).
+    type: string
+
+  label_protocol:
+    description: The protocol used to label the analyte (please either provide link
+      to protocol/file or describe in free text).
+    type: string
+
+  preservation_method:
+    term:
+      $ref: "_terms.yaml#/preservation_method"
+    type: string
+
+  storage_temperature:
+    description: The temperature, in centigrade, at which the aliquot was preserved
+      and/or stored.
+    type: number
+
   samples:
-    $ref: "_definitions.yaml#/to_one"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+    $ref: "_definitions.yaml#/to_many"
