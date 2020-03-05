@@ -134,25 +134,29 @@ properties:
       the method of sample procurement here.
     type: string
 
-  sample_container:
+  specimen_container:
     description: The type of container used for sample collection.
     type: string
 
-  sample_id:
+  specimen_id:
     description: In cases where the same biospecimen is used by multiple institutions,
       a deidenfitied id may be provided here to tie those together. Work with your
       collaborators assure the same id is used for the sample in all projects.
     type: string
 
-  sample_volume:
+  specimen_barcode:
+    description: The TCGA barcode for the sample.
+    type: string
+
+  specimen_volume:
     description: The initial volume of the sample in milliliters (mL).
     type: number
 
-  sample_weight:
+  specimen_weight:
     description: The initial mass of the sample in milligrams (mg).
     type: number
 
-  sample_year:
+  specimen_year:
     description: The year the sample was obtained.
     type: integer
 

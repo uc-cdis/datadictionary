@@ -134,6 +134,10 @@ properties:
       the method of sample procurement here.
     type: string
 
+  sample_barcode:
+    description: The TCGA barcode for the sample.
+    type: string
+
   sample_container:
     description: The type of container used for sample collection.
     type: string
