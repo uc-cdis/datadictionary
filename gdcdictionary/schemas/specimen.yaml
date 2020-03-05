@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "sample"
-title: Sample
+id: "specimen"
+title: Specimen
 type: object
 nodeTerms: null
 namespace: https://gen3.datacommons.io/
@@ -27,10 +27,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: specimens
-    backref: samples
+  - name: subjects
+    backref: specimens
     label: related_to
-    target_type: specimen
+    target_type: subject
     multiplicity: many_to_one
     required: true
 
@@ -167,5 +167,5 @@ properties:
       to link to a record in the visit node.
     type: string
 
-  specimens:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
