@@ -728,7 +728,11 @@ figo_stage:
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=3225684&version=1.0"
 
-file_name: # TOREVIEW
+file_format:
+  description: >
+    The format or extension of a file (e.g., "TXT", "JPEG" or "FASTQ").
+
+file_name:
   description: >
     The name (or part of a name) of a file (of any type).
 
