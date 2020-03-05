@@ -68,7 +68,6 @@ properties:
       unaligned reads.
     type: string
 
-
   workflow_end_datetime:
     description: The datetime the workflow ended.
     type: string
