@@ -207,11 +207,6 @@ data_file_properties:
     type: array
     items:
       type: string
-  storage_urls:
-    description: A list of URLs where the file is stored in the cloud.
-    type: array
-    items:
-      type: string
 
 workflow_properties:
   $ref: "#/ubiquitous_properties"
@@ -303,3 +298,21 @@ tcga_file_properties:
   reference_genome_name:
     description: A general description of the experimental strategy used to generate the file.
     type: string
+  storage_urls:
+    description: A list of URLs where the file is stored in the cloud.
+    type: array
+    items:
+      type: string
+  #data_file_properties
+  file_name:
+    $ref: "#/file_name"
+  file_size:
+    $ref: "#/file_size"
+  md5sum:
+    $ref: "#/md5sum"
+  object_id:
+    $ref: "#/object_id"
+  consent_codes:
+    type: array
+    items:
+      type: string
