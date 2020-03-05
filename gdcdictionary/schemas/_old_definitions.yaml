@@ -18,8 +18,8 @@ foreign_key_project:
     # Allow true here because we can have other unique keys defined on
     # a target type
     additionalProperties: true
-    #Can either use 'id' which are Gen3 IDs (UUID) or 'code'
-    #which is the user defined ID for project
+    # Can either use 'id' which are Gen3 IDs (UUID) or 'code'
+    # which is the user defined ID for project
     properties:
         id:
             $ref: "#/UUID"
@@ -48,8 +48,8 @@ foreign_key:
     # Allow true here because we can have other unique keys defined on
     # a target type
     additionalProperties: True
-    #Can either use 'id' which are GDC IDs (UUID) or 'submitter_id'
-    #which are user defined IDs ("submitter IDs in the backend")
+    # Can either use 'id' which are GDC IDs (UUID) or 'submitter_id'
+    # which are user defined IDs ("submitter IDs in the backend")
     properties:
         id:
             $ref: "#/UUID"
@@ -98,9 +98,9 @@ file_format:
 
 md5sum:
     type: string
+    pattern: "^[a-f0-9]{32}$"
     term:
         $ref: "_terms.yaml#/md5sum"
-    pattern: "^[a-f0-9]{32}$"
 
 object_id:
     type: string
@@ -193,6 +193,60 @@ project_id:
     term:
         $ref: "_terms.yaml#/project_id"
 
+tcga_file_properties:
+  $ref: "#/data_file_properties"
+  analysis_type:
+    description: The type of analysis used to generate the file.
+    type: string
+  analysis_software:
+    description: The name and version of the software use to generate the file.
+    type: string
+  experimental_strategy:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  donor_ids:
+    description: A list of donor_ids related to this file.
+    type: array
+    items:
+      type: string
+  aliquot_barcode:
+    description: The TCGA barcode for the corresponding aliquot.
+    type: string
+  participant_barcode:
+    description: The TCGA barcode for the corresponding donor or study participant.
+    type: string
+  sample_barcode:
+    description: The TCGA barcode for the corresponding sample.
+    type: string
+  primary_site:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  sample_ids:
+    description: A list of sample IDs corresponding to this file.
+    type: array
+    items:
+      type: string
+  specimen_ids:
+    description: A list of specimen IDs corresponding to this file.
+    type: array
+    items:
+      type: string
+  specimen_type:
+    description: A description of the corresponding biospecimen.
+    type: string
+  dcc_file_id:
+    description: The file ID (FI#) of the file in the dcc.icgc.org data exploration portal (e.g., "FI208496").
+    type: string
+  reference_genome_url:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  reference_genome_build:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+  reference_genome_name:
+    description: A general description of the experimental strategy used to generate the file.
+    type: string
+
 data_file_properties:
   $ref: "#/ubiquitous_properties"
   file_name:
@@ -203,6 +257,10 @@ data_file_properties:
     $ref: "#/md5sum"
   object_id:
     $ref: "#/object_id"
+  consent_codes:
+    type: array
+    items:
+      type: string
   storage_urls:
     description: A list of URLs where the file is stored in the cloud.
     type: array
@@ -233,13 +291,10 @@ ubiquitous_properties:
     description: "A human-readable, unique identifier for a record in the metadata database. It can be used in place of the UUID for identifying or recalling a record (e.g., in data queries or uploads/exports)."
     type: string
   subject_ids:
-    description: "A list of one or more subject submitter_ids associated with this file."
+    description: "The submitter_id of a subject in the study."
     type: array
     items:
       type: string
-  visit_id:
-    description: "The submitter_id of a subject's visit in the study."
-    type: string
   state:
     $ref: "#/state"
   project_id:

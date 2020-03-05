@@ -64,7 +64,7 @@ ajcc_clinical_n:
 ajcc_clinical_stage:
   description: >
     Stage group determined from clinical information on the tumor (T), regional node (N) and
-    metastases (M) and by grouping cases with similar prognosis for cancer.
+    metastases (M) and by grouping donors with similar prognosis for cancer.
   termDef:
     term: Neoplasm American Joint Committee on Cancer Clinical Group Stage
     source: caDSR
@@ -163,7 +163,7 @@ aliquot_quantity:
 
 aliquot_volume:
   description: >
-    The volume in microliters (ul) of the aliquot(s) derived from the analyte(s) shipped for
+    The volume in microliters (ml) of the aliquot(s) derived from the analyte(s) shipped for
     sequencing and characterization.
   termDef:
     term: Biospecimen Aliquot Volume
@@ -470,7 +470,7 @@ datetime:
 
 days_to_birth:
   description: >
-    Time interval from a person's date of birth to the date of index,
+    Time interval from a person's date of birth to the date of initial pathologic diagnosis,
     represented as a calculated negative number of days.
   termDef:
     term: Person Birth Date Less Initial Pathologic Diagnosis Date Calculated Day Value
@@ -492,7 +492,7 @@ days_to_collection:
 
 days_to_death:
   description: >
-    Time interval from a person's date of death to the date of index,
+    Time interval from a person's date of death to the date of initial pathologic diagnosis,
     represented as a calculated number of days.
   termDef:
     term: Death Less Initial Pathologic Diagnosis Date Calculated Day Value
@@ -503,7 +503,7 @@ days_to_death:
 
 days_to_hiv_diagnosis:
   description: >
-    Time interval from the date of the index to the date of human
+    Time interval from the date of the initial pathologic diagnosis to the date of human
     immunodeficiency diagnosis, represented as a calculated number of days.
   termDef:
     term: Human Immunodeficiency Virus Diagnosis Subtract Initial Pathologic Diagnosis Time Duration Day Calculation Value
@@ -514,7 +514,7 @@ days_to_hiv_diagnosis:
 
 days_to_last_follow_up:
   description: >
-    Time interval from the date of last follow up to the date of index,
+    Time interval from the date of last follow up to the date of initial pathologic diagnosis,
     represented as a calculated number of days.
   termDef:
     term: Last Communication Contact Less Initial Pathologic Diagnosis Date Calculated Day Value
@@ -525,7 +525,7 @@ days_to_last_follow_up:
 
 days_to_last_known_disease_status:
   description: >
-    Time interval from the date of last follow up to the date of index,
+    Time interval from the date of last follow up to the date of initial pathologic diagnosis,
     represented as a calculated number of days.
   termDef:
     term: Last Communication Contact Less Initial Pathologic Diagnosis Date Calculated Day Value
@@ -537,7 +537,7 @@ days_to_last_known_disease_status:
 days_to_new_event:
   description: >
     Time interval from the date of new tumor event including progression, recurrence and new
-    primary malignacies to the date of index, represented as a calculated
+    primary malignacies to the date of initial pathologic diagnosis, represented as a calculated
     number of days.
   termDef:
     term: New Tumor Event Less Initial Pathologic Diagnosis Date Calculated Day Value
@@ -549,7 +549,7 @@ days_to_new_event:
 days_to_recurrence:
   description: >
     Time interval from the date of new tumor event including progression, recurrence and new primary
-    malignancies to the date of index, represented as a calculated number of
+    malignancies to the date of initial pathologic diagnosis, represented as a calculated number of
     days.
   termDef:
     term: New Tumor Event Less Initial Pathologic Diagnosis Date Calculated Day Value
@@ -565,7 +565,7 @@ days_to_sample_procurement:
 
 days_to_treatment:
   description: >
-    Number of days from date of index that treatment began.
+    Number of days from date of initial pathologic diagnosis that treatment began.
   termDef:
     term: Days to Treatment Start
     source: null
@@ -575,7 +575,7 @@ days_to_treatment:
 
 days_to_treatment_end:
   description: >
-    Time interval from the date of the index to the date of treatment end,
+    Time interval from the date of the initial pathologic diagnosis to the date of treatment end,
     represented as a calculated number of days.
   termDef:
     term: Treatment End Subtract First Pathologic Diagnosis Day Calculation Value
@@ -586,7 +586,7 @@ days_to_treatment_end:
 
 days_to_treatment_start:
   description: >
-    Time interval from the date of the index to the start of treatment,
+    Time interval from the date of the initial pathologic diagnosis to the start of treatment,
     represented as a calculated number of days.
   termDef:
     term: Treatment Start Subtract First Pathologic Diagnosis Time Day Calculation Value
@@ -744,46 +744,6 @@ flow_cell_barcode: # TOREVIEW
   description: >
     Flow Cell Barcode.
 
-fragment_maximum_length:
-  description: >
-    Maximum length of the sequenced fragments (e.g., as predicted by Agilent Bioanalyzer).
-  termDef:
-    term: null
-    source: null
-    cde_id: null
-    cde_version: null
-    term_url: null
-
-fragment_mean_length:
-  description: >
-    Mean length of the sequenced fragments (e.g., as predicted by Agilent Bioanalyzer).
-  termDef:
-    term: null
-    source: null
-    cde_id: null
-    cde_version: null
-    term_url: null
-
-fragment_minimum_length:
-  description: >
-    Minimum length of the sequenced fragments (e.g., as predicted by Agilent Bioanalyzer).
-  termDef:
-    term: null
-    source: null
-    cde_id: null
-    cde_version: null
-    term_url: null
-
-fragment_standard_deviation_length:
-  description: >
-    Standard deviation of the sequenced fragments length (e.g., as predicted by Agilent Bioanalyzer).
-  termDef:
-    term: null
-    source: null
-    cde_id: null
-    cde_version: null
-    term_url: null
-
 freezing_method:
   description: >
     Text term that represents the method used for freezing the sample.
@@ -922,17 +882,6 @@ is_ffpe:
 is_paired_end: # TOREVIEW
   description: >
     Are the reads paired end?
-
-lane_number:
-  description: >
-    The basic machine unit for sequencing. For Illumina machines, this reflects the physical lane number.
-    Wrong or missing information may affect analysis results.
-  termDef:
-    term: null
-    source: null
-    cde_id: null
-    cde_version: null
-    term_url: null
 
 last_known_disease_status:
   description: >
@@ -1132,10 +1081,6 @@ number_proliferating_cells:
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=5432636&version=1.0"
 
-object_id:
-    type: string
-    description: "The GUID of the object in the index service."
-
 oct_embedded:
   description: >
     Indicator of whether or not the sample was embedded in Optimal Cutting Temperature (OCT) compound.
@@ -1332,13 +1277,13 @@ preservation_method:
 
 primary_diagnosis:
   description: >
-    The primary disease, disorder, or condition the patient was diagnosed with.
+    Text term for the structural pattern of cancer cells used to define a microscopic diagnosis.
   termDef:
-    term:
-    source:
-    cde_id:
-    cde_version:
-    term_url:
+    term: Neoplasm Histologic Type Name
+    source: caDSR
+    cde_id: 3081934
+    cde_version: 3.0
+    term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=3081934&version=3.0"
 
 prior_malignancy:
   description: >
@@ -1414,7 +1359,7 @@ race:
   description: >
     An arbitrary classification of a taxonomic group that is a division of a species. It usually
     arises as a consequence of geographical isolation within a species and is characterized by
-    shared heredity, physical attributes and behavior, and in the case of humans, by common history,
+    shared heredity, physical attributes and behavior, and for humans, by common history,
     nationality, or geographic distribution. The provided values are based on the categories defined
     by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
   termDef:
@@ -1431,17 +1376,6 @@ read_length: # TOREVIEW
 read_group_name: # TOREVIEW
   description: >
     The name of the read group.
-
-read_pair_number:
-  description: >
-    Denotes whether a submitted FASTQ file contains forward (R1) or reverse (R2) reads for
-    paired-end sequencing.
-  termDef:
-    term: null
-    source: null
-    cde_id: null
-    cde_version: null
-    term_url: null
 
 relationship_age_at_diagnosis:
   description: >
@@ -1776,7 +1710,7 @@ tumor_grade:
 
 tumor_code: # TOREVIEW
   description: >
-    A specification of a cancer through cellular origin and localization.
+    Diagnostic tumor code of the tissue sample source.
 
 tumor_code_id: # TOREVIEW
   description: >
@@ -1905,13 +1839,3 @@ years_smoked:
     cde_id: 3137957
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=3137957&version=1.0"
-
-multiplex_barcode:
-  description: >
-    The barcode/index sequence used. Wrong or missing information may affect analysis results.
-  termDef:
-    term: null
-    source: null
-    cde_id: null
-    cde_version: null
-    term_url: null
