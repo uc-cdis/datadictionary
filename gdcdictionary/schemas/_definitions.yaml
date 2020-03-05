@@ -216,7 +216,7 @@ data_file_properties:
 workflow_properties:
   $ref: "#/ubiquitous_properties"
   workflow_link:
-    description: "Link to Github hash for the CWL workflow used."
+    description: "Link to Github hash for the CWL workflow used. "
     type: string
   workflow_version:
     description: "Major version for a GDC workflow."
@@ -251,7 +251,7 @@ ubiquitous_properties:
     $ref: "#/datetime"
 
 tcga_file_properties:
-  $ref: "#/data_file_properties"
+  $ref: "#/ubiquitous_properties"
   analysis_type:
     description: The type of analysis used to generate the file.
     type: string
