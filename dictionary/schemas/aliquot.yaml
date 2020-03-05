@@ -8,7 +8,7 @@ namespace: https://gen3.datacommons.io/
 category: biospecimen
 program: '*'
 project: '*'
-description: A portion of the original sample.
+description: A portion of a sample from the original specimen collected from a subject.
 additionalProperties: false
 submittable: true
 validators: null
