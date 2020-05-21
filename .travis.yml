@@ -6,7 +6,7 @@ python:
 before_script:
 - yes | python setup.py install
 - git clone https://github.com/uc-cdis/dictionaryutils
-- git checkout feat/format_upgrade 
+- cd dictionaryutils; git checkout feat/format_upgrade; cd ..
 
 
 script:
