@@ -6,6 +6,8 @@ python:
 before_script:
 - yes | python setup.py install
 - git clone https://github.com/uc-cdis/dictionaryutils
+- git checkout feat/format_upgrade 
+
 
 script:
 - cd dictionaryutils; ./run_tests.sh; cd ..
