@@ -1,0 +1,253 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "clinical_test"
+title: Clinical Test
+type: object
+namespace: http://gdc.nci.nih.gov
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Metadata concerning any clinical tests used in relation to a case diagnosis.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: cases
+    backref: clinical_tests
+    label: performed_for
+    target_type: case
+    multiplicity: many_to_one
+    required: true
+  - name: diagnoses
+    backref: clinical_tests
+    label: relates_to
+    target_type: diagnosis
+    multiplicity: many_to_many
+    required: false
+
+required:
+  - submitter_id
+  - type
+  - biomarker_name
+  - biomarker_result
+  - biomarker_test_method
+  - cases
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  type:
+    enum:
+      - clinical_test
+
+  id:
+    $ref:
+      - "_definitions.yaml#/uuid"
+    systemAlias: node_id
+
+  state:
+    $ref:
+      - "_definitions.yaml#/state"
+
+  submitter_id:
+    oneOf:
+      - type: string
+      - type: "null"
+
+  biomarker_name:
+    $ref:
+      - "_terms.yaml#/biomarker_name/common"
+    type: string
+
+  biomarker_result:
+    $ref:
+      - "_terms.yaml#/biomarker_result/common"
+    enum:
+      - Amplification
+      - Gain
+      - Loss
+      - Normal
+      - Other
+      - Translocation
+      - Not Reported
+      - Not Allowed To Collect
+      - Pending
+
+  biomarker_test_method:
+    $ref:
+      - "_terms.yaml#/biomarker_test_method/common"
+    enum:
+      - Cytogenetics
+      - FISH
+      - IHC
+      - Karyotype
+      - NGS
+      - Nuclear Staining
+      - Other
+      - RT-PCR
+      - Southern
+      - Not Reported
+      - Not Allowed To Collect
+      - Pending
+
+  cea_level_preoperative:
+    $ref:
+      - "_terms.yaml#/cea_level_preoperative/common"
+    type: number
+
+  dlco_ref_predictive_percent:
+    $ref:
+      - "_terms.yaml#/dlco_ref_predictive_percent/common"
+    type: number
+
+  estrogen_receptor_percent_positive_ihc:
+    $ref:
+      - "_terms.yaml#/estrogen_receptor_percent_positive_ihc/common"
+    enum:
+      - <1%
+      - 1-10%
+      - 11-20%
+      - 21-30%
+      - 31-40%
+      - 41-50%
+      - 51-60%
+      - 61-70%
+      - 71-80%
+      - 81-90%
+      - 91-100%
+
+  estrogen_receptor_result_ihc:
+    $ref:
+      - "_terms.yaml#/estrogen_receptor_result_ihc/common"
+    enum:
+      - Negative
+      - Not Performed
+      - Positive
+      - Unknown
+
+  fev1_ref_post_bronch_percent:
+    $ref:
+      - "_terms.yaml#/fev1_ref_post_bronch_percent/common"
+    type: number
+
+  fev1_ref_pre_bronch_percent:
+    $ref:
+      - "_terms.yaml#/fev1_ref_pre_bronch_percent/common"
+    type: number
+
+  fev1_fvc_post_bronch_percent:
+    $ref:
+      - "_terms.yaml#/fev1_fvc_post_bronch_percent/common"
+    type: number
+
+  fev1_fvc_pre_bronch_percent:
+    $ref:
+      - "_terms.yaml#/fev1_fvc_pre_bronch_percent/common"
+    type: number
+
+  her2_erbb2_percent_positive_ihc:
+    $ref:
+      - "_terms.yaml#/her2_erbb2_percent_positive_ihc/common"
+    enum:
+      - <1%
+      - 1-10%
+      - 11-20%
+      - 21-30%
+      - 31-40%
+      - 41-50%
+      - 51-60%
+      - 61-70%
+      - 71-80%
+      - 81-90%
+      - 91-100%
+
+  her2_erbb2_result_fish:
+    $ref:
+      - "_terms.yaml#/her2_erbb2_result_fish/common"
+    enum:
+      - Negative
+      - Not Performed
+      - Positive
+      - Unknown
+
+  her2_erbb2_result_ihc:
+    $ref:
+      - "_terms.yaml#/her2_erbb2_result_ihc/common"
+    enum:
+      - Negative
+      - Not Performed
+      - Positive
+      - Unknown
+
+  ldh_level_at_diagnosis:
+    $ref:
+      - "_terms.yaml#/ldh_level_at_diagnosis/common"
+    type: number
+
+  ldh_normal_range_upper:
+    $ref:
+      - "_terms.yaml#/ldh_normal_range_upper/common"
+    type: number
+
+  microsatellite_instability_abnormal:
+    $ref:
+      - "_terms.yaml#/microsatellite_instability_abnormal/common"
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  progesterone_receptor_percent_positive_ihc:
+    $ref:
+      - "_terms.yaml#/progesterone_receptor_percent_positive_ihc/common"
+    enum:
+      - <1%
+      - 1-10%
+      - 11-20%
+      - 21-30%
+      - 31-40%
+      - 41-50%
+      - 51-60%
+      - 61-70%
+      - 71-80%
+      - 81-90%
+      - 91-100%
+
+  progesterone_receptor_result_ihc:
+    $ref:
+      - "_terms.yaml#/progesterone_receptor_result_ihc/common"
+    enum:
+      - Negative
+      - Not Performed
+      - Positive
+      - Unknown
+
+  project_id:
+    $ref:
+      - "_definitions.yaml#/project_id"
+
+  created_datetime:
+    $ref:
+      - "_definitions.yaml#/datetime"
+
+  updated_datetime:
+    $ref:
+      - "_definitions.yaml#/datetime"
+
+  cases:
+    $ref: "_definitions.yaml#/to_one"
+
+  diagnoses:
+    $ref: "_definitions.yaml#/to_many"

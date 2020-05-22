@@ -1,0 +1,137 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "exposure"
+title: Exposure
+type: object
+namespace: http://gdc.nci.nih.gov
+category: clinical
+program: '*'
+project: '*'
+description: >-
+  Clinically relevant patient information not immediately resulting from genetic predispositions.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: cases
+    backref: exposures
+    label: describes
+    target_type: case
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  type:
+    enum:
+      - exposure
+
+  id:
+    $ref:
+      - "_definitions.yaml#/uuid"
+    systemAlias: node_id
+
+  state:
+    $ref:
+      - "_definitions.yaml#/state"
+
+  submitter_id:
+    oneOf:
+      - type: string
+      - type: "null"
+
+  alcohol_history:
+    $ref:
+      - "_terms.yaml#/alcohol_history/common"
+    type: string
+
+  alcohol_intensity:
+    $ref:
+      - "_terms.yaml#/alcohol_intensity/common"
+    type: string
+
+  bmi:
+    $ref:
+      - "_terms.yaml#/bmi/common"
+    type: number
+
+  cigarettes_per_day:
+    $ref:
+      - "_terms.yaml#/cigarettes_per_day/common"
+    type: number
+
+  height:
+    $ref:
+      - "_terms.yaml#/height/common"
+    type: number
+
+  pack_years_smoked:
+    $ref:
+      - "_terms.yaml#/pack_years_smoked/common"
+    type: number
+
+  tobacco_smoking_onset_year:
+    $ref:
+      - "_terms.yaml#/tobacco_smoking_onset_year/common"
+    type: integer
+
+  tobacco_smoking_quit_year:
+    $ref:
+      - "_terms.yaml#/tobacco_smoking_quit_year/common"
+    type: integer
+
+  tobacco_smoking_status:
+    $ref:
+      - "_terms.yaml#/tobacco_smoking_status/common"
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - Unknown
+      - Not Reported
+      - Not Allowed To Collect
+
+  weight:
+    $ref:
+      - "_terms.yaml#/weight/common"
+    type: number
+
+  years_smoked:
+    $ref:
+      - "_terms.yaml#/years_smoked/common"
+    type: number
+
+  project_id:
+    $ref:
+      - "_definitions.yaml#/project_id"
+
+  created_datetime:
+    $ref:
+      - "_definitions.yaml#/datetime"
+
+  updated_datetime:
+    $ref:
+      - "_definitions.yaml#/datetime"
+
+  cases:
+    $ref: "_definitions.yaml#/to_one"

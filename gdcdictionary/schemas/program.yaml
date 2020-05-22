@@ -1,0 +1,47 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "program"
+title: Program
+type: object
+namespace: null
+category: administrative
+program: '*'
+project: '*'
+description: >-
+  A broad framework of goals to be achieved. (NCIt C52647)
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+
+links: []
+
+required:
+  - name
+  - dbgap_accession_number
+
+uniqueKeys:
+  - [id]
+  - [name]
+
+properties:
+
+  type:
+    type: string
+
+  id:
+    $ref:
+      - "_definitions.yaml#/uuid"
+    systemAlias: node_id
+
+  name:
+    description: >-
+      Full name/title of the program.
+    type: string
+
+  dbgap_accession_number:
+    description: >-
+      The dbgap accession number provided for the program.
+    type: string
