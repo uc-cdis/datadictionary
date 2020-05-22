@@ -12,7 +12,7 @@ description: >-
   of the same volume or weight.
 additionalProperties: false
 submittable: true
-validators: '[]'
+validators: null
 
 systemProperties:
   - id
