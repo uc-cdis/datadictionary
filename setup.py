@@ -28,6 +28,10 @@ setup(
         'jsonschema>=2.5.1',
         'dictionaryutils',
     ],
+    dependency_links=[
+        # for testing purpose
+        "git+https://github.com/uc-cdis/dictionaryutils.git@feat/format_upgrade#egg=dictionaryutils",
+    ],
     package_data={
         "gdcdictionary": [
             "schemas/*.yaml",
