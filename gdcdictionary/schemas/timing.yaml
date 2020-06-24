@@ -1,0 +1,73 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "timing"
+title: Timings
+type: object
+namespace: http://cri.uchicago.edu/
+category: administrative
+program: '*'
+project: '*'
+description: "Timings"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subject_identifiers
+    backref: timings 
+    label: of
+    target_type: subject_identifier
+    multiplicity: many_to_one    
+    required: true
+  - name: timings
+    backref: timings
+    label: part of
+    target_type: timing
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - projects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "timing" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    type:
+      - string
+      - "null"
+  timing_type:
+    $ref: "_definitions.yaml#/timing_type"
+
+  
+
+  timings:
+    $ref: "_definitions.yaml#/to_one"
+  
+  subject_identifiers:
+    $ref: "_definitions.yaml#/to_one"   
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+

@@ -740,6 +740,10 @@ file_state: # TOREVIEW
   description: >
     The current state of the data file object.
 
+timing_type:
+  description: >
+    The time frame or phase the patient got a treatment or data have been collected
+
 flow_cell_barcode: # TOREVIEW
   description: >
     Flow Cell Barcode.
