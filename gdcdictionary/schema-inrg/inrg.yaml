@@ -1,0 +1,379 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "inrg"
+title: Inrg 
+type: object
+namespace: http://cri.uchicago.edu/
+category: administrative
+program: '*'
+project: '*'
+description: "Patient data."
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: projects
+    backref: inrgs 
+    label: of
+    target_type: project
+    multiplicity: many_to_many    
+    required: true
+
+required:
+  - submitter_id
+  - projects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "inrg" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    type:
+      - string
+      - "null"
+  region_name:
+    description: "The cooperative groups which is contributing the particular patient data"
+    type: string
+  PT_ID:
+    description: "Unique Patient identification number, assigned by the iINRGdb staff after data submission"
+    type: string
+  AGE:
+    description: "Age (in days) on the date of diagnosis"
+    type: 
+      - number
+      - "null"
+  YEAR:
+    description: "Year of diagnosis/enrollment (YYYY)"
+    type: 
+      - string
+      - "null"
+  INIT_TREAT:
+    description: "Initial patient treatment"
+    enum:
+      - "0=None (observation)"
+      - "1=Surgery alone"
+      - "2=Conventional-dose chemotherapy (2-8 cycles) plus surgery"
+      - "3=Intensive multi-modality therapy: specific type unknown"
+      - "4=Intensive multi-modality therapy: no stem cell or bone marrow transplant"
+      - "5=Intensive multi-modality therapy: plus stem cell or bone marrow transplant"
+      - "6=Intensive multi-modality therapy: plus stem cell or bone marrow transplant and anti-GD2 antibody"
+      - "9=Unknown"
+  INSS_STAGE:
+    description: "INSS stage"
+    enum:
+      - "1=Stage 1"
+      - "2=Stage 2a"
+      - "3=Stage 2b"
+      - "4=Stage 3"
+      - "5=Stage 4"
+      - "6=Stage 4s"
+      - "9=Unknown"
+  INRG_STG:
+    description: ""
+    enum:
+      - "1=Stage L1"
+      - "2=Stage L2"
+      - "3=Stage M"
+      - "4=Stage MS"
+      - "9=Unknown"
+  EVANS_STAGE:
+    description: "EVANS_STAGE"
+    enum:
+      - "1=Stage I"
+      - "2=Stage II"
+      - "3=Stage III"
+      - "4=Stage IV"
+      - "5=Stage IVs"
+      - "9=Unknown"
+  MYCN:
+    description: "MYCN status"
+    enum: 
+      - "1=Amplified (> 4 times of the reference on chromosome 2q)"
+      - "0=Not amplified (<= 4 times of the reference on chromosome 2q)"
+      - "9=Unknown, not done, unsatisfactory, in progress"
+  PLOIDY:
+    description: "Ploidy"
+    enum: 
+      - "1=DNA Index <= 1 (hypodiploid, diploid)"
+      - "0=DNA Index > 1 (hyperdipolid)"
+      - "9=Unknown"
+  DNA_INDEX:
+    description: "DNA Index"
+    type: number
+  _11Q_UBAB:
+    description: "Either an 11q aberration or unbalanced 11q"
+    enum: 
+      - "0=No loss or no aberration"
+      - "1=Deletion"
+      - "9=Unknown, pending, cannot be determined"
+  _1P_LOAB:
+    description: "1p or 1p abberation"
+    enum: 
+      - "0=No loss or no aberration"
+      - "1=Deletion"
+      - "9=Unknown, pending, cannot be determined"
+  _17Q_GAIN:
+    description: "17q gain"
+    enum: 
+      - "0=No gain"
+      - "1=Gain"
+      - "9=Unknown, pending, cannot be determined"
+  ALK:
+    description: "ALK genomic status"
+    enum: 
+      - "0=No alteration"
+      - "1=Mutation"
+      - "2=Amplification"
+      - "9=Unknown, pending, cannot be determined"
+  FERRITIN:
+    description: "Serum Ferritin (ng/ml)"
+    type: 
+      - number
+      - "null"
+  LDH:
+    description: "LDH (U/L)"
+    type: 
+      - number
+      - "null"
+  PRI_ADRE:
+    description: "Primary site of tumor is adrenal"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  PRI_ABDRET:
+    description: "Primary site of tumor is Abdominal/retroperitoneal (non-adrenal)"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  PRI_NECK:
+    description: "Primary site of tumor is neck"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  PRI_THOR:
+    description: "Primary site of tumor is thorax"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  PRI_PELV:
+    description: "Primary site of tumor is pelvic"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  PRI_OTH:
+    description: "Primary site of tumor is “other”"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_BM:
+    description: "Metastatic site of tumor at the time of diagnosis is bone marrow"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_BONE:
+    description: "Metastatic site of tumor at the time of diagnosis is bone "
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_DLN:
+    description: "Metastatic site of tumor at the time of diagnosis is distant lymph node(s)"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_LIV:
+    description: "Metastatic site of tumor at the time of diagnosis is liver"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_SKIN:
+    description: "Metastatic site of tumor at the time of diagnosis is skin"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_LUNG:
+    description: "Metastatic site of tumor at the time of diagnosis is lung"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_CNS:
+    description: "Metastatic site of tumor at the time of diagnosis is CNS"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  MET_OTH:
+    description: "Metastatic site of tumor at the time of diagnosis is “other”"
+    enum: 
+      - "0=No"
+      - "1=Yes"
+      - "9=Unknown"
+  HIST:
+    description: "Revised INPC prognostic group (Cancer 2003).  If INPC is missing, this is Shimada classification (JNCI 1984)."
+    enum: 
+      - "0=Favorable"
+      - "1=Unfavorable"
+      - "9=Unknown, slides not received, inadequate"
+  DIAG:
+    description: "Diagnostic Category (Revised INPC).  If INPC diagnostic category is missing, then this is Shimada diagnostic category."
+    enum: 
+      - "1=Neuroblastoma (Schwannian stroma-poor)"
+      - "2=Ganglioneuroblastoma, intermixed (Schwannian stroma-rich)"
+      - "3=Ganglioneuroma (Schwannian stroma-dominant), maturing subtype OR Ganglioneuroblastoma, well differentiated (Schwannian stroma-rich)"
+      - "4=Ganglioneuroblastoma, nodular (composite)"
+      - "9=Unknown"
+  GRADE:
+    description: "Grade of Neuroblastic Differentiation (Revised INPC).  If INPC grade is missing, then this is Shimada grade."
+    enum: 
+      - "0=Undifferentiated or Poorly Differentiated"
+      - "1=Differentiating1"
+      - "9=Unknown"
+  MKI:
+    description: "MKI (Revised INPC).  If INPC MKI is missing, then this is Shimada MKI."
+    enum: 
+      - "1=Low (<2% or <100/5,000 cells)"
+      - "2=Intermediate (2-4% or 100-<200/5,000 cells)"
+      - "3=High (>4% or >200/5,000 cells)"
+      - "9=Unknown, indeterminate"
+  EFSCENS:
+    description: "Censoring flag for event. Event = first occurrence of relapse, progression, secondary malignancy, or death from any cause"
+    enum: 
+      - "0=Patient is censored (no event)"
+      - "1=Patient had an event"
+      - "9=Unknown"
+  EFSTIME:
+    description: "Time (in days) from diagnosis/enrollment to first event, or to last contact if no event occurred"
+    type: 
+      - number
+      - "null"
+  SCENS:
+    description: "Censoring flag for death"
+    enum: 
+      - "0=Patient is censored (no death)"
+      - "1=Patient died"
+      - "9=Unknown"
+  STIME:
+    description: "Time (in days) from diagnosis/enrollment to death, or to last contact if patient is alive"
+    type: 
+      - number
+      - "null"
+  CAUSE_OF_DEATH:
+    description: "Cause of death"
+    enum: 
+      - "0=Due to neuroblastoma" 
+      - "1=Death due to treatment-related toxicity"
+      - "2=Due to other non-neuroblastoma causes (accidental death, due to illness unrelated to neuroblastoma)"
+      - "3=Other, specify"
+      - "9=Unknown"
+      - "alive"
+  RACE:
+    description: "Race"
+    enum: 
+      - "1=White" 
+      - "2=Black or African American"
+      - "3=American Indian or Alaskan native"
+      - "4=Asian"
+      - "5=Native Hawaiian or other Pacific Islander"
+      - "98=Not reported"
+      - "99=Unknown"
+  ETHNICITY:
+    description: "Ethnicity"
+    enum: 
+      - "0=Not Hispanic or Latino" 
+      - "1=Hispanic or Latino"
+      - "2=Unknown"
+  SEX:
+    description: "Sex"
+    enum: 
+      - "1=Male" 
+      - "2=Female"
+      - "9=Unknown"
+  REL_SITE_GEN:
+    description: "General site of relapse"
+    enum: 
+      - "1=Primary site only" 
+      - "2=Metastatic site(s) only"
+      - "3=Primary site and metastatic site(s)"
+      - "9=Unknown"
+  OTH_REL_SITE:
+    description: "Other site of relapse specified in text field"
+    type: string
+  SECOND_MALIG_CENS:
+    description: "Censoring flag for secondary malignancy"
+    enum: 
+      - "0=Patient is censored (no secondary malignancy)" 
+      - "1=Patient had a secondary malignancy"
+      - "9=Unknown"
+  SECOND_MALIG_TIME:
+    description: "Time (in days) from diagnosis/enrollment to secondary malignancy, or to last contact if patient did not have a secondary malignancy"
+    type:
+      - number
+      - "null"
+  SMN_MORPH_SNO:
+    description: "SMN morphology SNOMED code"
+    type:
+      - string
+      - "null"
+  SMN_MORPH_ICD0:
+    description: "SMN morphology ICD-O code"
+    type:
+      - string
+      - "null"
+  SMN_MORPH_TXT:
+    description: "SMN morphology text"
+    type:
+      - string
+      - "null"
+  SMN_TOP_SNO:
+    description: "SMN topography  SNOMED code"
+    type:
+      - string
+      - "null"
+  SMN_TOP_ICD0:
+    description: "SMN topography  ICD-O code"
+    type:
+      - string
+      - "null"
+  SMN_TOP_TXT:
+    description: "SMN topography  text"
+    type:
+      - string
+      - "null"
+
+
+  projects:
+    $ref: "_definitions.yaml#/to_many"   
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
