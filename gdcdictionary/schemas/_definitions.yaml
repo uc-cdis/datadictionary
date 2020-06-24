@@ -280,3 +280,19 @@ ubiquitous_properties:
     $ref: "#/datetime"
   updated_datetime:
     $ref: "#/datetime"
+
+timing_type:
+  term:
+      $ref: "_terms.yaml#/timing_type"
+  enum:
+    - "disease phase"
+    - "course"
+# test_type_attribute:
+#   term: 
+        # $ref: "_terms.yaml#/file_state"
+#   default: 
+#   enum:
+#     - 
+
+
+# w
