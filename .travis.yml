@@ -8,7 +8,7 @@ before_script:
 - git clone https://github.com/uc-cdis/dictionaryutils
 
 script:
-- cd dictionaryutils; ./run_tests.sh; cd ..
+- ./run_tests.sh
 
 before_deploy:
 - if [ ! -z $TRAVIS_TAG ]; then sed -i.bak "s/=get_version()/='$TRAVIS_TAG'/g" setup.py; fi
