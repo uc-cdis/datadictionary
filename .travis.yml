@@ -5,7 +5,7 @@ python:
 
 before_script:
 - yes | python setup.py install
-- git clone https://github.com/uc-cdis/dictionaryutils
+- git clone https://github.com/uc-cdis/dictionaryutils; cd dictionaryutils
 
 script:
 - ./run_tests.sh
