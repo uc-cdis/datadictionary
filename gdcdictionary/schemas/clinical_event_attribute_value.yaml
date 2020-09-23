@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "subject_identifier"
-title: Subject Identifiers
+id: "clinical_event_attribute_value"
+title: clinical_event_attribute_values
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Identifiers"
+description: "Patient clinical_event_attribute_value"
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,16 +20,16 @@ systemProperties:
   - state
 
 links:
-  - name: subjects
-    backref: subject_identifiers 
+  - name: clinical_events
+    backref: clinical_event_attribute_values 
     label: of
-    target_type: subject
+    target_type: clinical_event
     multiplicity: many_to_one    
     required: true
 
 required:
   - submitter_id
-  - projects
+  - clinical_events
 
 uniqueKeys:
   - [ id ]
@@ -37,7 +37,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "subject_identifier" ]
+    enum: [ "clinical_event_attribute_value" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -45,11 +45,14 @@ properties:
     type:
       - string
       - "null"
-  honest_broker_subject_id:
+  value:
     type:
       - string
+  clinical_event_attributes:
+    $ref: "_definitions.yaml#/clinical_event_attributes"
+
   
-  subjects:
+  clinical_events:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"
@@ -60,3 +63,4 @@ properties:
 
   state:
     $ref: "_definitions.yaml#/state"
+

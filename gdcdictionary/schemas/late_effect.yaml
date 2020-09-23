@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "late_effect"
+title: Late Effects
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Late Effects"
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,16 +20,16 @@ systemProperties:
   - state
 
 links:
-  - name: subjects
-    backref: tests 
-    label: of
-    target_type: subject
-    multiplicity: many_to_one    
+  - name: clinical_events
+    backref: late_effects
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
-  - subjects
+  - clinical_events
 
 uniqueKeys:
   - [ id ]
@@ -37,7 +37,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "late_effect" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -45,17 +45,13 @@ properties:
     type:
       - string
       - "null"
-  age_at:
+  age_at_le_eval:
     type:
       - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+
   
-  subjects:
+
+  clinical_events:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"

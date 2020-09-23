@@ -1,0 +1,84 @@
+# $schema: "http://json-schema.org/draft-04/schema#"
+
+# id: "demographic"
+# title: Demographics
+# type: object
+# namespace: http://cri.uchicago.edu/
+# category: administrative
+# program: '*'
+# project: '*'
+# description: "Demographics"
+# additionalProperties: false
+# submittable: true
+# validators: null
+
+# systemProperties:
+#   - id
+#   - project_id
+#   - created_datetime
+#   - updated_datetime
+#   - state
+
+# links:
+#   - name: persons
+#     backref: demographics 
+#     label: of
+#     target_type: person
+#     multiplicity: one_to_one    
+#     required: true
+
+# required:
+#   - submitter_id
+#   - persons
+
+# uniqueKeys:
+#   - [ id ]
+#   - [ project_id, submitter_id ]
+
+# properties:
+#   type:
+#     enum: [ "demographic" ]
+#   id:
+#     $ref: "_definitions.yaml#/UUID"
+#     systemAlias: node_id
+#   submitter_id:
+#     type:
+#       - string
+#   sex:
+#     enum:
+#       - Male
+#       - Female
+#       - Undifferentiated
+#       - Other
+#       - Unknown
+#       - Not Reported
+#   race:
+#     enum:
+#       - American Indian or Alaska Native
+#       - Asian
+#       - Blak or African American
+#       - Multiracial
+#       - Native Hawaiian or Other Pacific Islander
+#       - White
+#       - Other
+#       - Unknown
+#       - Not Reported
+#   ethnicity:
+#     enum:
+#       - Hispanic or Latino
+#       - Not Hispanic or Latino
+#       - Unknown
+#       - Not Reported
+  
+#   persons:
+#     $ref: "_definitions.yaml#/to_one"   
+#   project_id:
+#     $ref: "_definitions.yaml#/project_id"
+#   created_datetime:
+#     $ref: "_definitions.yaml#/datetime"
+#   updated_datetime:
+#     $ref: "_definitions.yaml#/datetime"
+
+#   state:
+#     $ref: "_definitions.yaml#/state"
+

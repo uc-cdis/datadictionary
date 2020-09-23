@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "biopsy_surgical_procedure"
+title: biopsy_surgical_procedure
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "biopsy_surgical_procedure"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,9 +21,15 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: tests 
+    backref: biopsy_surgical_procedures 
     label: of
     target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: biopsy_surgical_procedures 
+    label: of
+    target_type: clinical_event
     multiplicity: many_to_one    
     required: true
 
@@ -37,24 +43,34 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "biopsy_surgical_procedure" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
     type:
       - string
-      - "null"
-  age_at:
-    type:
-      - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+  procedure_tumor_classification:
+    enum:
+      - Primary
+      - Regional nodes
+      - Metastatic
+      - Unknown
+      - Not reported
+  margins:
+    enum:
+      - Incomplete resection
+      - "R0 - Complete resection, negative"
+      - "R1 - Complete resection, positive"
+      - "R2 - Gross residual disease"
+      - "Gross total resection, unknown margins"
+      - Biopsy only
+      - Unknown
+      - Not reported
   
+  
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
   subjects:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
@@ -63,7 +79,6 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
-
   state:
     $ref: "_definitions.yaml#/state"
 

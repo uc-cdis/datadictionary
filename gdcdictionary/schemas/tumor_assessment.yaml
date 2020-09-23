@@ -1,0 +1,168 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "tumor_assessment"
+title: Tumor Assessment
+type: object
+namespace: http://cri.uchicago.edu/
+category: administrative
+program: '*'
+project: '*'
+description: "Tumor Assessment"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: clinical_events
+    backref: tumor_assessments
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - clinical_events
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "tumor_assessment" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    type:
+      - string
+      - "null"
+  tumor_classification:
+    enum:
+      - Primary
+      - Metastatic
+      - Unknown
+      - Not reported
+  tumor_site:
+    enum:
+      - Pelvis
+      - Neck
+      - Retroperitoneal
+      - Perineum
+      - Ovary
+      - Paratesticular
+      - Abdomen
+      - Kidney
+      - Shoulder
+      - Scalp
+      - Upper arm
+      - Forearm
+      - Hand
+      - Thigh
+      - Knee
+      - Leg
+      - Lower Leg
+      - Foot
+      - Brain
+      - Paraspinal
+      - Vagina
+      - Eyelid
+      - Orbit
+      - Cheek
+      - Hypopharynx
+      - Larynx
+      - Oral cavity
+      - Oropharynx
+      - Parotid
+      - Thyroid and parathyroid
+      - Middle ear
+      - Nasal cavity and paranasal sinuses
+      - Nasal cavity
+      - Paranasal sinuses
+      - Nasopharynx
+      - Infratemporal fossa/pterygopalatine and parapharyngeal area
+      - Infratemporal fossa/pterygopalatine
+      - Parapharyngeal area
+      - Bladder
+      - Prostate
+      - Bladder/prostate
+      - Cervix
+      - Uterus
+      - Vulva
+      - Thorax
+      - Anal/Perianal
+      - Trunk
+      - Bone or bone marrow
+      - Bone
+      - Bone marrow
+      - Distant lymph nodes
+      - Pleural effusion
+      - Soft tissue
+      - Liver/Biliary tract
+      - Lung
+      - Other
+      - Unknown
+      - Not reported
+  longest_diam_dim1:
+    description: "The longest diameter of the tumor (cm), dimension 1."
+    type:
+      - number
+  longest_diam_dim2:
+    description: "The longest diameter of the tumor (cm), dimension 2."
+    type:
+      - number
+  longest_diam_dim3:
+    description: "The longest diameter of the tumor (cm), dimension 3."
+    type:
+      - number
+  tumor_size_category:
+    description: "Categorical (binned) tumor size"
+    enum:
+      - "<=5 cm"
+      - ">5 cm"
+      - "Unknown"
+      - "Not reported"
+  invasiveness:
+    description: Tumor invasiveness
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not reported
+  nodal_pathology:
+    description: Pathological determination of regional lymph node involvement
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not reported
+  nodal_clinical:
+    description: "Clinical determination of regional lymph node involvement"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not reported
+
+  
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one"   
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+

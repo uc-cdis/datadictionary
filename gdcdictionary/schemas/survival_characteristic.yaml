@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "survival_characteristic"
+title: Survival Characteristic
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Survival Characteristic"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,9 +21,15 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: tests 
+    backref: survival_characteristics 
     label: of
     target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: survival_characteristics 
+    label: of
+    target_type: clinical_event
     multiplicity: many_to_one    
     required: true
 
@@ -37,24 +43,41 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "survival_characteristic" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
     type:
       - string
-      - "null"
-  age_at:
+  cause_of_death:
+    type: array
+    additionalItems: false
+    items:
+      enum:
+        - Disease Progression
+        - Pre-Treatment Disease Complications
+        - Post-Treatment Disease Complications
+        - Treatment-Related Mortality
+        - Secondary Malignancy
+        - Other
+        - Unknown
+        - Not Reported
+
+  age_at_lkss:
     type:
       - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+  lkss:
+    description: "Subject's last known survival status"
+    enum:
+      - Alive
+      - Dead
+
+
   
+  
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
   subjects:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
@@ -63,7 +86,6 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
-
   state:
     $ref: "_definitions.yaml#/state"
 

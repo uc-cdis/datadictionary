@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "staging"
+title: Staging
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Staging"
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,16 +20,16 @@ systemProperties:
   - state
 
 links:
-  - name: subjects
-    backref: tests 
-    label: of
-    target_type: subject
-    multiplicity: many_to_one    
+  - name: clinical_events
+    backref: stagings
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
-  - subjects
+  - clinical_events
 
 uniqueKeys:
   - [ id ]
@@ -37,7 +37,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "staging" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -45,17 +45,31 @@ properties:
     type:
       - string
       - "null"
-  age_at:
-    type:
-      - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+  tnm_finding:
+    enum:
+      - "Favorable Site, M0"
+      - "Other site, any T, a, N0, M0"
+      - "Other site, any T, a, N1, M0, any T, b, N0/N1, M0"
+      - "Metastases, ML"
+      - Unknown
+      - Not reported
+  irs_group:
+    description: "IRS Surgical-Pathologic Grouping System"
+    enum:
+      - Group I
+      - Group IIA
+      - Group IIB
+      - Group IIC
+      - Group II, NOS
+      - Group III
+      - Group IV
+      - Unknown
+      - Not reported
+
+
   
-  subjects:
+
+  clinical_events:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"

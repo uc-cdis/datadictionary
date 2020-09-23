@@ -7,7 +7,7 @@ namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Id"
+description: "Patient Identifiers"
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,20 +20,23 @@ systemProperties:
   - state
 
 links:
-  - name: projects
+  - name: persons
     backref: subjects 
     label: of
-    target_type: project
-    multiplicity: many_to_many    
+    target_type: person
+    multiplicity: many_to_one    
     required: true
 
 required:
+  # - honest_broker_subject_id
   - submitter_id
-  - projects
+  - persons
 
 uniqueKeys:
   - [ id ]
+  # - [ project_id, honest_broker_subject_id ]
   - [ project_id, submitter_id ]
+
 
 properties:
   type:
@@ -42,12 +45,135 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "honest_broker_subject_id"
+  # honest_broker_subject_id:
+  #   systemAlias: submitter_id
     type:
       - string
-      - "null"
+  consortium:
+    enum:
+      - INRG
+      - INSTRuCT
+  data_contributor_id:
+    description: "Data Contributor identifier"
+    enum:
+      - AIEOP
+      - BFM-SG
+      - COG
+      - DCOG
+      - MRC
+      - NOPHO
+      - PPLLSG
+      - SJCRH
+      - CCLG
+      - NRG-Oncology
+      - UUtah-Huntsman
+      - GPOH
+      - SSG
+      - FSG
+      - UK
+      - EURO-EWING Consortium
+      - ISG
+      - CRCTU
+      - University College of London
+      - JACLS
+      - JPLSG
+      - SFCE
+      - SOPOBE 
+      - DFCI
+  study_id:
+    description: "study identifier"
+    enum:
+      - AAML03P1
+      - AAML0531
+      - AAML1031
+      - AMLBFM2004
+      - AMLBFM2012
+      - AMLBFMRegistry2012
+      - SJCRHAML02
+      - JPLSGAML05
+      - AEIOPAML2002
+      - JACLSAML99
+      - DBAML01
+      - MRCAML12
+      - MRCAML15
+      - NOPHOAML2004
+      - NOPHOAML2012
+      - PPLLSGAML98
+      - AIEOPLAM92
+      - SCFEELAM02
+      - AHOD0831
+      - AHOD0431
+      - AHOD0031
+      - AHOD1331
+      - AHOD1221
+      - AHOD03P1
+      - "(HL st jude's trials)"
+      - AEWS1221
+      - AEWS0331
+      - AEWS0031
+      - ProjectGenESis
+      - AEWS1031
+      - EE99
+      - EICESS92
+      - AEWS07P1
+      - AALL0331
+      - AALL0232
+      - AALL0434
+      - AALL08B1
+      - AALL03B1
+      - TGM85
+      - TGM90
+      - TGM95
+      - GC1
+      - GC2
+      - GOG78
+      - GOG0090
+      - GOG116
+      - P9749
+      - POG9049
+      - AGCT01P1
+      - AGCT0132
+      - AGCT0521
+      - TE04
+      - TE05
+      - TE08
+      - TE22
+      - TE09
+      - TE13
+      - TE20
+      - TIP 
+  age_at_enrolment:
+    type:
+      - number
+  year_at_enrolment:
+    type:
+      - number
+  enrolled_status:
+    description: "enrolled_status"
+    enum:
+      - "Enrolled"
+      - "Not Enrolled"
+  study_phase:
+    enum:
+      - "Pilot"
+      - "Phase 1"
+      - "Phase 2"
+      - "Phase 3"
+      - "Unknown"
+      - "Not Reported"
+  study_type:
+    enum:
+      - "Frontline"
+      - "Retrieval"
+      - "Unknown"
+      - "Not Reported"
+
+
+
   
-  projects:
-    $ref: "_definitions.yaml#/to_many"   
+  persons:
+    $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

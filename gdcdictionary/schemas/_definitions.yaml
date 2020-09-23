@@ -281,12 +281,20 @@ ubiquitous_properties:
   updated_datetime:
     $ref: "#/datetime"
 
-timing_type:
+clinical_event_type:
   term:
-      $ref: "_terms.yaml#/timing_type"
+      $ref: "_terms.yaml#/clinical_event_type"
   enum:
     - "disease phase"
     - "course"
+    - "age in days"
+
+clinical_event_attributes:
+    term:
+      $ref: "_terms.yaml#/clinical_event_attributes"
+    enum:
+      - "age_at_course_start"
+      - "age_at_course_end"
 # test_type_attribute:
 #   term: 
         # $ref: "_terms.yaml#/file_state"

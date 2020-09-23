@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "medical_history"
+title: Medical History
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Medical History"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,7 +21,7 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: tests 
+    backref: medical_historys 
     label: of
     target_type: subject
     multiplicity: many_to_one    
@@ -37,23 +37,40 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "medical_history" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
     type:
       - string
-      - "null"
-  age_at:
-    type:
-      - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+  medical_history:
+    enum:
+      - Adenomatous Polyposis Coli
+      - Costello Syndrome
+      - DICER1 Syndrome
+      - Li-Fraumeni
+      - Neurofibromatosis Type 1
+      - RB Transcriptional Corepressor 1
+      - Secondary Malignancy
+      - Trisomy 21
+      - Trisomy 21 Mosaicism
+      - Turner Syndrome
+      - Klinerfelter Syndrome
+      - Swyer James Syndrome
+      - Frasier Syndrome
+      - Fanconi Anemia
+      - Lynch Syndrome
+      - Breast and Ovarian Cancer
+      - Other
+      - Unknown
+      - Not Reported
+  dysgenetic_gonad:
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
   
   subjects:
     $ref: "_definitions.yaml#/to_one"   

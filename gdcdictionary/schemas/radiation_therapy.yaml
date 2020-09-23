@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "radiation_therapy"
+title: Radiation Therapy
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Radiation Therapy"
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,16 +20,16 @@ systemProperties:
   - state
 
 links:
-  - name: subjects
-    backref: tests 
-    label: of
-    target_type: subject
-    multiplicity: many_to_one    
+  - name: clinical_events
+    backref: radiation_therapys
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
-  - subjects
+  - clinical_events
 
 uniqueKeys:
   - [ id ]
@@ -37,7 +37,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "radiation_therapy" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -45,17 +45,30 @@ properties:
     type:
       - string
       - "null"
-  age_at:
+  rt_site_classification:
+    description: "Tumor classification"
+    enum:
+      - Primary
+      - Regional
+      - Metastatic
+  energy_type:
+    description: Type of particles and energy
+    enum:
+      - Protons
+      - Photon
+      - Brachytherapy
+      - Electrons
+      - Unknown
+  rt_dose:
     type:
       - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+  rt_unit:
+    enum:
+      - Gy
+
   
-  subjects:
+
+  clinical_events:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"

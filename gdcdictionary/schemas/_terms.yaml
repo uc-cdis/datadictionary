@@ -740,9 +740,13 @@ file_state: # TOREVIEW
   description: >
     The current state of the data file object.
 
-timing_type:
+clinical_event_type:
   description: >
     The time frame or phase the patient got a treatment or data have been collected
+
+clinical_event_attributes:
+  description: >
+    Attributes of a timing nodes with their input values
 
 flow_cell_barcode: # TOREVIEW
   description: >

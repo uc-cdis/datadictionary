@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "off_protocol_therapy_study"
+title: Off Protocol Therapy Study
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Off Protocol Therapy Study"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,9 +21,15 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: tests 
+    backref: off_protocol_therapy_studys 
     label: of
     target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: off_protocol_therapy_studys 
+    label: of
+    target_type: clinical_event
     multiplicity: many_to_one    
     required: true
 
@@ -37,24 +43,27 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "off_protocol_therapy_study" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
     type:
       - string
-      - "null"
-  age_at:
-    type:
-      - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+  off_type:
+    enum:
+      - Protocol Therapy
+      - Study
+  another_study:
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
   
+  
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
   subjects:
     $ref: "_definitions.yaml#/to_one"   
   project_id:

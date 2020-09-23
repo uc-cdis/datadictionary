@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "timing"
-title: Timings
+id: "clinical_event"
+title: Clinical Events
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Timings"
+description: "Clinical Events"
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,22 +20,22 @@ systemProperties:
   - state
 
 links:
-  - name: subject_identifiers
-    backref: timings 
+  - name: subjects
+    backref: clinical_events 
     label: of
-    target_type: subject_identifier
+    target_type: subject
     multiplicity: many_to_one    
     required: true
-  - name: timings
-    backref: timings
+  - name: clinical_events
+    backref: clinical_events
     label: part of
-    target_type: timing
+    target_type: clinical_event
     multiplicity: many_to_one
     required: false
 
 required:
   - submitter_id
-  - projects
+  - subjects
 
 uniqueKeys:
   - [ id ]
@@ -43,7 +43,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "timing" ]
+    enum: [ "clinical_event" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -51,15 +51,18 @@ properties:
     type:
       - string
       - "null"
-  timing_type:
-    $ref: "_definitions.yaml#/timing_type"
+  clinical_event_type:
+    $ref: "_definitions.yaml#/clinical_event_type"
+  age_at:
+    type:
+      - number
 
   
 
-  timings:
+  clinical_events:
     $ref: "_definitions.yaml#/to_one"
   
-  subject_identifiers:
+  subjects:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"

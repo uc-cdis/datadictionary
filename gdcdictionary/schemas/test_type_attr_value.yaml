@@ -29,7 +29,7 @@ links:
 
 required:
   - submitter_id
-  - projects
+  - tests
 
 uniqueKeys:
   - [ id ]

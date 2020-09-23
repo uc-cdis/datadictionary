@@ -1,0 +1,127 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "disease_characteristic"
+title: Disease Characteristics
+type: object
+namespace: http://cri.uchicago.edu/
+category: administrative
+program: '*'
+project: '*'
+description: "Disease Characteristics"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: clinical_events
+    backref: disease_characteristics
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - clinical_events
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "disease_characteristic" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    type:
+      - string
+      - "null"
+  fab_type:
+    enum:
+      - M0
+      - M1
+      - M2
+      - M3
+      - M3 Variant
+      - M4
+      - M4eo
+      - M5
+      - M6
+      - M7
+      - AML,NOS
+      - Unknown
+      - Not Reported
+  who_aml:
+    enum:
+      - AML with t(8;21)(q22;q22.1); RUNX1-RUNX1T1
+      - AML with inv(16)(p13.1q22) or t(16;16)(p13.1;q22); CBFB-MYH11
+      - APL with PML-RARA
+      - AML with t(9;11)(p21.3;q23.3); KMT2A-MLLT3
+      - AML with t(6;9)(p23;q34.1);DEK-NUP214
+      - AML with inv(3)(q21.3q26.2) or t(3;3)(q21.3;q26.2); GATA2, MECOM
+      - AML (megakaryoblastic) with t(1;22)(p13.3;q13.3); RBM15-MKL1
+      - "Provisional entity: AML with BCR-ABL1"
+      - AML with mutated NPM1
+      - AML with biallelic mutations of CEBPA
+      - "Provisional entity: AML with mutated RUNX1"
+      - AML with myelodysplasia-related changes
+      - Therapy-related myeloid neoplasms
+      - AML, NOS
+      - AML with minimal differentiation
+      - AML without maturation
+      - AML with maturation
+      - Acute myelomonocytic leukemia
+      - Acute monoblastic/monocytic leukemia
+      - Pure erythroid leukemia
+      - Acute megakaryoblastic leukemia
+      - Acute basophilic leukemia
+      - Acute panmyelosis with myelofibrosis
+      - Myeloid sarcoma
+      - Myeloid proliferations related to Down syndrome
+      - Transient abnormal myelopoiesis (TAM)
+      - Myeloid leukemia associated with Down syndrome
+      - Unknown
+      - Not Reported
+  all_type:
+    enum:
+      - B-ALL
+      - B-Precursor
+      - T-ALL
+      - Acute Leukemia, ambiguous lineage (mixed or biphenotypic)
+      - MPAL
+  igccc_risk_group:
+    enum:
+      - IGCCC Good
+      - IGCCC Intermediate
+      - IGCCC Poor
+      - Unknown
+      - Not Reported
+  magic_risk_group:
+    enum:
+      - Low
+      - Standard
+      - Poor
+      - Unknown
+      - Not Reported
+
+  
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one"   
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  state:
+    $ref: "_definitions.yaml#/state"

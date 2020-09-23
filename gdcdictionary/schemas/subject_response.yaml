@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "subject_response"
+title: Subject Response
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Subject Response"
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,16 +20,16 @@ systemProperties:
   - state
 
 links:
-  - name: subjects
-    backref: tests 
-    label: of
-    target_type: subject
-    multiplicity: many_to_one    
+  - name: clinical_events
+    backref: subject_responses
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
-  - subjects
+  - clinical_events
 
 uniqueKeys:
   - [ id ]
@@ -37,7 +37,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "test" ]
+    enum: [ "subject_response" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -45,17 +45,22 @@ properties:
     type:
       - string
       - "null"
-  age_at:
-    type:
-      - number
-  result:
-    type:
-      - string
-  result_numeric:
-    type:
-      - number
+  tx_prior_response:
+    description: "Treatment type prior to response assessment"
+    enum:
+      - Chemotherapy
+      - Chemoradiotherapy
+  response:
+    enum:
+      - Partial response
+      - table disease
+      - Progressive disease
+      - Complete response
+      - Not evaluable
   
-  subjects:
+  
+
+  clinical_events:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"
