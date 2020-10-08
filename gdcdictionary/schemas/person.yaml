@@ -44,8 +44,9 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-  # unique_subject_id:
-  #   systemAlias: submitter_id
+    description: "PCDC internal person ID"
+    # unique_subject_id:
+    #   systemAlias: submitter_id
     type:
       - string
 

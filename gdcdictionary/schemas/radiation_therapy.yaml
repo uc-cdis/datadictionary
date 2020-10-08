@@ -20,16 +20,22 @@ systemProperties:
   - state
 
 links:
+  - name: subjects
+    backref: radiation_therapys 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
   - name: clinical_events
     backref: radiation_therapys
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
-    required: true
+    required: false
 
 required:
   - submitter_id
-  - clinical_events
+  - subjects
 
 uniqueKeys:
   - [ id ]
@@ -44,13 +50,76 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
+  age_at:
+    type:
+      - number
   rt_site_classification:
-    description: "Tumor classification"
+    description: "Radiation Therapy Tumor classification"
     enum:
       - Primary
       - Regional
       - Metastatic
+  rt_site:
+    description: "Radiation Therapy Site"
+    enum:
+      - "Pelvis"
+      - "Neck"
+      - "Retroperitoneal"
+      - "Perineum"
+      - "Ovary"
+      - Paratesticular
+      - Abdomen
+      - Kidney
+      - Shoulder
+      - Scalp
+      - "Upper arm"
+      - Forearm
+      - Hand
+      - Thigh
+      - Knee
+      - Leg
+      - "Lower Leg"
+      - Foot
+      - Brain
+      - Paraspinal
+      - Vagina
+      - Eyelid
+      - Orbit
+      - Cheek
+      - Hypopharynx
+      - Larynx
+      - "Oral cavity"
+      - Oropharynx
+      - Parotid
+      - "Thyroid and Parathyroid"
+      - "Middle ear"
+      - "Nasal Cavity and Paranasal Sinuses"
+      - "Nasal Cavity"
+      - "Paranasal Sinuses"
+      - Nasopharynx
+      - "Infratemporal Fossa/Pterygopalatine and Parapharyngeal Area"
+      - "Infratemporal Fossa/Pterygopalatine"
+      - "Parapharyngeal Area"
+      - Bladder
+      - Prostate
+      - Bladder/Prostate
+      - Cervix
+      - Uterus
+      - Vulva
+      - Thorax
+      - "Anal/Perianal"
+      - Trunk
+      - "Bone or Bone Marrow"
+      - Bone
+      - "Bone Marrow"
+      - "Distant Lymph Nodes"
+      - "Pleural Effusion"
+      - "Soft Tissue"
+      - "Liver/Biliary Tract"
+      - Lung
+      - Other
+      - Unknown
+      - "Not Reported"
   energy_type:
     description: Type of particles and energy
     enum:
@@ -69,7 +138,9 @@ properties:
   
 
   clinical_events:
-    $ref: "_definitions.yaml#/to_one"   
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

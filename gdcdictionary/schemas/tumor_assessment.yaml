@@ -20,16 +20,22 @@ systemProperties:
   - state
 
 links:
+  - name: subjects
+    backref: tumor_assessments 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
   - name: clinical_events
     backref: tumor_assessments
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
-    required: true
+    required: false
 
 required:
   - submitter_id
-  - clinical_events
+  - subjects
 
 uniqueKeys:
   - [ id ]
@@ -44,7 +50,9 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
+  age_at:
+    type:
+      - number
   tumor_classification:
     enum:
       - Primary
@@ -111,6 +119,9 @@ properties:
       - Other
       - Unknown
       - Not reported
+  tumor_site_other:
+    type:
+      - string
   longest_diam_dim1:
     description: "The longest diameter of the tumor (cm), dimension 1."
     type:
@@ -123,7 +134,7 @@ properties:
     description: "The longest diameter of the tumor (cm), dimension 3."
     type:
       - number
-  tumor_size_category:
+  tumor_size:
     description: "Categorical (binned) tumor size"
     enum:
       - "<=5 cm"
@@ -153,9 +164,10 @@ properties:
       - Not reported
 
   
-
   clinical_events:
-    $ref: "_definitions.yaml#/to_one"   
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

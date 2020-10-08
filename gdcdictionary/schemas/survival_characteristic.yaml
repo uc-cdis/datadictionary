@@ -31,7 +31,7 @@ links:
     label: of
     target_type: clinical_event
     multiplicity: many_to_one    
-    required: true
+    required: false
 
 required:
   - submitter_id
@@ -50,6 +50,14 @@ properties:
   submitter_id:
     type:
       - string
+  age_at_lkss:
+    type:
+      - number
+  lkss:
+    description: "Subject's last known survival status"
+    enum:
+      - Alive
+      - Dead
   cause_of_death:
     type: array
     additionalItems: false
@@ -64,14 +72,8 @@ properties:
         - Unknown
         - Not Reported
 
-  age_at_lkss:
-    type:
-      - number
-  lkss:
-    description: "Subject's last known survival status"
-    enum:
-      - Alive
-      - Dead
+  
+  
 
 
   

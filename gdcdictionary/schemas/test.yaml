@@ -26,6 +26,12 @@ links:
     target_type: subject
     multiplicity: many_to_one    
     required: true
+  - name: clinical_events
+    backref: tests 
+    label: of
+    target_type: clinical_event
+    multiplicity: many_to_one    
+    required: false
 
 required:
   - submitter_id

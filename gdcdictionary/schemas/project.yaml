@@ -50,6 +50,9 @@ properties:
   name:
     type: string
     description: "Display name/brief description for the project." # TOREVIEW
+  description:
+    type: string
+    description: "A description of the project."
   code:
     type: string
     description: "Unique identifier for the project."

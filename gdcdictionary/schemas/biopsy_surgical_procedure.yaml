@@ -31,7 +31,7 @@ links:
     label: of
     target_type: clinical_event
     multiplicity: many_to_one    
-    required: true
+    required: false
 
 required:
   - submitter_id
@@ -50,6 +50,9 @@ properties:
   submitter_id:
     type:
       - string
+  age_at:
+    type:
+      - number
   procedure_tumor_classification:
     enum:
       - Primary
@@ -57,6 +60,70 @@ properties:
       - Metastatic
       - Unknown
       - Not reported
+  procedure_site:
+    enum:
+      - Pelvis
+      - Neck
+      - Retroperitoneal
+      - Perineum
+      - Ovary
+      - Paratesticular
+      - Abdomen
+      - Kidney
+      - Shoulder
+      - Scalp
+      - Upper arm
+      - Forearm
+      - Hand
+      - Thigh
+      - Knee
+      - Leg
+      - Lower Leg
+      - Foot
+      - Brain
+      - Paraspinal
+      - Vagina
+      - Eyelid
+      - Orbit
+      - Cheek
+      - Hypopharynx
+      - Larynx
+      - Oral cavity
+      - Oropharynx
+      - Parotid
+      - Thyroid and Parathyroid
+      - Middle ear
+      - Nasal Cavity and Paranasal Sinuses
+      - Nasal Cavity
+      - Paranasal Sinuses
+      - Nasopharynx
+      - "Infratemporal Fossa/Pterygopalatine and Parapharyngeal Area"
+      - "Infratemporal Fossa/Pterygopalatine"
+      - Parapharyngeal Area
+      - Bladder
+      - Prostate
+      - "Bladder/Prostate"
+      - Cervix
+      - Uterus
+      - Vulva
+      - Thorax
+      - "Anal/Perianal"
+      - Trunk
+      - Bone or Bone Marrow
+      - Bone
+      - Bone Marrow
+      - Distant Lymph Nodes
+      - Pleural Effusion
+      - Soft Tissue
+      - "Liver/Biliary Tract"
+      - Lung
+      - Other
+      - Unknown
+      - Not Reported
+  procedure_type:
+    enum:
+      - Surgery
+      - Biopsy
   margins:
     enum:
       - Incomplete resection
@@ -64,7 +131,6 @@ properties:
       - "R1 - Complete resection, positive"
       - "R2 - Gross residual disease"
       - "Gross total resection, unknown margins"
-      - Biopsy only
       - Unknown
       - Not reported
   

@@ -50,18 +50,45 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
   clinical_event_type:
     $ref: "_definitions.yaml#/clinical_event_type"
-  age_at:
+    
+  disease_phase:
+    enum:
+      - "Initial Diagnosis"
+      - "Relapse"
+      - "Progression"  
+  course:
+    enum:
+      - "Prephase"
+      - "Induction"
+      - "Intensification"
+      - "Consolidation"
+      - "Mainteinance"
+  disease_phase_number:
     type:
       - number
+  age_at_disease_phase:
+    type:
+      - number
+  year_at_disease_phase:
+    type:
+      - number
+  course_number:
+    type:
+      - number
+  age_at_course_start:
+    type:
+      - number
+  age_at_course_end:
+    type:
+      - number
+  
 
   
 
   clinical_events:
-    $ref: "_definitions.yaml#/to_one"
-  
+    $ref: "_definitions.yaml#/to_one" 
   subjects:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
@@ -70,7 +97,6 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
-
   state:
     $ref: "_definitions.yaml#/state"
-
+    

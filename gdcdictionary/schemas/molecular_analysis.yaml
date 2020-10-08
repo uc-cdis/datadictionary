@@ -20,16 +20,22 @@ systemProperties:
   - state
 
 links:
+  - name: subjects
+    backref: molecular_analysiss 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
   - name: clinical_events
     backref: molecular_analysiss
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
-    required: true
+    required: false
 
 required:
   - submitter_id
-  - clinical_events
+  - subjects
 
 uniqueKeys:
   - [ id ]
@@ -44,12 +50,40 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
+  age_at:
+    type:
+      - number
   molecular_abnormality:
     enum:
       - "PAX3-FOXO1"
       - "PAX3-Other"
       - "PAX7-FOXO1"
+  variant_type:
+    enum:
+      - Translocation
+      - Inversion
+      - Mutation
+      - "Single Nucleotide Variant"
+      - "Copy Number Alteration"
+      - Rearrangement
+      - Deletion
+      - Amplification
+      - Other
+      - Unknown
+      - Not Reported
+  gene1:
+    type:
+      - string
+  gene2:
+    type:
+      - string
+  molecular_abnormality_ersult:
+    enum:
+      - Positive
+      - Negative
+      - Not Done
+      - Not Reported
+      - Unknown
   anaplasia:
     enum:
       - Absent
@@ -67,6 +101,8 @@ properties:
   
 
   clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"

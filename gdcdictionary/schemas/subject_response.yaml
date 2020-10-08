@@ -20,16 +20,22 @@ systemProperties:
   - state
 
 links:
+  - name: subjects
+    backref: subject_responses 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
   - name: clinical_events
     backref: subject_responses
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
-    required: true
+    required: false
 
 required:
   - submitter_id
-  - clinical_events
+  - subjects
 
 uniqueKeys:
   - [ id ]
@@ -44,7 +50,9 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
+  age_at:
+    type:
+      - number
   tx_prior_response:
     description: "Treatment type prior to response assessment"
     enum:
@@ -61,7 +69,9 @@ properties:
   
 
   clinical_events:
-    $ref: "_definitions.yaml#/to_one"   
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

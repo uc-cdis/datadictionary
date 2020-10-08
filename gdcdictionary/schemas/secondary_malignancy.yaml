@@ -20,16 +20,22 @@ systemProperties:
   - state
 
 links:
+  - name: subjects
+    backref: secondary_malignancys 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
   - name: clinical_events
     backref: secondary_malignancys
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
-    required: true
+    required: false
 
 required:
   - submitter_id
-  - clinical_events
+  - subjects
 
 uniqueKeys:
   - [ id ]
@@ -44,13 +50,17 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
+  age_at:
+    type:
+      - number
  
   
   
 
   clinical_events:
-    $ref: "_definitions.yaml#/to_one"   
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one" 
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
