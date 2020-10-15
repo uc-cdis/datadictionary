@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "biopsy_surgical_procedure"
-title: biopsy_surgical_procedure
+title: Biopsy Surgical Procedure
 type: object
 namespace: http://cri.uchicago.edu/
 category: administrative
 program: '*'
 project: '*'
-description: "biopsy_surgical_procedure"
+description: "Biopsy Surgical Procedure"
 additionalProperties: false
 submittable: true
 validators: null

@@ -77,7 +77,7 @@ properties:
   gene2:
     type:
       - string
-  molecular_abnormality_ersult:
+  molecular_abnormality_result:
     enum:
       - Positive
       - Negative
