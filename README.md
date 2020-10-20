@@ -48,3 +48,11 @@ would look like, each node has a mock submission located in the `examples/valid/
 ## Contributing
 
 Read how to contribute [here](https://github.com/NCI-GDC/portal-ui/blob/develop/CONTRIBUTING.md).
+
+## Build JSON for deployment
+
+`cd datadictionary`
+`git clone https://github.com/uc-cdis/dictionaryutils`
+`cd dictionaryutils`
+`python bin/create_json.py`
+`bash ./bin/load_aws.sh`
