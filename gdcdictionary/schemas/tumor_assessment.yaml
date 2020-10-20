@@ -162,6 +162,13 @@ properties:
       - "Yes"
       - Unknown
       - Not reported
+  parameningeal_extension:
+    description: "Parameningeal Extension"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not reported 
 
   
   clinical_events:

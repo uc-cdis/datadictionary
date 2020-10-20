@@ -81,6 +81,14 @@ properties:
       - SFCE
       - SOPOBE 
       - DFCI
+      - JNBSG
+      - SIOPEN
+      - MMT
+      - EpSSG
+      - CWS
+      - SIOP MMT
+      - ICG
+      - CWS
   treatment_arm:
     enum:
       - TBD

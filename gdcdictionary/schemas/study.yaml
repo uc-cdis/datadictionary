@@ -106,6 +106,8 @@ properties:
       - TE13
       - TE20
       - TIP
+      - D9803
+      - D9802
   age_at_enrollment:
     type:
       - number
