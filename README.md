@@ -52,7 +52,8 @@ Read how to contribute [here](https://github.com/NCI-GDC/portal-ui/blob/develop/
 ## Build JSON for deployment
 
 `cd datadictionary`
-`git clone https://github.com/uc-cdis/dictionaryutils`
+`git clone https://github.com/chicagopcdc/dictionaryutils.git`
+go to branch `pcdc_dev`
 `cd dictionaryutils`
 `python bin/create_json.py`
 `bash ./bin/load_aws.sh`
