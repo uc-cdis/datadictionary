@@ -126,11 +126,11 @@ properties:
       - Biopsy
   margins:
     enum:
-      - Incomplete resection
-      - "R0 - Complete resection, negative"
-      - "R1 - Complete resection, positive"
-      - "R2 - Gross residual disease"
-      - "Gross total resection, unknown margins"
+      - Incomplete Resection
+      - "R0 - Complete Resection, Negative Margins"
+      - "R1 - Complete Resection, Positive Margins"
+      - "R2 - Gross Residual Disease"
+      - "Gross Total Resection, Unknown Margins"
       - Unknown
       - Not reported
   
