@@ -63,7 +63,7 @@ properties:
     enum:
       - Pelvis
       - Neck
-      - Retroperitoneal
+      - Retroperitoneum
       - Perineum
       - Ovary
       - Paratesticular
@@ -80,6 +80,7 @@ properties:
       - Lower Leg
       - Foot
       - Brain
+      - Buttock
       - Paraspinal
       - Vagina
       - Eyelid
@@ -104,6 +105,7 @@ properties:
       - Bladder/prostate
       - Cervix
       - Uterus
+      - Upper Arm
       - Vulva
       - Thorax
       - Anal/Perianal
@@ -119,6 +121,12 @@ properties:
       - Other
       - Unknown
       - Not reported
+      - Other Extremity
+      - Other Head and Neck
+      - Other Parameningeal
+      - Other GU NON bladder/prostate
+      - Other Orbit
+      - Other Face
   tumor_site_other:
     type:
       - string
@@ -144,8 +152,9 @@ properties:
   invasiveness:
     description: Tumor invasiveness
     enum:
-      - "No"
-      - "Yes"
+      - T1 Stage Finding
+      - T2 Stage Finding
+      - TX Stage Finding
       - Unknown
       - Not reported
   nodal_pathology:
