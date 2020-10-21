@@ -56,9 +56,9 @@ properties:
   tnm_finding:
     enum:
       - "Favorable Site, M0"
-      - "Other site, any T, a, N0, M0"
+      - "Other Site, any T, a, N0, M0"
       - "Other site, any T, a, N1, M0, any T, b, N0/N1, M0"
-      - "Metastases, ML"
+      - "Metastases, M1"
       - Unknown
       - Not reported
   irs_group:
