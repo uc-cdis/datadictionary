@@ -85,7 +85,6 @@ properties:
       - SIOPEN
       - MMT
       - EpSSG
-      - CWS
       - SIOP MMT
       - ICG
       - CWS

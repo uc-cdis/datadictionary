@@ -108,6 +108,16 @@ properties:
       - TIP
       - D9803
       - D9802
+      - D9602
+      - ARST0331
+      - ARST0431
+      - ARST0531
+      - CWS91
+      - CWS-IV-2002
+      - CWS96
+      - CWS2002p
+      - RMS95
+      - ARST08P1
   age_at_enrollment:
     type:
       - number
