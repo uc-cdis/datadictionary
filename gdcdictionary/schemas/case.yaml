@@ -9,7 +9,7 @@ program: '*'
 project: '*'
 description: >
   The collection of all data related to a specific subject in the
-  context of a specific experiment. 
+  context of a specific experiment.
 additionalProperties: false
 submittable: true
 validators: null
@@ -22,7 +22,7 @@ systemProperties:
   - state
 
 links:
-  - name: experiments 
+  - name: experiments
     backref: cases
     label: member_of
     target_type: experiment
@@ -61,7 +61,7 @@ properties:
   disease_type:
     description: "Name of the disease for the case."
     type: string
-  experiments: 
+  experiments:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

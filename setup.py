@@ -2,6 +2,7 @@ from subprocess import check_output
 
 from setuptools import setup, find_packages
 
+
 def get_version():
     # https://github.com/uc-cdis/dictionaryutils/pull/37#discussion_r257898408
     try:
@@ -18,15 +19,15 @@ def get_version():
 
 
 setup(
-    name='gen3dictionary',
+    name="gen3dictionary",
     version=get_version(),
     description="Gen3 generic data dictionary",
     license="Apache",
     packages=find_packages(),
     install_requires=[
-        'PyYAML~=5.1',
-        'jsonschema>=2.5.1',
-        'dictionaryutils',
+        "PyYAML~=5.1",
+        "jsonschema>=2.5.1",
+        "dictionaryutils",
     ],
     package_data={
         "gdcdictionary": [
