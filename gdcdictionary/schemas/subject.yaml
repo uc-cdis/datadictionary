@@ -89,9 +89,9 @@ properties:
       - ICG
       - CWS
   treatment_arm:
-    enum:
-      - TBD
-  
+    description: "Treatment Arm"
+    type:
+      - string
 
 
 
