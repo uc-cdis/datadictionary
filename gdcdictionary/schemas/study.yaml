@@ -118,17 +118,6 @@ properties:
       - CWS2002p
       - RMS95
       - ARST08P1
-  age_at_enrollment:
-    type:
-      - number
-  year_at_enrollment:
-    type:
-      - number
-  enrolled_status:
-    description: "enrolled_status"
-    enum:
-      - "Enrolled"
-      - "Not Enrolled"
   study_phase:
     enum:
       - "Pilot"

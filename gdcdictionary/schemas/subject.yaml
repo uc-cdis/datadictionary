@@ -92,6 +92,17 @@ properties:
     description: "Treatment Arm"
     type:
       - string
+  age_at_enrollment:
+    type:
+      - number
+  year_at_enrollment:
+    type:
+      - number
+  enrolled_status:
+    description: "enrolled_status"
+    enum:
+      - "Enrolled"
+      - "Not Enrolled"
 
 
 
