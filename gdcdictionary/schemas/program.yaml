@@ -29,6 +29,7 @@ links: []
 # without a project or parents.
 properties:
   type:
+    description: "Default system-assigned property for each node"
     type: string
   id:
     $ref: "_definitions.yaml#/UUID"

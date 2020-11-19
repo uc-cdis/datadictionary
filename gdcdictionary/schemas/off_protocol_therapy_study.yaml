@@ -43,6 +43,7 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "off_protocol_therapy_study" ]
   id:
     $ref: "_definitions.yaml#/UUID"
@@ -51,10 +52,12 @@ properties:
     type:
       - string
   off_type:
+    description: "Off Protocol Therapy or Study"
     enum:
       - Protocol Therapy
       - Study
   another_study:
+    description: "Indicate if subject enrolled in Another Therapeutic Study After Off Study"
     enum:
       - "No"
       - "Yes"

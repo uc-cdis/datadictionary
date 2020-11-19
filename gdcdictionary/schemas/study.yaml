@@ -37,15 +37,17 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "study" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
   study_id:
-    description: "study identifier"
+    description: "A sequence of characters used to identify, name, or characterize the study."
     enum:
       - AAML03P1
       - AAML0531
@@ -119,6 +121,7 @@ properties:
       - RMS95
       - ARST08P1
   study_phase:
+    description: "Clinical trials are broken into three or four phases: Phase I tests a new drug or treatment for safety in a small group; Phase II expands the study to a larger group of people; Phase III expands the study to an even larger group of people to measure whether the treatment actually benefits patients, and whether its benefits exceed its risks; and Phase IV takes place after the drug or treatment has been licensed and marketed."
     enum:
       - "Pilot"
       - "Phase 1"
@@ -127,6 +130,7 @@ properties:
       - "Unknown"
       - "Not Reported"
   study_type:
+    description: "The nature of the investigation or the investigational use for which clinical study is being done."
     enum:
       - "Frontline"
       - "Retrieval"

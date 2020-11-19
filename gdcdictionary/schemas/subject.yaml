@@ -40,6 +40,7 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "subject" ]
   id:
     $ref: "_definitions.yaml#/UUID"
@@ -51,11 +52,12 @@ properties:
     type:
       - string
   consortium:
+    description: "Consortium that governs use and release of data for the subject in a particular study"
     enum:
       - INRG
       - INSTRuCT
   data_contributor_id:
-    description: "Data Contributor identifier"
+    description: "An identifier assigned to a data contributor source where subject records originated"
     enum:
       - AIEOP
       - BFM-SG
@@ -89,17 +91,19 @@ properties:
       - ICG
       - CWS
   treatment_arm:
-    description: "Treatment Arm"
+    description: "A specific treatment plan within a clinical trial that describes the activities a subject will be involved in as he or she progresses through the study."
     type:
       - string
   age_at_enrollment:
+    description: "Age of subject (in days) when the subject enrolled in the study."
     type:
       - number
   year_at_enrollment:
+    description: "Year the subject was enrolled"
     type:
       - number
   enrolled_status:
-    description: "enrolled_status"
+    description: "The current status of the subject's enrollment."
     enum:
       - "Enrolled"
       - "Not Enrolled"

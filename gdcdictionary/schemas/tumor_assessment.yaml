@@ -43,23 +43,28 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "tumor_assessment" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
-  age_at:
+  age_at_tumor_assessment:
+    description: "Age in days at tumor assessment"
     type:
       - number
   tumor_classification:
+    description: "Classification of the tumor"
     enum:
       - Primary
       - Metastatic
       - Unknown
       - Not reported
   tumor_site:
+    description: "Site of tumor"
     enum:
       - Pelvis
       - Neck
@@ -128,29 +133,30 @@ properties:
       - Other Orbit
       - Other Face
   tumor_site_other:
+    description: "Text description for tumor site if it is not one of the categorical values"
     type:
       - string
   longest_diam_dim1:
-    description: "The longest diameter of the tumor (cm), dimension 1."
+    description: "The longest diameter of the Tumor Dimension 1 (in centimeters)"
     type:
       - number
   longest_diam_dim2:
-    description: "The longest diameter of the tumor (cm), dimension 2."
+    description: "The longest diameter of the Tumor Dimension 2 (in centimeters)"
     type:
       - number
   longest_diam_dim3:
-    description: "The longest diameter of the tumor (cm), dimension 3."
+    description: "The longest diameter of the Tumor Dimension 3 (in centimeters)"
     type:
       - number
   tumor_size:
-    description: "Categorical (binned) tumor size"
+    description: "Categorical (binned) value for tumor size"
     enum:
       - "<=5 cm"
       - ">5 cm"
       - "Unknown"
       - "Not reported"
   invasiveness:
-    description: Tumor invasiveness
+    description: Tumor Invasiveness
     enum:
       - T1 Stage Finding
       - T2 Stage Finding
