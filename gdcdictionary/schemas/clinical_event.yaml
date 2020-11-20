@@ -43,22 +43,26 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "clinical_event" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
   clinical_event_type:
     $ref: "_definitions.yaml#/clinical_event_type"
     
   disease_phase:
+    description: "The stage or period of an individual's disease."
     enum:
       - "Initial Diagnosis"
       - "Relapse"
       - "Progression"  
   course:
+    description: "The type of protocol treatment course administered."
     enum:
       - "Prephase"
       - "Induction"
@@ -66,21 +70,27 @@ properties:
       - "Consolidation"
       - "Mainteinance"
   disease_phase_number:
+    description: "The number of the disease phase."
     type:
       - number
   age_at_disease_phase:
+    description: "Age of subject (in days) at the disease phase."
     type:
       - number
   year_at_disease_phase:
+    description: "Year of disease phase"
     type:
       - number
   course_number:
+    description: "The number assigned to a course of therapeutic agent administration, indicating where a particular course of treatment falls within a sequence of treatments."
     type:
       - number
   age_at_course_start:
+    description: "Age of subject (in days) at the start of the course."
     type:
       - number
   age_at_course_end:
+     description: "Age of subject (in days) at the end of the course."
     type:
       - number
   
