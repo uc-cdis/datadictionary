@@ -43,11 +43,13 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "test" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
       - "null"

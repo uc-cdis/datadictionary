@@ -37,14 +37,17 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "medical_history" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
   medical_history:
+    description: "The verbatim description of the medical history being reported."
     enum:
       - Adenomatous Polyposis Coli
       - Costello Syndrome
@@ -66,6 +69,7 @@ properties:
       - Unknown
       - Not Reported
   dysgenetic_gonad:
+    Description: "Dysgenetic Gonad"
     enum:
       - "No"
       - "Yes"
