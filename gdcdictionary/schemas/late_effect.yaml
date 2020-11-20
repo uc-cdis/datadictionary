@@ -37,15 +37,18 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "late_effect" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
       - "null"
   age_at_le_eval:
+    description: "Age of the subject (in days) at late effect evaluation"
     type:
       - number
 

@@ -54,12 +54,15 @@ properties:
       - string
       - "null"
   age_at:
+    description: "Age of the subject (in days) at the time of test"
     type:
       - number
   result:
+    description: "Result for qualitative results"
     type:
       - string
   result_numeric:
+    description: "Result for quantitative results"
     type:
       - number
   

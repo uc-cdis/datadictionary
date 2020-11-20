@@ -43,17 +43,21 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "histology" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
-  age_at:
+  age_at_hist_assessment:
+    description: "Age of subject (in days) at histology assessment"
     type:
       - number
   histology:
+    description: "The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs.  In pathology, the microscopic process of identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains."
     enum:
       - "Alveolar rhabdomyosarcoma (ARMS)"
       - "Botryoid rhabdomyosarcoma (BRMS)"

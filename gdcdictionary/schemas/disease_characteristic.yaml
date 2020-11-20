@@ -37,15 +37,18 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "disease_characteristic" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
       - "null"
   fab_type:
+    description: "A classification system for acute myeloid leukemias, acute lymphoblastic leukemias, and myelodysplastic syndromes. It is based on the morphologic and cytochemical evaluation of bone marrow and peripheral blood smears."
     enum:
       - M0
       - M1
@@ -61,6 +64,7 @@ properties:
       - Unknown
       - Not Reported
   who_aml:
+    description: "A classification of acute myeloid leukemia tumors by the World Health Organization (WHO)."
     enum:
       - AML with t(8;21)(q22;q22.1); RUNX1-RUNX1T1
       - AML with inv(16)(p13.1q22) or t(16;16)(p13.1;q22); CBFB-MYH11
@@ -92,6 +96,7 @@ properties:
       - Unknown
       - Not Reported
   all_type:
+    description: "Type of Acute Lymphocytic Leukemia (ALL)"
     enum:
       - B-ALL
       - B-Precursor
@@ -99,6 +104,7 @@ properties:
       - Acute Leukemia, ambiguous lineage (mixed or biphenotypic)
       - MPAL
   igccc_risk_group:
+    description: "Internationl Germ Cell Classification Consensus (IGCCC) tumor marker criteria" 
     enum:
       - IGCCC Good
       - IGCCC Intermediate
@@ -106,6 +112,7 @@ properties:
       - Unknown
       - Not Reported
   magic_risk_group:
+    description: "MaGIC Risk stratification"
     enum:
       - Low
       - Standard

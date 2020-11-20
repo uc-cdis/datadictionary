@@ -43,22 +43,27 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "molecular_analysis" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
-  age_at:
+  age_at_molecular_analysis:
+    description: Age of the subject (in days) at molecular analysis
     type:
       - number
   molecular_abnormality:
+    description: "A molecular or cytogenic abnormality which occurs in either human disease states or disease models."
     enum:
       - "PAX3-FOXO1"
       - "PAX3-Other"
       - "PAX7-FOXO1"
   variant_type:
+    description: "A variation in or modification of the molecular sequence of a gene or gene product."
     enum:
       - Translocation
       - Inversion
@@ -72,12 +77,15 @@ properties:
       - Unknown
       - Not Reported
   gene1:
+    description: "The gene symbol that represents either a single gene that has a mutation or the gene that comprises the 5' portion of the coding sequence involved in a fusion gene mutation."
     type:
       - string
   gene2:
+    description: "The gene symbol that represents the gene that comprises the 3' portion of the coding sequence for a fusion gene."
     type:
       - string
   molecular_abnormality_result:
+    description: "An indicator for whether a molecular analysis procedure was performed and whether the assay detected a molecular abnormality."
     enum:
       - Positive
       - Negative
@@ -85,12 +93,14 @@ properties:
       - Not Reported
       - Unknown
   anaplasia:
+    description: "An indicator of whether anaplasia was present in the subject"
     enum:
       - Absent
       - Present
       - Unknown
       - Not reported
   anaplasia_extent:
+    description: "An indicator of the extent of anaplasia present in the subject"
     enum:
       - Diffuse
       - Focal

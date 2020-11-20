@@ -43,14 +43,17 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "secondary_malignancy" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
   age_at:
+    description: "Age in days at secondary malignancy diagnosis"
     type:
       - number
  

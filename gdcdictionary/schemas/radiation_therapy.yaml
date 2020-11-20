@@ -43,11 +43,13 @@ uniqueKeys:
 
 properties:
   type:
+    description: "Default system-assigned property for each node"
     enum: [ "radiation_therapy" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
   age_at:
@@ -129,11 +131,15 @@ properties:
       - Electrons
       - Unknown
   rt_dose:
+    description: "Total radiation dose"
     type:
       - number
   rt_unit:
+    description: "Radiation dose unit"
     enum:
       - Gy
+      - Unknown
+      - Not Reported
 
   
 
