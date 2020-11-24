@@ -90,7 +90,7 @@ properties:
     type:
       - number
   age_at_course_end:
-     description: "Age of subject (in days) at the end of the course."
+    description: "Age of subject (in days) at the end of the course."
     type:
       - number
   

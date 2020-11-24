@@ -53,7 +53,7 @@ properties:
     type:
       - string
   age_at_lkss:
-    description:"Age of subject (in days) at the last known survival status."
+    description: "Age of subject (in days) at the last known survival status."
     type:
       - number
   lkss:

@@ -107,6 +107,12 @@ properties:
     enum:
       - "Enrolled"
       - "Not Enrolled"
+  censor_status:
+    description: "Censor Status"
+    enum:
+      - "Subject is censored (i.e. has had no events(s)"
+      - "Subject has had one or more events"
+      - Unknown
 
 
 
