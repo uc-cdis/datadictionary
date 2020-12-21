@@ -4,7 +4,7 @@ id: "radiation_therapy"
 title: Radiation Therapy
 type: object
 namespace: http://cri.uchicago.edu/
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: "Radiation Therapy"

@@ -4,7 +4,7 @@ id: "medical_history"
 title: Medical History
 type: object
 namespace: http://cri.uchicago.edu/
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: "Medical History"

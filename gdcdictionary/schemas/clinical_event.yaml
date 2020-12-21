@@ -4,7 +4,7 @@ id: "clinical_event"
 title: Clinical Events
 type: object
 namespace: http://cri.uchicago.edu/
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: "Clinical Events"

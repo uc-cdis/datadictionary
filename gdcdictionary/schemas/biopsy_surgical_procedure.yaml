@@ -4,7 +4,7 @@ id: "biopsy_surgical_procedure"
 title: Biopsy Surgical Procedure
 type: object
 namespace: http://cri.uchicago.edu/
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: "Biopsy Surgical Procedure"

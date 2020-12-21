@@ -4,7 +4,7 @@ id: "molecular_analysis"
 title: Molecular Analysis
 type: object
 namespace: http://cri.uchicago.edu/
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: "Molecular Analysis"
@@ -59,9 +59,10 @@ properties:
   molecular_abnormality:
     description: "A molecular or cytogenic abnormality which occurs in either human disease states or disease models."
     enum:
-      - "PAX3-FOXO1"
-      - "PAX3-Other"
-      - "PAX7-FOXO1"
+      - "FOXO1-PAX3 fusion"
+      - "FOXO1-PAX7 fusion"
+      - "FOXO1-Other fusion"
+      - "PAX3-Other fusion"
   variant_type:
     description: "A variation in or modification of the molecular sequence of a gene or gene product."
     enum:

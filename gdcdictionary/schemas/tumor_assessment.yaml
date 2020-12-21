@@ -4,7 +4,7 @@ id: "tumor_assessment"
 title: Tumor Assessment
 type: object
 namespace: http://cri.uchicago.edu/
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: "Tumor Assessment"

@@ -4,7 +4,7 @@ id: "late_effect"
 title: Late Effects
 type: object
 namespace: http://cri.uchicago.edu/
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: "Late Effects"
