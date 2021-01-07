@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "subject_response"
-title: Subject Response
+id: "total_dose"
+title: Total Dose
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Subject Response"
+description: "Total Dose"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: subject_responses 
+    backref: total_doses 
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: subject_responses
+    backref: total_doses
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "subject_response" ]
+    enum: [ "total_dose" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,58 +52,44 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_response:
-    description: "Age in days at response assessment"
+  age_at_total_dose_start:
+    description: ""
     type:
       - number
-  tx_prior_response:
-    description: "Treatment type prior to response assessment"
-    enum:
-      - Chemotherapy
-      - Chemoradiotherapy
-  response_category:
-    description: ""
-    enum:
-      - Overall Response
-      - Overall Response by Method
-      - Unknown
-      - Not Reported
-  response:
-    description: "Description of the subject's response" 
-    enum:
-      - Partial response
-      - Stable Disease
-      - Progressive disease
-      - Complete response
-      - Not evaluable
-      - Unknown
-      - Not Reported
-  response_method:
-    description: ""
-    enum:
-      - Imaging
-      - Tumor Marker
-      - Pathology
-      - Unknown
-      - Not Reported
-  response_criteria:
-    description: ""
-    enum:
-      - RECIST
-      - WHO
-      - Choi
-      - mRECIST
-      - PERCIST
-      - Unknown
-      - Not Reported
-  response_criteria_version:
+  age_at_total_dose_end:
     description: ""
     type:
-      - string
-  
-
-
-
+      - number
+  antineoplastic_agent:
+    description: ""
+    enum:
+      - Amifostine
+      - Bleomycin
+      - Carboplatin
+      - Cisplatin
+      - Cyclophosphamide
+      - Dactinomycin
+      - Etoposide
+      - Etoposide Phosphate
+      - Gemcitabine
+      - Ifosfamide
+      - Melphalan
+      - Paclitaxel
+      - Vinblastine
+      - Vincristine
+  total_dose_administered:
+    description: ""
+    type:
+      - number
+  total_dose_unit:
+    description: ""
+    enum:
+      - mg/m2
+      - mg/kg
+      - mg
+      - IU
+      - Unknown
+      - Not reported
   
 
   clinical_events:

@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "subject_response"
-title: Subject Response
+id: "adverse_event"
+title: Adverse Event
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Subject Response"
+description: "Adverser Event"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: subject_responses 
+    backref: adverse_events 
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: subject_responses
+    backref: adverse_events
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "subject_response" ]
+    enum: [ "adverse_event" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,57 +52,50 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_response:
-    description: "Age in days at response assessment"
+  age_at_ae:
+    description: ""
     type:
       - number
-  tx_prior_response:
-    description: "Treatment type prior to response assessment"
-    enum:
-      - Chemotherapy
-      - Chemoradiotherapy
-  response_category:
+  adverse_event: 
     description: ""
     enum:
-      - Overall Response
-      - Overall Response by Method
+      - Renal Toxicity
+      - Neuropathy
+      - Pulmonary Toxicity
+      - Ototoxicity
+      - Other
       - Unknown
       - Not Reported
-  response:
-    description: "Description of the subject's response" 
-    enum:
-      - Partial response
-      - Stable Disease
-      - Progressive disease
-      - Complete response
-      - Not evaluable
-      - Unknown
-      - Not Reported
-  response_method:
+  ae_grade:
     description: ""
     enum:
-      - Imaging
-      - Tumor Marker
-      - Pathology
+      - Grade 1 
+      - Grade 2 
+      - Grade 3 
+      - Grade 4 
+      - Grade 5
       - Unknown
       - Not Reported
-  response_criteria:
+  ae_attribution:
     description: ""
     enum:
-      - RECIST
-      - WHO
-      - Choi
-      - mRECIST
-      - PERCIST
+      - Definite
+      - Probable
+      - Possible
+      - Unlikely
+      - Unrelated
       - Unknown
       - Not Reported
-  response_criteria_version:
+  ae_outcome:
     description: ""
-    type:
-      - string
-  
-
-
+    enum:
+      - "Death, Contributory"
+      - "Death, Noncontributory"
+      - Not Yet Recovered
+      - Recovered with Sequelae
+      - Recovered
+      - Unknown
+      - Not Reported
 
   
 

@@ -56,9 +56,31 @@ properties:
     description: "Age of subject (in days) at histology assessment"
     type:
       - number
+  hist_assessment_review:
+    description: ""
+    enum:
+      - Institutional
+      - Central
+      - Unknown
+      - Not Reported
   histology:
     description: "The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs.  In pathology, the microscopic process of identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains."
     enum:
+      - Germinoma
+      - Dysgerminoma
+      - Seminoma
+      - "Seminoma/Dysgerminoma/Germinoma"
+      - Malignant Teratoma
+      - Mixed Germ Cell Tumor
+      - "Teratoma, Not Otherwise Specified"
+      - Necrotic Tumor
+      - Somatic Malignancy
+      - Gonadoblastoma
+      - Immature Teratoma
+      - Mature Teratoma
+      - Choriocarcinoma
+      - Yolk Sac Tumor
+      - Embryonal Carcinoma
       - "Alveolar rhabdomyosarcoma (ARMS)"
       - "Botryoid rhabdomyosarcoma (BRMS)"
       - "Embryonal rhabdomyosarcoma (ERMS)"
@@ -69,7 +91,51 @@ properties:
       - Spindle cell
       - Unknown
       - Not reported
-  
+  histology_result:
+    description: ""
+    type:
+      - string
+  histology_result_numeric:
+    description: ""
+    type:
+      - number
+  histology_result_unit:
+    description: ""
+    enum:
+      - "%"
+      - Unknown
+      - Not Reported
+  hist_ICD_O_morph_code:
+    description: ""
+    type:
+      - string
+  histology_grade:
+    description: ""
+    enum:
+      - Grade 1
+      - Grade 2
+      - Grade 3
+      - Unknown
+      - Not Reported
+  mature_glial_implants:
+    description: ""
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  somatic_malignancy_type:
+    description: ""
+    enum:
+      - Rhabdomyosarcoma
+      - Sarcoma, Not Otherwise Specified
+      - Adenocarcinoma
+      - Primitive Neuroectodermal Tumor
+      - Squamous Cell Carcinoma
+      - Malignant Histiocytosis
+      - Other
+      - Unknown
+      - Not Reported
 
   
   clinical_events:

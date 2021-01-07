@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "secondary_malignancy"
-title: Secondary Malignancy
+id: "vital"
+title: Vitals
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Secondary Malignancy"
+description: "Vitals"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,21 +21,21 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: secondary_malignancys 
+    backref: vitals 
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: secondary_malignancys
+    backref: vitals
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
-    required: false
+    required: true
 
 required:
   - submitter_id
-  - subjects
+  - clinical_events
 
 uniqueKeys:
   - [ id ]
@@ -44,24 +44,40 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "secondary_malignancy" ]
+    enum: [ "vital" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: ""
     type:
       - string
-  age_at:
-    description: "Age in days at secondary malignancy diagnosis"
+      - "null"
+  age_at_vitals:
+    description: ""
     type:
       - number
- 
-  
+  vitals_test:
+    description: ""
+    enum:
+      - Weight
+      - Height
+  vitals_result:
+    type:
+      - string
+  vitals_result_numeric:
+    type:
+      - number
+  vitals_result_unit:
+    enum:
+      - Kg
+      - cm
+      - Unknown
+      - Not Reported
   
 
   clinical_events:
-    $ref: "_definitions.yaml#/to_one" 
+    $ref: "_definitions.yaml#/to_one"   
   subjects:
     $ref: "_definitions.yaml#/to_one" 
   project_id:
@@ -70,7 +86,5 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
-
   state:
     $ref: "_definitions.yaml#/state"
-

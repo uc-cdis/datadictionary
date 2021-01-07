@@ -67,6 +67,19 @@ properties:
   procedure_site:
     description: "The anatomical site on which surgery was performed."
     enum:
+      - Thalamus
+      - Testis
+      - Temporal Cortex
+      - Suprasellar/Neurohypophyseal
+      - Spinal Cord
+      - Sacrococcygeal
+      - Retroperitoneum
+      - Pineal
+      - Parietal Cortex
+      - Occipital Cortex
+      - Mediastinum
+      - Head and Neck
+      - Frontal Cortex
       - Pelvis
       - Neck
       - Retroperitoneal
@@ -121,6 +134,7 @@ properties:
       - Pleural Effusion
       - Soft Tissue
       - "Liver/Biliary Tract"
+      - Liver
       - Lung
       - Other
       - Unknown

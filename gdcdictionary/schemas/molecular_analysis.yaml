@@ -63,6 +63,18 @@ properties:
       - "FOXO1-PAX7 fusion"
       - "FOXO1-Other fusion"
       - "PAX3-Other fusion"
+      - 45XO
+      - "45XO w/ Y Chromosomal Material"
+      - 46XX
+      - 46XY
+      - 47XYY
+      - 47XXY
+      - 47XXX
+      - 48XXXY
+      - 48XXXX
+      - Unknown
+      - Not Reported
+
   variant_type:
     description: "A variation in or modification of the molecular sequence of a gene or gene product."
     enum:
@@ -107,7 +119,39 @@ properties:
       - Focal
       - Unknown
       - Not reported
-  
+  molecular_analysis_method:
+    description: ""
+    enum:
+      - Karyotype
+      - Cytogenetics
+      - Unknown
+      - Not Reported
+  karyotype_status:
+    description: ""
+    enum:
+      - Normal Karyotype
+      - Abnormal Karyotype
+      - Unknown
+      - Not Reported
+  iscn:
+    description: ""
+    type:
+      - string
+  num_chromosomes:
+    description: ""
+    type:
+      - number
+  indepen_abb:
+    description: ""
+    type:
+      - number
+  chromosome:
+    description: ""
+    type:
+      - string
+
+
+
 
   
 

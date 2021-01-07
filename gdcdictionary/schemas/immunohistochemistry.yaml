@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "subject_response"
-title: Subject Response
+id: "immunohistochemistry"
+title: Immunohistochemistry
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Subject Response"
+description: "Immunohistochemistry"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: subject_responses 
+    backref: immunohistochemistrys 
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: subject_responses
+    backref: immunohistochemistrys
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "subject_response" ]
+    enum: [ "immunohistochemistry" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,57 +52,39 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_response:
-    description: "Age in days at response assessment"
+  age_at_ihc:
+    description: ""
     type:
       - number
-  tx_prior_response:
-    description: "Treatment type prior to response assessment"
-    enum:
-      - Chemotherapy
-      - Chemoradiotherapy
-  response_category:
+  ihc_test:
     description: ""
     enum:
-      - Overall Response
-      - Overall Response by Method
-      - Unknown
-      - Not Reported
-  response:
-    description: "Description of the subject's response" 
-    enum:
-      - Partial response
-      - Stable Disease
-      - Progressive disease
-      - Complete response
-      - Not evaluable
-      - Unknown
-      - Not Reported
-  response_method:
-    description: ""
-    enum:
-      - Imaging
-      - Tumor Marker
-      - Pathology
-      - Unknown
-      - Not Reported
-  response_criteria:
-    description: ""
-    enum:
-      - RECIST
-      - WHO
-      - Choi
-      - mRECIST
-      - PERCIST
-      - Unknown
-      - Not Reported
-  response_criteria_version:
+      - CD30
+      - "β-catenin"
+      - GPC3
+  ihc_result:
     description: ""
     type:
       - string
-  
-
-
+  ihc_result_numeric:
+    description: ""
+    type:
+      - number
+  ihc_result_unit:
+    description: ""
+    enum:
+      - "U/L"
+      - Number of events
+      - Intensity
+      - "mm/h"
+      - Unknown
+      - Not Reported
+  ihc_spec_type:
+    description: ""
+    enum:
+      - Tissue
+      - Unknown
+      - Not Reported
 
   
 

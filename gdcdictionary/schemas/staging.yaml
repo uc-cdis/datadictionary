@@ -56,6 +56,40 @@ properties:
     description: "Age of the subject (in days) at staging assessment"
     type:
       - number
+  stage_system:
+    description: ""
+    enum: 
+      - FIGO
+      - COG
+      - AJCC
+      - Unknown
+      - Not Reported
+  stage:
+    description: ""
+    enum: 
+      - Stage I
+      - Stage II
+      - Stage III
+      - Stage IV
+      - Stage I
+      - Stage II
+      - Stage III
+      - Stage IV
+      - Stage 0
+      - Stage I
+      - Stage IA
+      - Stage IB
+      - Stage IS
+      - Stage II
+      - Stage IIA
+      - Stage IIB
+      - Stage IIC
+      - Stage III
+      - Stage IIIA
+      - Stage IIIB
+      - Stage IIIC
+      - Unknown
+      - Not Reported
   tnm_finding:
     description: "TNM finding" 
     enum:

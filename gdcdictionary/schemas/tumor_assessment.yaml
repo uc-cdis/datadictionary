@@ -56,6 +56,13 @@ properties:
     description: "Age in days at tumor assessment"
     type:
       - number
+  tumor_detection_method:
+    description: ""
+    enum:
+      - "Imaging, Not Otherwise Specified"
+      - PET
+      - Unknown
+      - Not Reported
   tumor_classification:
     description: "Classification of the tumor"
     enum:
@@ -63,9 +70,35 @@ properties:
       - Metastatic
       - Unknown
       - Not reported
+  tumor_laterality:
+    description: "Dominant use or manifestations of one side of the body versus the other; referring to a side of the body or of a structure."
+    enum: 
+      - Left
+      - Right
+      - Bilateral
+      - Midline
+      - Unknown
+      - Not Reported
   tumor_site:
     description: "Site of tumor"
     enum:
+      - Thalamus
+      - Testis
+      - Temporal Cortex
+      - Pineal
+      - Suprasellar/Neurohypophyseal and Pineal
+      - Suprasellar/Neurohypophyseal
+      - Spine
+      - Spinal Cord
+      - Sacrococcygeal
+      - Parietal Cortex
+      - Omentum/Peritoneum
+      - Occipital Cortex
+      - Mediastinum
+      - Head and Neck
+      - Frontal Cortex
+      - Cerebrospinal Fluid
+      - Ascitic Fluid
       - Pelvis
       - Neck
       - Retroperitoneum
@@ -122,6 +155,7 @@ properties:
       - Pleural effusion
       - Soft tissue
       - Liver/Biliary tract
+      - Liver
       - Lung
       - Other
       - Unknown
@@ -177,6 +211,24 @@ properties:
       - "Yes"
       - Unknown
       - Not reported
+  nodal_involvement:
+    description: "A finding indicating that a malignant neoplasm has spread to regional lymph nodes."
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not reported
+  nodal_site:
+    description: ""
+    enum:
+      - Cervix
+      - Mediastinum
+      - Omentum
+      - Pelvis
+      - Retroperitoneum
+      - Other
+      - Unknown
+      - Not Reported
   parameningeal_extension:
     description: "Parameningeal Extension"
     enum:

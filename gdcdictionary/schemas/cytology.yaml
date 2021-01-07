@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "subject_response"
-title: Subject Response
+id: "cytology"
+title: Cytology
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Subject Response"
+description: "Cytology"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: subject_responses 
+    backref: cytologys 
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: subject_responses
+    backref: cytologys
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "subject_response" ]
+    enum: [ "cytology" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,57 +52,24 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_response:
-    description: "Age in days at response assessment"
+  age_at_cytology:
+    description: ""
     type:
       - number
-  tx_prior_response:
-    description: "Treatment type prior to response assessment"
-    enum:
-      - Chemotherapy
-      - Chemoradiotherapy
-  response_category:
+  malignant_cells:
     description: ""
     enum:
-      - Overall Response
-      - Overall Response by Method
+      - Present
+      - Absent
       - Unknown
       - Not Reported
-  response:
-    description: "Description of the subject's response" 
-    enum:
-      - Partial response
-      - Stable Disease
-      - Progressive disease
-      - Complete response
-      - Not evaluable
-      - Unknown
-      - Not Reported
-  response_method:
+  cytology_spec_type:
     description: ""
     enum:
-      - Imaging
-      - Tumor Marker
-      - Pathology
+      - Cerebrospinal Fluid
+      - Peritoneal Fluid
       - Unknown
       - Not Reported
-  response_criteria:
-    description: ""
-    enum:
-      - RECIST
-      - WHO
-      - Choi
-      - mRECIST
-      - PERCIST
-      - Unknown
-      - Not Reported
-  response_criteria_version:
-    description: ""
-    type:
-      - string
-  
-
-
 
   
 

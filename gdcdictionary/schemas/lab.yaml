@@ -1,0 +1,148 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "lab"
+title: Labs
+type: object
+namespace: http://cri.uchicago.edu/
+category: clinical
+program: '*'
+project: '*'
+description: "Labs"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: labs 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: labs
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - clinical_events
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "lab" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: ""
+    type:
+      - string
+      - "null"
+  age_at_lab:
+    description: "Age of subject (in days) when the laboratory test was performed."
+    type:
+      - number
+  lab_cat:
+    description: ""
+    enum:
+      - Cerebrospinal Fluid Analysis
+      - microRNA Sequencing
+      - Other
+      - Unknown 
+      - Not Reported
+  lab_test:
+    description: ""
+    enum:
+      - LDH
+      - AFP
+      - β-hCG
+      - miR-371a-3p
+      - miR-372-3p
+      - miR-373-3p
+      - miR-367-3p
+      - miR-375-3p
+      - cfDNA/ctDNA
+  lab_spec_type:
+    description: ""
+    enum:
+      - Blood
+      - Serum
+      - Plasma
+      - Cerebrospinal Fluid
+      - Peritoneal Fluid
+      - Unknown
+      - Not reported
+  lab_result:
+    description: ""
+    type:
+      - string
+  lab_result_numeric:
+    description: ""
+    type:
+      - number
+  lab_result_unit:
+    description: ""
+    enum:
+      - "U/L"
+      - "ng/mL"
+      - "IU/L"
+      - Unknown
+      - Not Reported
+  lab_method:
+    description: ""
+    enum:
+      - MicroRNA Sequencing
+      - qPCR
+      - ddPCR
+      - Cytology
+      - Unknown
+      - Not reported
+  lab_seq_method:
+    description: ""
+    enum:
+      - Relative
+      - Absolute
+      - Unknown
+      - Not Reported
+  threshold_high:
+    description: ""
+    type:
+      - number
+  threshold_low:
+    description: ""
+    type:
+      - number
+  pmid_ref:
+    description: ""
+    type:
+      - number
+
+
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one"   
+  subjects:
+    $ref: "_definitions.yaml#/to_one" 
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  state:
+    $ref: "_definitions.yaml#/state"

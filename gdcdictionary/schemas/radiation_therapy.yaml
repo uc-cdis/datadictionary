@@ -52,7 +52,10 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at:
+  age_at_rt_start:
+    type:
+      - number
+  age_at_rt_end:
     type:
       - number
   rt_site_classification:
@@ -64,7 +67,21 @@ properties:
   rt_site:
     description: "Radiation Therapy Site"
     enum:
+      - Retroperitoneum
+      - Sacrococcygeal
+      - Spinal Cord
+      - Thalamus
+      - Testes
+      - Temporal Cortex
+      - Suprasellar/Neurohypophyseal and Pineal
+      - Suprasellar/Neurohypophyseal
+      - Pineal
+      - Parietal Cortex
+      - Occipital Cortex
+      - Mediastinum
+      - Frontal Cortex
       - "Pelvis"
+      - Head and Neck
       - "Neck"
       - "Retroperitoneal"
       - "Perineum"
@@ -117,6 +134,7 @@ properties:
       - "Distant Lymph Nodes"
       - "Pleural Effusion"
       - "Soft Tissue"
+      - Liver
       - "Liver/Biliary Tract"
       - Lung
       - Other
@@ -125,11 +143,12 @@ properties:
   energy_type:
     description: Type of particles and energy
     enum:
-      - Protons
+      - Proton
       - Photon
       - Brachytherapy
       - Electrons
       - Unknown
+      - Not Reported
   rt_dose:
     description: "Total radiation dose"
     type:
@@ -140,6 +159,15 @@ properties:
       - Gy
       - Unknown
       - Not Reported
+  boost:
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  num_fraction:
+    type:
+      - number
 
   
 
