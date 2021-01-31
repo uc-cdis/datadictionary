@@ -110,7 +110,7 @@ properties:
   censor_status:
     description: "Censor Status"
     enum:
-      - "Subject is censored (i.e. has had no events(s)"
+      - "Subject is censored (i.e. has had no event(s))"
       - "Subject has had one or more events"
       - Unknown
 

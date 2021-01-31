@@ -82,6 +82,7 @@ properties:
   tumor_site:
     description: "Site of tumor"
     enum:
+      - Buttocks
       - Thalamus
       - Testis
       - Temporal Cortex
@@ -166,6 +167,7 @@ properties:
       - Other GU Non-Bladder/Prostate
       - Other Orbit
       - Other Face
+      - Not Reported
   tumor_site_other:
     description: "Text description for tumor site if it is not one of the categorical values"
     type:
