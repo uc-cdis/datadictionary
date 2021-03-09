@@ -151,13 +151,16 @@ properties:
       - Trunk
       - Bone or bone marrow
       - Bone
-      - Bone marrow
+      - Bone Marrow
       - Distant lymph nodes
       - Pleural effusion
       - Soft tissue
       - Liver/Biliary tract
       - Liver
       - Lung
+      - Skin
+      - Central Nervous System
+      - Adrenal Gland
       - Other
       - Unknown
       - Not reported

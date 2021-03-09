@@ -89,6 +89,10 @@ properties:
       - "Rhabdomyosarcoma (RMS), inadequate tissue for classification"
       - "Rhabdomyosarcoma (RMS), with Mixed Embryonal and Alveolar Features"
       - Spindle cell
+      - "Neuroblastoma (Schwannian Stroma-Poor)"
+      - "Ganglioneuroblastoma, Intermixed (Schwannian Stroma-Rich)"
+      - "Ganglioneuroma (Schwannian Stroma-Dominant), Maturing Subtype"
+      - "Ganglioneuroblastoma, Nodular (Composite)"
       - Unknown
       - Not reported
   histology_result:
@@ -115,6 +119,15 @@ properties:
       - Grade 1
       - Grade 2
       - Grade 3
+      - Undifferentiated or Poorly Differentiated
+      - Differentiating
+      - Unknown
+      - Not Reported
+  histology_inpc:
+    description: "Revised INPC Prognostic Group (2003)"
+    enum:
+      - Favorable
+      - Unfavorable
       - Unknown
       - Not Reported
   mature_glial_implants:

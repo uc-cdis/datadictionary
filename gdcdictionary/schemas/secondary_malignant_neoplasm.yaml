@@ -64,6 +64,29 @@ properties:
     description: ""
     type:
       - string
+  smn_top_txt:
+    description: ""
+    type:
+      - string
+  smn_top_sno:
+    description: ""
+    type:
+      - string
+  smn_morph_txt:
+    description: ""
+    type:
+      - string
+  smn_morph_sno:
+    description: ""
+    type:
+      - string
+  smn_yn:
+    description: "Secondary Malignancy"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown 
+      - Not Reported
  
   
   

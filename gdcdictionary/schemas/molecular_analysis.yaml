@@ -71,6 +71,15 @@ properties:
       - 47XXX
       - 48XXXY
       - 48XXXX
+      - "ALK p.F1174L mutation"
+      - "ALK rearranged"
+      - "ALK mutation"
+      - "ALK p.R1275L mutation"
+      - "11q deletion"
+      - "1p deletion"
+      - "17q gain"
+      - Other
+      - None
       - Unknown
       - Not Reported
 
@@ -85,6 +94,7 @@ properties:
       - Rearrangement
       - Deletion
       - Amplification
+      - Gain
       - Other
       - Unknown
       - Not Reported
@@ -94,6 +104,10 @@ properties:
       - string
   gene2:
     description: "The gene symbol that represents the gene that comprises the 3' portion of the coding sequence for a fusion gene."
+    type:
+      - string
+  aa_mutation:
+    description: "Amino Acid Mutation"
     type:
       - string
   molecular_abnormality_result:
@@ -148,6 +162,16 @@ properties:
     description: ""
     type:
       - string
+  dna_index:
+    enum:
+      - "DNA Index </= 1 (Hypodiploid, Diploid)"
+      - "DNA Index >1 (Hyperdiploid)"
+      - Unknown
+      - Not Reported
+  allelic_ratio:
+    description: ""
+    type:
+      - number
 
 
 

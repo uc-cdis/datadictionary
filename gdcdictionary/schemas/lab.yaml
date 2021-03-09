@@ -69,6 +69,7 @@ properties:
     description: ""
     enum:
       - LDH
+      - Ferritin
       - AFP
       - β-hCG
       - miR-371a-3p
