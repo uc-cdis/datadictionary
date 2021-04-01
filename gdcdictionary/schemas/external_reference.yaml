@@ -1,0 +1,85 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "external_reference"
+title: External Subject Reference
+type: object
+namespace: http://cri.uchicago.edu/
+category: administrative
+program: '*'
+project: '*'
+description: "External Reference"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: external_references 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+
+required:
+  - submitter_id
+  - subjects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "external_reference" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: "Internal External Reference ID"
+    type:
+      - string
+  external_resource_id:
+    description: "The ID associated to the external common"
+    type:
+      - string
+  external_resource_name:
+    description: "The name associated to the external common"
+    type:
+      - string
+  external_resource_icon_path:
+    description: "The URL where the external common logo can be found."
+    type:
+      - string
+  external_subject_id:
+    description: "The ID the subject has in the external common"
+    type:
+      - string
+  external_subject_submitter_id:
+    description: "The submitter_id the subject has in the external common"
+    type:
+      - string
+  external_subject_url:
+    description: "the URL where you can find this subject information in the external common"
+    type:
+      - string
+  
+  subjects:
+    $ref: "_definitions.yaml#/to_one"   
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
