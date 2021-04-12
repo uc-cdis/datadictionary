@@ -59,6 +59,7 @@ properties:
   molecular_abnormality:
     description: "A molecular or cytogenic abnormality which occurs in either human disease states or disease models."
     enum:
+      - MYCN Amplification
       - "FOXO1-PAX3 fusion"
       - "FOXO1-PAX7 fusion"
       - "FOXO1-Other fusion"
@@ -164,7 +165,7 @@ properties:
       - string
   dna_index:
     enum:
-      - "DNA Index </= 1 (Hypodiploid, Diploid)"
+      - "DNA Index <= 1 (Hypodiploid, Diploid)"
       - "DNA Index >1 (Hyperdiploid)"
       - Unknown
       - Not Reported
