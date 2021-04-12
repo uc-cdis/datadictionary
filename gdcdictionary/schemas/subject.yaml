@@ -90,6 +90,7 @@ properties:
       - SIOP MMT
       - ICG
       - CWS
+      - JCCG
   treatment_arm:
     description: "A specific treatment plan within a clinical trial that describes the activities a subject will be involved in as he or she progresses through the study."
     type:
