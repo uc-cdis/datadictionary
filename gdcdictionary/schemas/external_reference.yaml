@@ -70,6 +70,10 @@ properties:
     description: "the URL where you can find this subject information in the external common"
     type:
       - string
+  external_links:
+    description: "temporary variable, TO be deprecated soon"
+    type:
+      - string
   
   subjects:
     $ref: "_definitions.yaml#/to_one"   
