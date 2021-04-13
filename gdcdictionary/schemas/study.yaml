@@ -349,6 +349,7 @@ properties:
       - ACCL1633
       - AGCT1531
       - ANBL1531
+      - ADVL1112
 
   study_phase:
     description: "Clinical trials are broken into three or four phases: Phase I tests a new drug or treatment for safety in a small group; Phase II expands the study to a larger group of people; Phase III expands the study to an even larger group of people to measure whether the treatment actually benefits patients, and whether its benefits exceed its risks; and Phase IV takes place after the drug or treatment has been licensed and marketed."

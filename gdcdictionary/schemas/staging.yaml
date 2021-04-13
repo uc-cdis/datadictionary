@@ -63,6 +63,7 @@ properties:
       - COG
       - AJCC
       - INSS
+      - INRGSS
       - EVANS
       - Unknown
       - Not Reported
