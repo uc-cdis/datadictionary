@@ -31,11 +31,11 @@ links:
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
-    required: true
+    required: false
 
 required:
   - submitter_id
-  - clinical_events
+  - subjects
 
 uniqueKeys:
   - [ id ]
