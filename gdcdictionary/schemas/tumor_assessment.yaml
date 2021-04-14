@@ -83,6 +83,7 @@ properties:
     description: "Site of tumor"
     enum:
       - Abdominal
+      - Lungs
       - Buttocks
       - Thalamus
       - Testis
