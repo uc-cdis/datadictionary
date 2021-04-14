@@ -70,28 +70,21 @@ properties:
   stage:
     description: ""
     enum: 
-      - Stage I (FIGO)
-      - Stage II (FIGO)
-      - Stage III (FIGO)
-      - Stage IV (FIGO)
-      - Stage I (COG)
-      - Stage II (COG)
-      - Stage III (COG)
-      - Stage IV (COG)
-      - Stage IVs (COG)
-      - Stage 0 (AJCC)
-      - Stage I (AJCC)
-      - Stage IA (AJCC)
-      - Stage IB (AJCC)
-      - Stage IS (AJCC)
-      - Stage II (AJCC)
-      - Stage IIA (AJCC)
-      - Stage IIB (AJCC)
-      - Stage IIC (AJCC)
-      - Stage III (AJCC)
-      - Stage IIIA (AJCC)
-      - Stage IIIB (AJCC)
-      - Stage IIIC (AJCC)
+      - Stage I
+      - Stage IA
+      - Stage IB
+      - Stage IS
+      - Stage II
+      - Stage IIA
+      - Stage IIB
+      - Stage IIC
+      - Stage III
+      - Stage IIIA
+      - Stage IIIB
+      - Stage IIIC
+      - Stage IV
+      - Stage IVs
+      - Stage 0
       - Stage 1
       - Stage 2a
       - Stage 2b
