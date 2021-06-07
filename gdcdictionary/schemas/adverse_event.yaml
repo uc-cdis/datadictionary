@@ -53,7 +53,7 @@ properties:
     type:
       - string
   age_at_ae:
-    description: ""
+    description: "Age in Days at Onset Adverse Event"
     type:
       - number
   adverse_event: 
