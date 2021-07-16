@@ -25,7 +25,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'PyYAML~=5.1',
-        'jsonschema>=2.5.1',
+        'jsonschema>=2.5.1,<4.0',
         'dictionaryutils',
     ],
     package_data={
