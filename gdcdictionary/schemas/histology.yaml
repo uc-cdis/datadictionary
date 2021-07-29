@@ -56,6 +56,37 @@ properties:
     description: "Age of subject (in days) at histology assessment"
     type:
       - number
+  disease_phase:
+    description: "Disease phase"
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Relapse/Progression
+      - Refractory
+  disease_phase_number:
+    description: "Disease phase number"
+    type:
+      - number 
+  course:
+    description: "Protocol Treatment Course"
+    enum:
+      - Prephase
+      - Induction
+      - Intensification
+      - Consolidation
+      - Stem Cell Transplant Conditioning 
+      - Maintenance
+      - Palliative Treatment
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+      - Other
+  course number:
+    description: "Course number"
+    type:
+      - number 
   hist_assessment_review:
     description: ""
     enum:
@@ -93,6 +124,94 @@ properties:
       - "Ganglioneuroblastoma, Intermixed (Schwannian Stroma-Rich)"
       - "Ganglioneuroma (Schwannian Stroma-Dominant), Maturing Subtype"
       - "Ganglioneuroblastoma, Nodular (Composite)"
+      - Undifferentiated Ewing Tumor
+      - Neuro-differentiated Ewing Tumor
+      - Large Cell Ewing Tumor
+      - Hodgkin Lymphoma, Not Otherwise Specified
+      - Hodgkin Lymphoma, Lymphocyte-Rich
+      - Hodgkin lymphoma, Mixed Cellularity, Not Otherwise Specified
+      - Hodgkin Lymphoma, Lymphocyte Depletion, Not Otherwise Specified
+      - Hodgkin Lymphoma, Nodular Lymphocyte Predominance
+      - Hodgkin Lymphoma, Nodular Sclerosis, Not Otherwise Specified
+      - Atypical Lipomatous Tumour (8850/1)
+      - Well differentiated Liposarcoma (8850/3)
+      - Dedifferentiated Liposarcoma (8858/3)
+      - Myxoid Liposarcoma (8852/3)
+      - Pleomorphic Liposarcoma (8854/3)
+      - Liposrcoma, Not Otherwise Specified (8850/3)
+      - Palmar/plantar Fibromatosis (8813/1)
+      - Desmoid-type Fibromatosis (8821/1)
+      - Lipofibromatosis (8851/1)
+      - Giant cell Fibroblastoma (8834/1)
+      - Dermatofibrosarcoma Protuberans (8832/1)
+      - Fibrosarcomatous Dermatofibrosarcoma Protuberans (8832/3)
+      - Pigmented Dermatofibrosarcoma Protuberans (8833/1)
+      - Solitary Fibrous tumour (8815/1)
+      - Solitary Fibrous tumour, malignant (8815/3)
+      - Inflammatory myofibroblastic tumour (8825/1)
+      - Low-grade myofibroblastic sarcoma (8825/3)
+      - Myxoinflammatory fibroblastic sarcoma/Atypical myxoinflammatory fibroblastic tumour (8811/1)
+      - Infantile Fibrosarcoma (8814/3)
+      - Adult Fibrosarcoma (8810/3)
+      - Myxofibrosarcoma (8811/3)
+      - Low-Grade Fibromyxoid Sarcoma (8840/3)
+      - Sclerosing Epithelioid Fibrosarcoma (8840/3)
+      - Tenosynovial Giant Cell Tumour Localized Type (9252/0)
+      - Tenosynovial Giant Cell Tumour Diffuse Type (9252/1)
+      - Tenosynovial Giant Cell Tumour Malignant (9252/3)
+      - Plexiform fibrohistiocytic tumour (8835/1)
+      - Giant Cell Tumour of Soft Tissues (9251/1)
+      - Leiomyosarcoma (Excluding Skin) (8890/3)
+      - Glomus Tumour (and Variants) (8711/0)
+      - Glomangiomatosis (8711/1)
+      - Malignant Glomus Tumour (8711/3)
+      - Kaposiform Haemangioendothelioma (9130/1)
+      - Retiform Haemangioendothelioma (9136/1)
+      - Papillary Intralymphatic Angioendothelioma (9135/1)
+      - Composite Haemangioendothelioma (9136/1)
+      - Pseudomyogenic (Epithelioid Sarcoma-Like) Haemangioendothelioma (9136/1)
+      - Kaposi Sarcoma (9140/3)
+      - Epithelioid Haemangioendothelioma (9133/3)
+      - Angiosarcoma of Soft Tissue (9120/3)
+      - Soft Tissue Chondroma (9220/0)
+      - Extraskeletal Mesenchymal Chondrosarcoma (9240/3)
+      - Extraskeletal Osteosarcoma (9180/3)
+      - Gastrointestinal Stromal Tumour, Uncertain Malignant Potential (8936/1)
+      - Gastrointestinal Stromal Tumour, Malignant (8936/3)
+      - Malignant peripheral nerve sheath tumor (9540/3)
+      - Epithelioid Malignant peripheral nerve sheath tumor (9542/3)
+      - Malignant Triton Tumour (9561/3)
+      - Malignant granular cell Tumour (9580/3)
+      - Ectomesenchymoma (8921/3)
+      - Haemosiderotic fibrolipomatous Tumour (8811/1)
+      - Atypical fibromyxanthoma (8830/1)
+      - Angiomatoid fibrous histiocytoma (8836/1)
+      - Ossifying fibromyxoid Tumour (8842/0)
+      - Ossifying fibromyxoid Tumour, Malignant (8842/3)
+      - Mixed Tumour Not Otherwise Specified (8940/0)
+      - Mixed Tumour Not Otherwise Specified, Malignant (8940/3)
+      - Myoepithelioma (8982/0)
+      - Myoepithelioma cacrinoma (8982/3)
+      - Phosphaturic mesenchymal Tumour, Benign (8990/0)
+      - Phosphaturic mesenchymal Tumour, Malignant (8990/3)
+      - Synovial sarcoma Not Otherwise Specified (9040/3)
+      - Synovial sarcoma, spindle cell (9041/3)
+      - Synovial sarcoma, biphasic (9043/3)
+      - Epithelioid sarcoma (8804/3)
+      - Alveolar soft-part sarcoma (9581/3)
+      - Clear cell sarcoma of soft tissue (9044/3)
+      - Extraskeletal myxoid chondrosarcoma (9231/3)
+      - Desmoplastic small round cell tumour (8806/3)
+      - Extra-renal rhabdoid tumor (8963/3)
+      - PEComa Not Otherwise Specified, benign (8714/0)
+      - PEComa Not Otherwise Specified, malignant (8714/3)
+      - Intimal sarcoma (9137/3)
+      - Undifferentiated spindle cell sarcoma (8801/3)
+      - Undifferentiated pleomorphic sarcoma (8802/3)
+      - Undifferentiated round cell sarcoma (8803/3)
+      - Undifferentiated epithelioid sarcoma (8804/3)
+      - Undifferentiated sarcoma Not Otherwise Specified (8805/3)
+      - Other 
       - Unknown
       - Not reported
   histology_result:

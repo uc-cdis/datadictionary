@@ -1,0 +1,91 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "disease_phase_timing"
+title: Disease Phase Timing
+type: object
+namespace: http://cri.uchicago.edu/
+category: clinical
+program: '*'
+project: '*'
+description: "Disease Phase Timing"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: disease_phase_timing
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: disease_phase_timing
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - subjects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "disease_phase_timing" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: "PCDC internal person ID"
+    type:
+      - string
+  disease_phase:
+    description: "The stage or period of an individual's disease."
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Relapse/Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  age_in_days_at_disease_phase:
+    description: "Age in days when the diagnosis was made for the Disease Phase."
+    type:
+      - number
+  year_at_disease_phase:
+    description: "Year when the diagnosis was made for the Disease Phase."
+    type:
+      - number    
+
+  
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+

@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "off_protocol_therapy_study"
-title: Off Protocol Therapy Study
+id: "course_timing"
+title: Course Timing
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Off Protocol Therapy Study"
+description: "Course Timing"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,16 +21,16 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: off_protocol_therapy_studys 
+    backref: course_timing
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: off_protocol_therapy_studys 
-    label: of
+    backref: course_timing
+    label: part of
     target_type: clinical_event
-    multiplicity: many_to_one    
+    multiplicity: many_to_one
     required: false
 
 required:
@@ -44,25 +44,14 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "off_protocol_therapy_study" ]
+    enum: [ "course_timing" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
+    description: "PCDC internal person ID"
     type:
       - string
-  age_off:
-    description: ""
-    type:
-      - number
-  disease_phase:
-    description: "The stage or period of an individual's disease."
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Relapse/Progression
-      - Refractory
   course:
     description: "Protocol Treatment Course"
     enum:
@@ -85,45 +74,42 @@ properties:
     description: "The number assigned to a course of therapeutic agent administration, indicating where a particular course of treatment falls within a sequence of treatments."
     type:
       - number
-  off_type:
-    description: "Off Protocol Therapy or Study"
-    enum:
-      - Protocol Therapy
-      - Study
-  reason_off:
+  age_at_course_start:
+    description: "Age of subject (in days) at the start of the course."
+    type:
+      - number
+  age_at_course_end:
+    description: "Age of subject (in days) at the end of the course."
+    type:
+      - number
+  age_at_txassign:
+    description: "Age in Days at Treatment Assignment."
+    type:
+      - number
+  age_at_course_anc_500:
+    description: "Age of subject (in days) when their neutrophil count exceeded a threshold of 500 (ANC/mm3) during the course.."
+    type:
+      - number
+  cycle_number:
     description: ""
-    enum:
-      - Death
-      - Lost to Follow-Up
-      - Completion of Follow-Up
-      - Completion of Planned Therapy
-      - Physician Decision
-      - Ineligible
-      - Withdrawal of Consent
-      - Subject/Guardian Refused Further Treatment
-      - Subject Non-Compliance
-      - Disease Progression
-      - Relapse
-      - Adverse Event
-      - Development of SMN
-      - Study Discontinuation
-      - Failure to Attain Remission
-      - Other
-      - Unknown
-      - Not Reported
-  another_study:
-    description: "Indicate if subject enrolled in Another Therapeutic Study After Off Study"
-    enum:
-      - "No"
-      - "Yes"
-      - Unknown
-      - Not Reported
+    type:
+      - number
+  age_at_cycle_start:
+    description: ""
+    type:
+      - number
+  age_at_cycle_start:
+    description: ""
+    type:
+      - number
+
+
   
-  
+
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 
   subjects:
-    $ref: "_definitions.yaml#/to_one"   
+    $ref: "_definitions.yaml#/to_one"  
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

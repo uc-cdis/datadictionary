@@ -1,0 +1,94 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "family_medical_history"
+title: Family Medical History
+type: object
+namespace: http://cri.uchicago.edu/
+category: clinical
+program: '*'
+project: '*'
+description: "Family Medical History"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: family_medical_history
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: family_medical_history
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - subjects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "family_medical_history" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: "PCDC internal person ID"
+    type:
+      - string
+  family_history:
+    description: "Family History of Cancer in First Degree Relatives"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  relative:
+    description: "Relative with History of Cancer"
+    enum:
+      - Father
+      - Mother
+      - Brother
+      - Sister
+      - Son
+      - Daughter
+      - Other
+      - Unknown
+      - Not Reported
+  prior_cancer:
+    description: "Prior Cancer Type"
+    type:
+      - string
+
+  
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+

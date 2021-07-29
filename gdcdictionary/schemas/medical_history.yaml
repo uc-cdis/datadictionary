@@ -65,7 +65,47 @@ properties:
       - Fanconi Anemia
       - Lynch Syndrome
       - Breast and Ovarian Cancer
+      - Beckwith-Wiedemann Syndrome
+      - Central Hypoventilation Syndrome
+      - Cushings Syndrome
+      - Denys-Drash Syndrome
+      - Down Syndrome
+      - Gorlin Syndrome
+      - Hemihypertrophy
+      - Heretidary Retinoblastoma
+      - Hirschprung Disease
+      - Neurofibromatosis Type I
+      - Noonan Syndrome
+      - WAGR Syndrome
+      - Werner Syndrome
+      - Celiac Disease
+      - Diabetes Mellitus (Type I)
+      - Goodpasture's Syndrome
+      - Graves' Disease
+      - Hashimoto's Thyroiditis
+      - Inflammatory Bowel Disease (Crohn's Disease or Ulcerative Colitis)
+      - Juvenile Idiopathic Arthritis
+      - Multiple Sclerosis
+      - Psoriasis
+      - Scleroderma
+      - Systematic Lupus Erythematosus
+      - Vitiligo
+      - Cleft Lip
+      - Cleft Palate
+      - Clubfoot
+      - Gastroschisis
+      - Heart Defect
+      - Mixed Connective Tissue Disease
+      - Graves' Disease
       - Other
+      - Unknown
+      - Not Reported
+  medical_history_category:
+    Description: "Medical History Category"
+    enum:
+      - Genetic Syndrome
+      - Autoimmune Disease
+      - Congenital Anomaly
       - Unknown
       - Not Reported
   dysgenetic_gonad:
@@ -75,6 +115,14 @@ properties:
       - "Yes"
       - Unknown
       - Not Reported
+  assisted_conception:
+    Description: "Conceived Through Assisted Conception"
+    enum:
+      - In Vitro Fertilization
+      - Intracytoplasmic Sperm Injection
+      - Other
+      - Unknown
+      - Not reported
   
   subjects:
     $ref: "_definitions.yaml#/to_one"   

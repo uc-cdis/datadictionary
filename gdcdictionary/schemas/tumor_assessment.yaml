@@ -56,6 +56,28 @@ properties:
     description: "Age in days at tumor assessment"
     type:
       - number
+  disease_phase:
+    description: "The stage or period of an individual's disease."
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Relapse/Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: "Protocol Treatment Course"
+    enum:
+      - Induction
+      - Consolidation
+      - Maintenance
+  course_number:
+    description: ""
+    type:
+      - number
   tumor_detection_method:
     description: ""
     enum:
