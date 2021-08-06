@@ -1,0 +1,244 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "lesion_characteristics"
+title: Lesion Characteristics
+type: object
+namespace: http://cri.uchicago.edu/
+category: clinical
+program: '*'
+project: '*'
+description: "Lesion Characteristics"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: lesion_characteristics
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: lesion_characteristics
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - subjects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "lesion_characteristics" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: "PCDC internal person ID"
+    type:
+      - string
+  age_at_lesion_assessment:
+    description: "Age in Days at Lesion Assessment"
+    type:
+      - number
+  disease_phase:
+    description: "Disease Phase"
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: "Protocol Treatment Course"
+    enum:
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy        
+  course_number:
+    description: ""
+    type:
+    - number
+  lesion_assessment_review:
+    description: "Institutional or Central Lesion Review"
+    enum:
+      - Insitutional
+      - Central
+      - Unknown
+      - Not Reported
+  lesion_detection_method:
+    description: "Lesion Detection Method"
+    enum:
+      - Biopsy
+      - Staging Laparotomy
+      - Lymphangiogram
+      - Plain Film Tomography
+      - Gallium Scan 
+      - CT Scan
+      - PET Scan
+      - PET-CT
+      - PET-MRI
+      - Ultrasound
+      - MRI
+      - X-Ray
+      - Bone Scan
+      - Physical Exam
+      - Other
+      - Unknown
+      - Not Reported
+  lesion_classification:
+    description: "Lesion Classification"
+    enum:
+      - Primary
+      - Metastatic
+      - Unknown
+      - Not Reported
+  lesion_site: 
+    description: ""
+    enum:
+      - Axillary Nodes
+      - Bone
+      - Bone Marrow
+      - Celiac Nodes
+      - Cervical Nodes, Occipital, Submental
+      - Epitrochlear or Brachial Nodes
+      - Hilar Nodes
+      - Infraclavicular Nodes
+      - Inguinal or Femoral Nodes
+      - Liver
+      - Lung
+      - Mediastinum
+      - Mesenteric Nodes
+      - Para-Aortic Nodes, Portal, Retrocrural,
+      - Pectoral Nodes
+      - Ilium
+      - Popliteal Nodes
+      - Pre-Auricular Nodes
+      - Spleen
+      - Splenic Hilar Nodes
+      - Supraclavicular Nodes
+      - Waldeyer's Ring: Nasopharynx, Tonsils
+      - Other
+      - Unknown
+      - Not Reported
+  e_extension_site:
+    description: "E-Lesion Extension Site"
+    enum:
+      - Bone
+      - Heart/pericardium
+      - Lungs/Pleura
+      - Soft Tissue
+      - Sternum/chest wall
+      - Other
+      - Unknown
+      - Not Reported
+  lesion_laterality:
+    description: ""
+    enum:
+      - Left
+      - Right
+      - Midline
+      - Unknown
+      - Not Reported
+  lesion_bulky:
+    description: ""
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  longest_diam_dim1:
+    description: "Longest Diameter of Tumor Dimension 1 (cm)"
+    type:
+      - number
+  diam_dim1_type:
+    description: "Dimension 1 Direction"
+    enum:
+      - Cranial-caudal
+      - Transverse
+      - Unknown
+      - Not Reported
+  longest_diam_dim2:
+    description: "Longest Diameter of Tumor Dimension 2 (cm)"
+    type:
+      - number
+  diam_dim2_type:
+    description: "Dimension 2 Direction"
+    enum:
+      - Cranial-caudal
+      - Transverse
+      - Unknown
+      - Not Reported
+  longest_diam_dim3:
+    description: "Longest Diameter of Tumor Dimension 3 (cm)"
+    type:
+      - number 
+  diam_dim3_type:
+    description: "Dimension 3 Direction"
+    enum:
+      - Cranial-caudal
+      - Transverse
+      - Unknown
+      - Not Reported
+  pleural_effusion:
+    description: "Pleural Effusion"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  pericardial_effusion:
+    description: "Pericardial Effusion"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  lesion_response:
+    description: ""
+    enum:
+      - Complete response
+      - Complete response unconfirmed
+      - Partial response
+      - Stable disease
+      - Progressive disease
+      - Unknown
+      - Not Reported
+  lesion_pct_change:
+    description: "2-dimensional Percent Change of Lesion" 
+    type:
+      - number
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+

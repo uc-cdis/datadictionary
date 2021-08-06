@@ -57,6 +57,28 @@ properties:
     description: "Age of subject (in days) when the laboratory test was performed."
     type:
       - number
+  disease_phase:
+    description: "Disease Phase"
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: ""
+    enum:
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy        
+  course_number:
+    description: ""
+    type:
+    - number
   lab_cat:
     description: ""
     enum:
@@ -68,16 +90,37 @@ properties:
   lab_test:
     description: ""
     enum:
-      - LDH
+      - Platelets
+      - RBC
+      - WBC
+      - Blasts
+      - Neutrophils
+      - Lymphocytes
+      - Monocytes
+      - Eosophinils
+      - ANC
+      - Hemoglobin
+      - Auer rods
+      - Albumin
+      - Alkaline phophatase
       - Ferritin
+      - LDH
+      - ESR
       - AFP
+      - CRP
+      - CD34
+      - TSH
+      - Free T4
+      - EBV IgG
+      - EBV DNA
       - β-hCG
       - miR-371a-3p
       - miR-372-3p
       - miR-373-3p
       - miR-367-3p
       - miR-375-3p
-      - cfDNA/ctDNA
+      - ctDNA
+      - cfDNA
   lab_spec_type:
     description: ""
     enum:
@@ -99,20 +142,31 @@ properties:
   lab_result_unit:
     description: ""
     enum:
-      - "U/L"
-      - "ng/mL"
-      - "IU/L"
+      - "%"
+      - count/mm3
+      - g/dL
+      - U/L
+      - ng/mL
+      - IU/L
+      - mm/h
+      - mg/L
+      - uIU/mL
+      - mcg/mL
       - Unknown
       - Not Reported
   lab_method:
     description: ""
     enum:
+      - Flow cytometry
+      - Morphology
       - MicroRNA Sequencing
+      - PCR
       - qPCR
       - ddPCR
       - Cytology
+      - Other
       - Unknown
-      - Not reported
+      - Not Reported
   lab_seq_method:
     description: ""
     enum:
@@ -132,7 +186,19 @@ properties:
     description: ""
     type:
       - number
-
+  bm_morphology: 
+    description: "Bone Marrow Blasts Morphology"
+    enum:
+      - M1 (less than 5 % blasts)
+      - M2 (5-25 % blasts) 
+      - M3 (greater than 25 % blasts)
+  traumatic_tap:
+    description: "Lumbar Puncture Artifically Contaminated by Peripheral Blood"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
 
 
   clinical_events:

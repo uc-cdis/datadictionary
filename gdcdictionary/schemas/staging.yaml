@@ -56,6 +56,37 @@ properties:
     description: "Age of the subject (in days) at staging assessment"
     type:
       - number
+
+  disease_phase:
+    description: "Disease Phase"
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: "Protocol Treatment Course"
+    enum:
+      - Prephase
+      - Induction
+      - Intensification
+      - Consolidation
+      - Stem Cell Transplant Conditioning 
+      - Maintenance
+      - Palliative Treatment
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+      - Other
+  course_number:
+    description: ""
+    type:
+      - number
   stage_system:
     description: ""
     enum: 
@@ -95,6 +126,27 @@ properties:
       - L2
       - M
       - MS
+      - Unknown
+      - Not Reported
+  AB:
+    description: "HL Ann Arbor A vs B Staging Designation" 
+    enum: 
+      - A
+      - B
+      - Unknown
+      - Not Reported
+  E:
+    description: "HL Ann Arbor E Staging Designation" 
+    enum:
+      - "Y"
+      - "N"
+      - Unknown
+      - Not Reported
+  S:
+    description: "HL Ann Arbor S Staging Designation" 
+    enum:
+      - "Y"
+      - "N"
       - Unknown
       - Not Reported
   tnm_finding:
