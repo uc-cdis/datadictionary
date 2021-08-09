@@ -56,26 +56,77 @@ properties:
     description: "Age in days at response assessment"
     type:
       - number
-  tx_prior_response:
-    description: "Treatment type prior to response assessment"
+  disease_phase:
+    description: "The stage or period of an individual's disease."
     enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Relapse/Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: ""
+    enum:
+      - Prephase
+      - Induction
+      - Intensification
+      - Consolidation
+      - Stem Cell Transplant Conditioning 
+      - Maintenance
+      - Palliative Treatment
       - Chemotherapy
-      - Chemoradiotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+      - Other
+  course_number:
+    description: ""
+    type:
+      - number
   response_category:
     description: ""
     enum:
       - Overall Response
       - Overall Response by Method
+      - Bone Marrow Response
+      - CNS Response
+      - Myeloid Sarcoma Response
+      - Target Lesions
+      - Non-Target Lesions
+      - Other
+      - Unknown
+      - Not Reported
+  tx_prior_response:
+    description: "Treatment type prior to response assessment"
+    enum:
+      - Chemotherapy
+      - Chemoradiotherapy
+      - Unknown
+      - Not Reported
+  interim_response:
+    description:
+    enum:
+      - Rapid Early Response (adequate)
+      - Slow Early Response (inadequate)
+      - Progressive Disease
       - Unknown
       - Not Reported
   response:
     description: "Description of the subject's response" 
     enum:
-      - Partial response
+      - Complete Remission
+      - Non-Response
+      - Partial Response
       - Stable Disease
-      - Progressive disease
-      - Complete response
-      - Not evaluable
+      - Progressive Disease
+      - Complete Response
+      - Very Good Partial Response
+      - Mixed Response
+      - Not Evaluable
       - Unknown
       - Not Reported
   response_method:
@@ -84,6 +135,16 @@ properties:
       - Imaging
       - Tumor Marker
       - Pathology
+      - PET
+      - Gallium
+      - CT
+      - PET-CT
+      - PET-MRI
+      - MRI
+      - X-Ray
+      - Bone Scan
+      - Bone Marrow Biopsy
+      - Ultrasound
       - Unknown
       - Not Reported
   response_criteria:
@@ -100,7 +161,76 @@ properties:
     description: ""
     type:
       - string
-  
+  necrosis:
+    description: "Tumor Necrosis"
+    enum:
+      - "Score 0: No Necrosis"
+      - "< 50% Necrosis"
+      - "<= 90% Necrosis"
+      - ">= 50% Necrosis"
+      - "> 90% Necrosis"
+      - Unknown
+      - Not Reported
+  necrosis_pct:
+    description: "Tumor Necrosis (%)"
+    type:
+      - number
+  bm_pct_blasts_at_response:
+    description: "BM Percent Blasts At Response"
+    type:
+      - number
+  bm_analysis_method_at_response:
+    description: "BM Analysis Modality at Response"
+    enum:
+      - Morphology
+      - Flow Cytometry  
+      - Other
+      - Unknown
+      - Not Reported
+  anc_at_response:
+    description: "ANC at Response (ANC/mm3)"
+    type:
+      - number
+  anc_threshold_at_response:
+    description: "ANC Threshold at Response"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  platelet_count_at_response:
+    description: "Platelet Count At Responset (platelets/mm3)"
+    type:
+      - number
+  platelet_threshold_at_response:
+    description: "Exceeded Platelet Threshold >=50,000 (platelets/mm3) At Response"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  symptoms: 
+    description: "Disease-Related Symptoms"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  palpable_nodes: 
+    description: "Palpable Lymph Nodes"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  nodular_splenic: 
+    description: "Nodular Splenic Involvement"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+
 
 
 

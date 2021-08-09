@@ -1,0 +1,95 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "non_protocol_therapy"
+title: Non-Protocol Therapy
+type: object
+namespace: http://cri.uchicago.edu/
+category: clinical
+program: '*'
+project: '*'
+description: "Non-Protocol Therapy"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: non_protocol_therapy
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: non_protocol_therapy
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - subjects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "non_protocol_therapy" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: "PCDC internal person ID"
+    type:
+      - string
+  npt_timing:
+    description: "Non-Protocol Therapy Timing"
+    enum:
+      - Prior to Study
+      - After Study Completion
+      - Unknown
+      - Not Reported
+  npt_type:
+    description: "Non-Protocol Therapy Type"
+    enum:
+      - Chemotherapy
+      - Radiation Therapy
+      - Stem Cell Transplant
+      - Surgery
+      - Immunotherapy
+      - Other
+      - Unknown
+      - Not Reported
+  npt_sct_type:
+    description: "Stem Cell Transplant Type"
+    enum:
+      - Autologous
+      - Allogeneic
+      - Other
+      - Unknown
+      - Not Reported
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+

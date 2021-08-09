@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "total_dose"
-title: Total Dose
+id: "disease_phase_timing"
+title: Disease Phase Timing
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Total Dose"
+description: "Disease Phase Timing"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: total_doses 
+    backref: disease_phase_timing
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: total_doses
+    backref: disease_phase_timing
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "total_dose" ]
+    enum: [ "disease_phase_timing" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,20 +52,17 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_total_dose_start:
-    description: ""
+  age_at_mod:
+    description: "Age in Days of Protocol Treatment Modification"
     type:
       - number
-  age_at_total_dose_end:
-    description: ""
-    type:
-      - number
-    disease_phase:
+  disease_phase:
     description: "The stage or period of an individual's disease."
     enum:
       - Initial Diagnosis
       - Relapse
       - Progression
+      - Relapse/Progression
       - Refractory
   disease_phase_number:
     description: ""
@@ -90,111 +87,141 @@ properties:
     description: ""
     type:
       - number
-  cycle_number:
-    description:
-    type:
-      - number
-  route:
-    description: "Route of Administration"
+  mod_type:
+    description: "Modification Type"
     enum:
-      - Systemic
-      - Intrathecal
+      - Dose Reduction
+      - New Agent Added
+      - Substitution
+      - Discontinued
+      - Delayed
+      - Not given
+      - Other
       - Unknown
       - Not Reported
-  route_detail:
-    description: "Route of Administration Detail"
+  mod_rationale:
+    description: "Treatment Modification Rationale"
     enum:
-      - Parenteral
-      - Oral
+      - Per Protocol
+      - Clinical Indication
       - Unknown
       - Not Reported
-  antineoplastic_agent:
-    description: "Antineoplastic Agent"
+  mod_reason:
+    description: "Treatment Modification Reason"
     enum:
-      - 5-fluorouracil
-      - Amifostine
-      - Amsacrine
-      - Arsenic Trioxide
+      - Hematologic Toxicity
+      - Non-hematologic Toxicity
+      - Surgical Complications
+      - Scheduling Issues
+      - Drug Not Available
+      - Subject Non-Compliance
+      - Pre-existing Organ Dysfunction
+      - Other
+      - Unknown
+      - Not Reported
+  toxicity_details:
+    description: "Toxicity Details"
+    enum:
+      - Allergic Reaction
+      - Infection
+      - Mucositis
+      - Neutropenia
+      - Thrombocytopenia
+      - Renal Toxicity
+      - Hepatic Toxicity
+      - Neuropathy
+      - Cardiac Toxicity
+      - Pulmonary Toxicity
+      - GI Toxicity
+      - Rashes
+      - Endocrine Toxicity
+      - Musculoskeletal Toxicity
+      - Psychiatric Toxicity
+      - Other
+      - Unknown
+      - Not Reported
+  toxicity_immune:
+    description: "Immune Related Toxicity"
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+      - Not Reported
+  toxicity_infusion:
+    description: "Infusion Related Toxicity"
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+      - Not Reported
+  original_agent:
+    description: "Original Agent"
+    enum:
       - Bendamustine
       - Bleomycin
-      - Bortezomib
-      - Brentuximab Vedotin
+      - Brentuximab vedotin
       - Busulfan
       - Carboplatin
       - Carmustine
       - Cisplatin
-      - Cladribine
-      - Clofarabine
       - Cyclophosphamide
       - Cytarabine
       - Dacarbazine
-      - Dactinomycin
-      - Daunorubicin
-      - Daunorubicin (Liposomal)
-      - Daunorubicin and Cytarabine (Liposomal)
       - Dexamethasone
       - Doxorubicin
       - Etoposide
-      - Etoposide Phosphate
+      - Etoposide phosphate
       - Fludarabine
       - Gemcitabine
-      - Gemtuzumab Ozogamicin
-      - Gilteritinib 
-      - Hydrocortisone Sodium Succinate
-      - Idarubicin
       - Ifosfamide
       - Melphalan
       - Methotrexate
-      - Midostaurin
-      - Mitoxantrone
-      - Mylotarg
       - Nitrogen Mustard
       - Nivolumab
-      - Paclitaxel
-      - Pembrolizumab
+      - Pembroluzimab
       - Prednisone
       - Procarbazine
-      - Quizartinib 
-      - Sorafenib
       - Thiotepa
-      - Tretinoin
+      - Venoreline
       - Vinblastine
       - Vincristine
-      - Vinorelbine
       - Other
       - Unknown
       - Not Reported
-  number_doses:
-    description: "Number of Doses"
-    type:
-      - number
-  total_dose_administered:
-    description: "Total Dose Administered"
-    type:
-      - number
-  normalization_basis:
-    description: "Normalization Basis"
+  sub_agent:
+    description: "Substitution Agent"
     enum:
-      - Weight
-      - BSA
-      - Flat
+      - Bendamustine
+      - Bleomycin
+      - Brentuximab vedotin
+      - Busulfan
+      - Carboplatin
+      - Carmustine
+      - Cisplatin
+      - Cyclophosphamide
+      - Cytarabine
+      - Dacarbazine
+      - Dexamethasone
+      - Doxorubicin
+      - Etopophos
+      - Etoposide
+      - Fludarabine
+      - Gemcitabine
+      - Ifosfamide
+      - Melphalan
+      - Methotrexate
+      - Nitrogen Mustard
+      - Nivolumab
+      - Pembroluzimab
+      - Prednisone
+      - Procarbazine
+      - Thiotepa
+      - Venoreline
+      - Vinblastine
+      - Vincristine
+      - Other
       - Unknown
       - Not Reported
-  total_dose_intended:
-    description: "Total Dose Intended"
-    type:
-      - number
-  total_dose_units:
-    description: ""
-    enum:
-      - mg/m2
-      - mg/kg
-      - mg
-      - IU
-      - IU/m2
-      - Unknown
-      - Not Reported
-
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 
