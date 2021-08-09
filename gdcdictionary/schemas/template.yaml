@@ -64,15 +64,20 @@ properties:
     description: ""
     type:
       - number
-  age_in_days_at_disease_phase:
-    description: "Age in days when the diagnosis was made for the Disease Phase."
+  course:
+    description: ""
+    enum:
+      - Induction
+      - Consolidation
+      - Maintenance
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+  course_number:
+    description: ""
     type:
       - number
-  year_at_disease_phase:
-    description: "Year when the diagnosis was made for the Disease Phase."
-    type:
-      - number    
-
   
 
   clinical_events:

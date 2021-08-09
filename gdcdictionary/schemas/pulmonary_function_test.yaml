@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "concomitant_medication"
-title: Concomitant Medication
+id: "pulmonary_function_test"
+title: Pulmonary Function Test
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Concomitant Medication"
+description: "Pulmonary Function Test"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: concomitant_medications 
+    backref: pulmonary_function_test
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: concomitant_medications
+    backref: pulmonary_function_test
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "concomitant_medication" ]
+    enum: [ "pulmonary_function_test" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,12 +52,8 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_medication_start:
-    description: ""
-    type:
-      - number
-  age_at_medication_end:
-    description: ""
+  age_at_pft:
+    description: "Age in Days at Pulmonary Function Testing"
     type:
       - number
   disease_phase:
@@ -66,6 +62,7 @@ properties:
       - Initial Diagnosis
       - Relapse
       - Progression
+      - Relapse/Progression
       - Refractory
   disease_phase_number:
     description: ""
@@ -74,55 +71,35 @@ properties:
   course:
     description: ""
     enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Palliative Treatment
       - Chemotherapy
-      - Radiation Therapy
+      - Radiation
       - Chemoimmunotherapy
       - Immunotherapy
-      - Other
   course_number:
     description: ""
     type:
       - number
-  medication:
-    description: ""
+  pft_test: 
+    description: "Pulmonary Function Test"
     enum:
-      - Dexrazoxane
-      - Systemic corticosteroid
-      - Topical corticosteroid
-      - Non-corticosteroid immunosuppressive agent
-      - Growth Factor - red cells (erythropoeitin)
-      - Growth Factor - platelets (give ex)
-      - Growth Factor - white cells, short acting (give ex in NCI def)
-      - Growth Factor - white cells, long acting (give ex in NCI def)
-      - Analgesics - opioid (give ex)
-      - Neuropathy analgesics - non-opioid (give ex)
-      - Thyroid hormone replacement
-      - Plerixafor
-      - Sodium Thiosulfate
-      - Other
-      - Unknown
-      - Not Reported
-  medication_admn_status:  
-    description: "Medication Administration Status" 
-    enum:
-      - Medication Administered
-      - Medication Not Administered
-      - Unknown
-      - Not Reported
-  medication_reason:
-    description: "Medication Administration Reason"
-    enum:
-      - Treatment for Adverse Event
-      - Prevention of Adverse Event
-      - Stem Cell Mobilization
-      - Other
+      - FVC
+      - FEV1
+      - FEF at 25-75%
+      - Total lung capacity
+      - DLCO
+  pft_result:
+    description: "Pulmonary Function Test Result"
+    type:
+      - string
+  pft_result_numeric: 
+    description: "Numeric Pulmonary Function Test Result"
+    type:
+      - number
+  pft_result_unit:
+    description: "Numeric Pulmonary Function Test Result Unit"
+    type: 
+      - "%"
+      - mL
       - Unknown
       - Not Reported
 

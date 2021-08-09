@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "concomitant_medication"
-title: Concomitant Medication
+id: "cellular_immunotherapy"
+title: Cellular Immunotherapy
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Concomitant Medication"
+description: "Cellular Immunotherapy"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: concomitant_medications 
+    backref: cellular_immunotherapy
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: concomitant_medications
+    backref: cellular_immunotherapy
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "concomitant_medication" ]
+    enum: [ "cellular_immunotherapy" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,12 +52,8 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_medication_start:
-    description: ""
-    type:
-      - number
-  age_at_medication_end:
-    description: ""
+  age_at_cimt_start:
+    description: "Age in Days at Start of Cellular Immunotherapy"
     type:
       - number
   disease_phase:
@@ -65,8 +61,6 @@ properties:
     enum:
       - Initial Diagnosis
       - Relapse
-      - Progression
-      - Refractory
   disease_phase_number:
     description: ""
     type:
@@ -81,50 +75,20 @@ properties:
       - Stem Cell Transplant Conditioning 
       - Maintenance
       - Palliative Treatment
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
       - Other
   course_number:
     description: ""
     type:
       - number
-  medication:
-    description: ""
+  cimt_type:
+    description: "Cellular Immunotherapy Type"
     enum:
-      - Dexrazoxane
-      - Systemic corticosteroid
-      - Topical corticosteroid
-      - Non-corticosteroid immunosuppressive agent
-      - Growth Factor - red cells (erythropoeitin)
-      - Growth Factor - platelets (give ex)
-      - Growth Factor - white cells, short acting (give ex in NCI def)
-      - Growth Factor - white cells, long acting (give ex in NCI def)
-      - Analgesics - opioid (give ex)
-      - Neuropathy analgesics - non-opioid (give ex)
-      - Thyroid hormone replacement
-      - Plerixafor
-      - Sodium Thiosulfate
+      - Donor Lymphocyte Infusion
+      - Chimeric Antigen Receptor T-cell Therapy
       - Other
       - Unknown
       - Not Reported
-  medication_admn_status:  
-    description: "Medication Administration Status" 
-    enum:
-      - Medication Administered
-      - Medication Not Administered
-      - Unknown
-      - Not Reported
-  medication_reason:
-    description: "Medication Administration Reason"
-    enum:
-      - Treatment for Adverse Event
-      - Prevention of Adverse Event
-      - Stem Cell Mobilization
-      - Other
-      - Unknown
-      - Not Reported
+  
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 

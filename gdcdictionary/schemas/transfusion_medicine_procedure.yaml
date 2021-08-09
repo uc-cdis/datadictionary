@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "concomitant_medication"
-title: Concomitant Medication
+id: "transfusion_medicine_procedure"
+title: Transfusion Medicine Procedure
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Concomitant Medication"
+description: "Transfusion Medicine Procedure"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: concomitant_medications 
+    backref: transfusion_medicine_procedure
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: concomitant_medications
+    backref: transfusion_medicine_procedure
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "concomitant_medication" ]
+    enum: [ "transfusion_medicine_procedure" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,12 +52,8 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_medication_start:
-    description: ""
-    type:
-      - number
-  age_at_medication_end:
-    description: ""
+  age_at_tmp_start:
+    description: "Age in Days at Start of Transfusion Medicine Procedure"
     type:
       - number
   disease_phase:
@@ -90,41 +86,36 @@ properties:
     description: ""
     type:
       - number
-  medication:
-    description: ""
+  tmp_type:
+    description: "Transfusion Medicine Procedure Type"
     enum:
-      - Dexrazoxane
-      - Systemic corticosteroid
-      - Topical corticosteroid
-      - Non-corticosteroid immunosuppressive agent
-      - Growth Factor - red cells (erythropoeitin)
-      - Growth Factor - platelets (give ex)
-      - Growth Factor - white cells, short acting (give ex in NCI def)
-      - Growth Factor - white cells, long acting (give ex in NCI def)
-      - Analgesics - opioid (give ex)
-      - Neuropathy analgesics - non-opioid (give ex)
-      - Thyroid hormone replacement
-      - Plerixafor
-      - Sodium Thiosulfate
+    Exchange Transfusion
+    Therapeutic Apheresis
+    Simple Transfusion
+    Other
+    Unknown
+    Not Reported
+  tmp_product:
+    description: "Transfusion Medicine Procedure Product"
+    enum:
+      - RBC
+      - Platelets
+      - WBC
       - Other
       - Unknown
       - Not Reported
-  medication_admn_status:  
-    description: "Medication Administration Status" 
+  tmp_product_type:
+    description: "Transfusion Medicine Procedure Product Type"
     enum:
-      - Medication Administered
-      - Medication Not Administered
-      - Unknown
-      - Not Reported
-  medication_reason:
-    description: "Medication Administration Reason"
-    enum:
-      - Treatment for Adverse Event
-      - Prevention of Adverse Event
-      - Stem Cell Mobilization
-      - Other
-      - Unknown
-      - Not Reported
+    Pheresed
+    Random
+    Other
+    Unknown
+    Not Reported
+  tmp_number_units:
+    description: "Number of Units of Product Transfused"
+    type:
+      - number
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 
@@ -139,4 +130,13 @@ properties:
 
   state:
     $ref: "_definitions.yaml#/state"
+
+
+
+
+
+
+
+
+
 

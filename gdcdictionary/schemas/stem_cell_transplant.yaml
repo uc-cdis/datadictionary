@@ -53,8 +53,140 @@ properties:
     type:
       - string
   age_at_sct:
+    description: "Age in Days at Stem Cell Transplant"
     type:
       - number
+  disease_phase:
+    description: "The stage or period of an individual's disease."
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Relapse/Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: ""
+    enum:
+      - Prephase
+      - Induction
+      - Intensification
+      - Delayed Intensification
+      - Consolidation
+      - Stem Cell Transplant Conditioning 
+      - Maintenance
+      - Interim Maintenance
+      - Palliative Treatment
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+      - Investigational Agent
+      - Other
+  course_number:
+    description: ""
+    type:
+      - number
+  sct_type:      
+    description: "Stem Cell Transplant Type"
+    enum:
+      - Autologous
+      - Allogeneic
+      - Unknown
+      - Not Reported
+  sct_source:
+    description: "Stem Cell Transplant Source"
+    enum:
+      - Bone marrow
+      - Peripheral blood
+      - Cord blood
+      - Mixture of stem cells
+      - Other
+      - Unknown
+      - Not Reported
+  sct_donor_relationship: 
+    description: "Stem Cell Transplant Donor Relationship"
+    enum:
+      - Biological sibling
+      - Biological parent
+      - Biological relative
+      - Biologically unrelated
+      - Unknown
+      - Not Reported
+  hla_match: 
+    description: "HLA Match Status"
+    enum:
+      - Match
+      - Non-match
+      - Unknown
+      - Not Reported
+  number_hla: 
+    description: "Number of Evaluated HLAs"
+    type:
+      - number
+  number_matches: 
+    description: "Number of Matched HLAs"
+    type:
+      - number
+  hla_a_result: 
+    description: "HLA-A Match Finding"
+    enum:
+      - Both alleles matched 
+      - One allele mismatched  
+      - Two alleles mismatched
+      - Unknown
+      - Not Reported
+  hla_b_result: 
+    description: "HLA-B Match Finding"
+    enum:
+      - Both alleles matched 
+      - One allele mismatched  
+      - Two alleles mismatched
+      - Unknown
+      - Not Reported
+  hla_c_result: 
+    description: "HLA-C Match Finding"
+    enum:
+      - Both alleles matched 
+      - One allele mismatched  
+      - Two alleles mismatched
+      - Unknown
+      - Not Reported
+  hla_drb1_result: 
+    description: "HLA-DRB1 Match Finding"
+    enum:
+      - Both alleles matched 
+      - One allele mismatched  
+      - Two alleles mismatched
+      - Unknown
+      - Not Reported
+  hla_dq_result:
+    description: "HLA-DQ Match Finding"
+    enum:
+      - Both alleles matched 
+      - One allele mismatched  
+      - Two alleles mismatched
+      - Unknown
+      - Not Reported
+  sct_conditioning_type:
+    description: "Type of Stem Cell Transplant Conditioning Prior to Transplant"
+    enum:
+      - Myeloablative
+      - Reduced Intensity Conditioning/Reduced Toxicity Conditioning
+      - Non-Myeloablative
+      - Other
+      - Unknown
+      - Not Reported
+  sct_tbi:
+    description: "Total-Body Irradiation Prior to Stem Cell Transplant"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
   sct_cycles:
     description: ""
     enum:
@@ -62,8 +194,15 @@ properties:
       - 2
       - 3
       - 4
+  sct_cd34_coll:
+    description: "Number of Stem Cells Collected in SCT Apheresis (10^6 CD34+/kg)"
+    type:
+      - number
+  sct_cd34_transplant:
+    description: "Number of Stem Cells Given in SCT Apheresis (10^6 CD34+/kg)"
+    type:
+      - number
 
-  
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 
@@ -78,4 +217,24 @@ properties:
 
   state:
     $ref: "_definitions.yaml#/state"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

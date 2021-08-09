@@ -56,87 +56,165 @@ properties:
     description: "Age of the subject (in days) at procedure"
     type:
       - number
-  procedure_tumor_classification:
-    description: "The classification of a tumor based primarily on histopathological characteristics."
+  disease_phase:
+    description: "The stage or period of an individual's disease."
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Relapse/Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: ""
+    enum:
+      - Induction
+      - Consolidation
+      - Maintenance
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+  course_number:
+    description: ""
+    type:
+      - number
+  tumor_classification:
+    description: ""
     enum:
       - Primary
       - Regional nodes
       - Metastatic
       - Unknown
       - Not reported
+  procedure_tissue_type:
+    description: ""
+    enum: 
+      - Bone
+      - Soft Tissue
+      - Unknown
+      - Not Reported
   procedure_site:
     description: "The anatomical site on which surgery was performed."
     enum:
-      - Thalamus
-      - Testis
-      - Temporal Cortex
-      - Suprasellar/Neurohypophyseal
-      - Spinal Cord
-      - Sacrococcygeal
-      - Retroperitoneum
-      - Pineal
-      - Parietal Cortex
-      - Occipital Cortex
-      - Mediastinum
-      - Head and Neck
-      - Frontal Cortex
-      - Pelvis
-      - Neck
-      - Retroperitoneal
-      - Perineum
-      - Ovary
-      - Paratesticular
       - Abdomen
-      - Kidney
-      - Shoulder
-      - Scalp
-      - Upper arm
-      - Forearm
-      - Hand
-      - Thigh
-      - Knee
-      - Leg
-      - Lower Leg
-      - Foot
-      - Brain
-      - Paraspinal
-      - Vagina
-      - Eyelid
-      - Orbit
-      - Cheek
-      - Hypopharynx
-      - Larynx
-      - Oral cavity
-      - Oropharynx
-      - Parotid
-      - Thyroid and Parathyroid
-      - Middle ear
-      - Nasal Cavity and Paranasal Sinuses
-      - Nasal Cavity
-      - Paranasal Sinuses
-      - Nasopharynx
-      - "Infratemporal Fossa/Pterygopalatine and Parapharyngeal Area"
-      - "Infratemporal Fossa/Pterygopalatine"
-      - Parapharyngeal Area
-      - Bladder
-      - Prostate
-      - "Bladder/Prostate"
-      - Cervix
-      - Uterus
-      - Vulva
-      - Thorax
-      - "Anal/Perianal"
-      - Trunk
-      - Bone or Bone Marrow
+      - Abdominal Wall
+      - Acetabulum
+      - Ankle
+      - Axilla
+      - Axillary Nodes
+      - Suprasellar/Neurohypophyseal and Pineal
       - Bone
       - Bone Marrow
-      - Distant Lymph Nodes
-      - Pleural Effusion
-      - Soft Tissue
-      - "Liver/Biliary Tract"
+      - Brain
+      - Buttock
+      - Calcaneus
+      - Carpus
+      - Celiac Nodes
+      - Cervical Nodes, Occipital, Submental
+      - Cervical Vertebra
+      - Chest
+      - Chest Wall
+      - Clavicle
+      - Coccyx
+      - Dorsal Vertebra
+      - Elbow
+      - Epitrochlear or Brachial Nodes
+      - Ethmoid Bone
+      - Face
+      - Femur
+      - Fibula
+      - Fibula Head
+      - Finger
+      - Foot
+      - Forearm
+      - Frontal Bone
+      - Frontal Cortex
+      - Hand
+      - Head and Neck
+      - Hilar Nodes
+      - Hip/Inguinal Region
+      - Humerus
+      - Ilium
+      - Infraclavicular Nodes
+      - Inguinal or Femoral Nodes
+      - Intra-abdominal
+      - Ischium
+      - Kidney
+      - Knee
+      - Lacrimal Bone
+      - Leg
       - Liver
+      - Lower Extremity
+      - Lumbar Vertebra
       - Lung
+      - Mandible
+      - Maxilla
+      - Mediastinum
+      - Mesenteric Nodes
+      - Metacarpus
+      - Metatarsus
+      - Nasal Bone
+      - Neck
+      - Occipital Bone
+      - Occiptal Cortex
+      - Ovary
+      - Para-aortic Nodes, Portal, Retrocrural
+      - Parietal Bone
+      - Parietal Cortex
+      - Patella
+      - Pectoral Nodes
+      - Pelvis
+      - "Pelvis: Iliac"
+      - Pineal
+      - Popliteal Nodes
+      - Pre-auricular Nodes
+      - Radius
+      - Retroperitoneum
+      - Rib
+      - Sacrococcygeal
+      - Sacrum
+      - Scalp
+      - Scapula
+      - Shoulder
+      - Skull
+      - Spheniod bone
+      - Spinal Cord
+      - Spine
+      - Spleen
+      - Splenic Hilar Nodes
+      - Sternum
+      - Supraclavicular Nodes
+      - Suprasellar/Neurohypophyseal
+      - Talus
+      - Tarsus
+      - Temporal Bone
+      - Temporal Cortex
+      - Testes
+      - Thalamus
+      - Thigh
+      - Thoracic vertebra
+      - Tibia
+      - Ulna
+      - Upper Arm
+      - Upper Extremity
+      - Vagina
+      - "Waldeyer's Ring: Nasopharynx, Tonsils"
+      - Wrist
+      - Zygomatic bone
       - Other
+      - Unknown
+      - Not Reported
+  procedure_laterality:
+    description: ""
+    enum:
+      - Left
+      - Right
+      - Midline
+      - Bilateral
       - Unknown
       - Not Reported
   procedure_type:
@@ -144,6 +222,62 @@ properties:
     enum:
       - Surgery
       - Biopsy
+      - Fine Needle Aspiration
+      - Other
+      - Unknown
+      - Not Reported
+  limb_surgery_type:
+    description:
+    enum:
+      - Amputation
+      - Limb-salvage
+      - Other
+      - Unknown
+      - Not Reported
+  amputation_type:
+    description:
+    enum:
+      - Amputation - Through Involved Bone
+      - Amputation - Proximal to Involved Bone
+      - Disarticulation
+      - Internal Hemipelvectomy
+      - External Hemipelvectomy
+      - Unknown
+      - Not Reported
+  limb_salvage_surgery_type:
+    description:
+    enum:
+      - Intra-Articular Resection
+      - Extra-Articular Resection
+      - Intercalary Resection
+      - Internal Hemipelvectomy
+      - Unknown
+      - Not Reported
+  reconstruction_type:
+    description: "Surgical Reconstruction Typen"
+    enum:
+      - Endoprosthetic
+      - Osteoarticular Allograft
+      - Intercalary Allograft
+      - Allograft-Prosthetic
+      - Non-Vascularized Autograft
+      - Vascularized Autograft
+      - Allograft + Vascularized Autograft
+      - Vascularized Autograft Endoprosthetic Composite
+      - Arthrodesis
+      - Flail
+      - Other
+      - Unknown
+      - Not Reported
+  procedure_extent:
+    description:
+    enum:
+      - Gross Total
+      - Complete Resection
+      - Partial Resection
+      - Equivocal
+      - Unknown
+      - Not Reported
   margins:
     description: "One of the criteria for assessment of the effectiveness of given surgical procedure in achieving the local control of a neoplasm and the adequacy of tumor removal. It is defined by the tissue plane through which the dissection has been done and the actual or potential neoplastic tissue which has been left outside the boundary of a resected specimen within the patient. There are four types of surgical margins: intracapsular or intralesional, marginal, wide, and radical."
     enum:
@@ -151,11 +285,92 @@ properties:
       - "R0 - Complete Resection, Negative Margins"
       - "R1 - Complete Resection, Positive Margins"
       - "R2 - Gross Residual Disease"
-      - "Gross Total Resection, Unknown Margins"
+      - "Complete Resection"
       - Unknown
       - Not reported
-  
-  
+  biopsy_type:
+    description: ""
+    enum:
+      - Core needle Biopsy
+      - Incisional Biopsy
+      - Excisional Biopsy
+      - Other
+      - Unknown
+      - Not Reported
+  met_non_lung_mgmt:
+    description: "Non-lung Metastatic Site Surgical Management"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  met_lung_mgmt:
+    description: "Metastatic Lung Disease Surgical Management"
+    enum:
+      - Thoracotomy
+      - Sternotomy
+      - Video-Assisted Thoroscopic Surgery
+      - Other
+      - Unknown
+      - Not Reported
+  localization_technique:
+    description:
+    enum:
+      - Navigation and Robotics
+      - Indocyanine Green (ICG) Fluorescence Angiography
+      - Methylene Blue Dye Marking
+      - Wire Localization
+      - None
+      - Other
+      - Unknown
+      - Not Reported
+  distance_margin_tumor:
+    description: "Closest Distance from Margin to Resected Tumor"
+    type:
+      - number
+  number_nodes:
+    description: "Involved Lymph Nodes Single or Multiple"
+    enum:
+      - Single Lymph Node
+      - Multiple Lymph Nodes
+  number_nodes_numeric:
+    description: "Number of Involved Lymph Nodes"
+    type:
+      - number
+  procedure_purpose:
+    description:
+    enum: 
+      - Initial Diagnostic Procedure 
+      - Second Look Surgery to Attempt Total Resection
+      - Biopsy of Distant Site for Staging
+      - Diagnostic Biopsy for Possible Recurrence
+      - Other
+      - Unknown
+      - Not Reported
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 
   subjects:
