@@ -56,37 +56,123 @@ properties:
     description: "Age in days at secondary malignancy diagnosis"
     type:
       - number
+  disease_phase:
+    description: "The stage or period of an individual's disease."
+    enum:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Relapse/Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  course:
+    description: ""
+    enum:
+      - rephase
+      - Induction
+      - Intensification
+      - Delayed Intensification
+      - Consolidation
+      - Stem Cell Transplant Conditioning 
+      - Maintenance
+      - Interim Maintenance
+      - Palliative Treatment
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+      - Investigational Product
+      - Other
+  course_number:
+    description: ""
+    type:
+      - number
+  smn_yn:
+  description: "Secondary Malignancy"
+  enum:
+    - "No"
+    - "Yes"
+    - Unknown 
+    - Not Reported
+  smn_morph_sno:
+    description: "SMN Morphology SNOMED Code"
+    type:
+      - string
   smn_morph_icdo:
-    description: ""
-    type:
-      - string
-  smn_top_icdo:
-    description: ""
-    type:
-      - string
-  smn_top_txt:
-    description: ""
-    type:
-      - string
-  smn_top_sno:
-    description: ""
+    description: "SMN Morphology ICD-O Code"
     type:
       - string
   smn_morph_txt:
-    description: ""
+    description: "SMN Morphology Text"
     type:
       - string
-  smn_morph_sno:
-    description: ""
+  smn_top_sno:
+    description: "SMN Topography SNOMED Code"
     type:
       - string
-  smn_yn:
-    description: "Secondary Malignancy"
+  smn_top_icdo:
+    description: "SMN Topography ICD-O Code"
+    type:
+      - string
+  smn_top_txt:
+    description: "SMN Topography Text"
+    type:
+      - string
+  smn_site:
+    description: "SMN Site"
     enum:
-      - "No"
-      - "Yes"
-      - Unknown 
+      - Head and Neck
+      - Thorax
+      - Limbs
+      - Abdomen
+      - Pelvis
+      - Other
+      - Not Applicable
+      - Unknown
       - Not Reported
+  smn_type:
+    description: "SMN type"
+    enum:
+      - Leukemia
+      - Sarcoma
+      - Carcinoma
+      - Other
+      - Unknown
+      - Not Reported
+  smn_field:
+    description: "Relation of SMN to Prior Radiation Therapy Field"
+    enum:
+      - In XRT Field
+      - Margin of XRT Field
+      - Out of XRT Field
+      - Unknown
+      - Not Reported
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
  
   
   

@@ -56,8 +56,17 @@ properties:
     description: ""
     type:
       - number
-  gts_treatment:
+  disease_phase:
+    description: "Disease Phase"
+    type:
+      - Initial Diagnosis
+      - Relapse
+  disease_phase_number:
     description: ""
+    type:
+      - number
+  gts_treatment:
+    description: "Growing Teratoma Syndrome Treatment"
     enum:
       - Surgery
       - Chemotherapy

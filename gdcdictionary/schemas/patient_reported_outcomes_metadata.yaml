@@ -49,12 +49,58 @@ properties:
   pro_measures:
     description: ""
     enum:
+      - PROMIS Global
+      - PROMIS Fatigue Short Form
       - Fact NTX
-      - "PedsQL Multi-Dimensional Fatigue Scale"
-      - "PedsQL 4.0 Generic Core Scale"
+      - PRO-CTCAE
+      - PEDPRO-CTCAE
+      - PedsQL Multi-Dimensional Fatigue Scale
+      - PedsQL 4.0 Generic Core Scale
       - AYA-HEARS
+      - Other
       - Unknown
       - Not Reported
+  pro_measurement_type:
+    description: "PRO Measurement Type"
+    enum:
+      - Health Profile
+      - Health Utility
+      - Symptom Scale
+      - Other
+      - Unknown
+      - Not Reported
+  raters:
+    description: "Raters Allowed to Report"
+    enum:
+      - Subject
+      - Parent/Guardian
+      - Subject and Parent/Guardian
+      - Other
+      - Unknown
+      - Not Reported
+  eligible_age_lower:
+    description: "Lower Age Range of Child Rater"
+    type:
+      - number
+  eligible_age_upper:
+    description: "Upper Age Range of Child Rater"
+    type:
+      - number
+  time_point:
+    description: "PRO Measures Assessment Time Point"
+    enum:
+      - Baseline
+      - On Treatment
+      - End of Treatment
+      - Follow-Up Assessment
+      - Other
+      - Unknown
+      - Not Reported
+
+
+
+
+  
 
 
 

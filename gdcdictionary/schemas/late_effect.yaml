@@ -51,8 +51,120 @@ properties:
     description: "Age of the subject (in days) at late effect evaluation"
     type:
       - number
+  disease_phase:
+    description: "Disease Phase"
+    type:
+      - Initial Diagnosis
+      - Relapse
+      - Progression
+      - Refractory
+  disease_phase_number:
+    description: ""
+    type:
+      - number
+  le:
+    description: "Late Effect"
+    enum:
+      - Endocrine Disorder
+      - Cardiovascular Disorder
+      - Muskuloskeletal Disorder
+      - Neurological Disorder
+      - Pulmonary Disorder
+      - Fatigue
+      - Breast Hypoplasia
+      - Dermatologic Disorder
+      - Xerostomia
+      - Genitourinary Disorder
+      - Immunologic Disorder
+      - GI Disorder
+      - Psychiatric Disorder
+  le_detail:
+    description: "Late Effect Details"
+    enum:
+      - Thyroid Disorder
+      - Gonadal Dysfunction
+      - Conduction abnormality
+      - Arrhythmia
+      - Valvular Disease
+      - Ventricular Dysfunction
+      - Pericarditis
+      - Vascular Disorder
+      - Hypertension
+      - Avascular-Necrosis
+      - Osteopenia
+      - Osteoporosis
+      - Scoliosis
+      - Arthritis
+      - Muskuloskeletal Hypoplasia
+      - Neuropathy
+      - Neurocognitive
+      - Stroke
+      - Restrictive Lung Disease
+      - Obstructive Lung Disease
+      - Reactive Airway Disease
+      - Pigment Changes
+      - Dryness
+      - Atrophy
+      - Contraction
+      - Scarring
+      - Telengectasia
+      - Renal Disorder
+      - Bladder Disorder
+      - Autoimmune Reaction
+      - Acquired Immunodeficiency
+      - GI Adhesions
+      - Pancreatitis
+      - Hepatic Dysfunction
+      - Esophagitis
+      - Gastritis
+      - Other
+      - Unknown
+      - Not Reported
+  le_sub_detail:
+    description: "Late Effect Sub-details"
+    enum:
+      - Hyperthyroid
+      - Hypothyroid
+      - Thyroid Nodule
+      - Menstrual Cycle Dysfunction
+      - Germ Cell Failure, Suspected
+      - Germ Cell Failure, Sonfirmed
+      - Testosterone Deficiency
+      - Fertility Disorder
+      - Ammenorrhea
+      - Heart Block
+      - Prolonged QT
+      - Supraventricular Tachycardia
+      - Cardiomyopathy, Not Otherwise Specified
+      - Restrictive Cardiomyopathy
+      - Dilated Cardiomyopathy
+      - Sensory Neuropathy
+      - Motor Neuropathy
+      - Pulmonary Fibrosis
+      - Asthma
+      - Decreased Creatinine Clearance
+      - Tubular Damage
+      - AKI
+      - Decreased GFR
+      - AIN
+      - Other
+      - Unknown
+      - Not Reported
+  le_severity_grade:
+    description: "Late Effect CTCAE Severity Grade"
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - Unknown
+      - Not Reported
+  le_ctcae_version:
+    description: "Late Effect CTCAE Version"
+    type:
+      - string
 
-  
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one"   
