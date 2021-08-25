@@ -49,20 +49,11 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_gts:
-    description: ""
-    type:
-      - number
-  disease_phase:
-    description: "Disease Phase"
-    type:
-      - Initial Diagnosis
-      - Relapse
-  disease_phase_number:
-    description: ""
+    description: "Age in Days at Growing Teratoma Syndrome"
     type:
       - number
   gts_treatment:

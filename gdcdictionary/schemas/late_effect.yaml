@@ -20,12 +20,18 @@ systemProperties:
   - state
 
 links:
-  - name: clinical_events
-    backref: late_effects
-    label: part of
-    target_type: clinical_event
-    multiplicity: many_to_one
+  - name: subjects
+    backref: late_effects 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
     required: true
+  - name: clinical_events
+    backref: late_effects 
+    label: of
+    target_type: clinical_event
+    multiplicity: many_to_one    
+    required: false
 
 required:
   - submitter_id
@@ -43,23 +49,11 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
-      - "null"
   age_at_le_eval:
     description: "Age of the subject (in days) at late effect evaluation"
-    type:
-      - number
-  disease_phase:
-    description: "Disease Phase"
-    type:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
     type:
       - number
   le:
@@ -168,6 +162,8 @@ properties:
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one"   
+  subjects:
+    $ref: "_definitions.yaml#/to_one" 
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

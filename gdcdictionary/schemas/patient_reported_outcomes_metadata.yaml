@@ -43,7 +43,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   pro_measures:
@@ -97,10 +97,6 @@ properties:
       - Unknown
       - Not Reported
 
-
-
-
-  
 
 
 

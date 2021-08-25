@@ -49,43 +49,13 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_molecular_analysis:
     description: Age of the subject (in days) at molecular analysis
     type:
       - number
-  disease_phase:
-    description: "Disease Phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: ""
-    enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Palliative Treatment
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
-      - Other
-  course_number:
-    description: ""
-    type:
-    - number
   molecular_analysis_classification:
     description: ""
     enum:
@@ -138,21 +108,20 @@ properties:
     type:
       - string
   num_chromosomes:
-    description: ""
+    description: "Number of Chromosomes on Karyotype"
     type:
       - number
   indepen_abb:
-    description: ""
+    description: "Number of Independent Abberations in Karyotype"
     type:
       - number
   num_metaphases:
-    description: ""
+    description: "Number of Cells in Metaphase during Karyotyping"
     type:
       - number
   molecular_abnormality:
     description: "A molecular or cytogenic abnormality which occurs in either human disease states or disease models."
     enum:
-      - MOLECULAR_ABNORMALITY
       - ETV6-RUNX1 t(12;21)(p13;q22)(formerly TEL-AML1)
       - t(8;14)(q24;q32) or other variant of B-ALL
       - Trisomy 10

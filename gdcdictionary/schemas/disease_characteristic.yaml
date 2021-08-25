@@ -49,22 +49,9 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "Honest Broker ID"
+    description: "PCDC Internal ID"
     type:
       - string
-      - "null"
-  disease_phase:
-    description: "The stage or period of an individual's disease."
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Relapse/Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number  
   fab_type:
     description: "A classification system for acute myeloid leukemias, acute lymphoblastic leukemias, and myelodysplastic syndromes. It is based on the morphologic and cytochemical evaluation of bone marrow and peripheral blood smears."
     enum:
@@ -78,7 +65,7 @@ properties:
       - M5
       - M6
       - M7
-      - AML,NOS
+      - AML, Not Otherwise Specified
       - Unknown
       - Not Reported
   who_aml:
@@ -157,9 +144,12 @@ properties:
   detection_method:
     description: "The method used to detect the extent of the disease involvement."
     enum:
+      - Cerebrospinal Fluid Results
+      - Clinical Signs or Symptoms
       - Tumor Marker
       - Imaging
       - Unknown
+      - Other
       - Not Reported
   CNS_disease_status:
     description: "The status of central nervous system leukemia at the time of diagnosis."
@@ -211,8 +201,14 @@ properties:
       - Not Reported
   GPOH_score:
     description: ""
-    type:
-      - number
+    enum:
+      - "1 - Normal, no complaint"
+      - "2 - Mild complaints, but needs no assistance"
+      - "3 - Age-appropriate activity severely impaired"
+      - "4 - Confined to bed, needs nursing care"
+      - "5 - Needs intensive care, seriously ill, moribund"
+      - Unknown
+      - Not Reported
   MPAL:
     description: "An acute leukemia of ambiguous lineage"
     enum:
@@ -276,8 +272,8 @@ properties:
       - "Yes"
       - Unknown
       - Not Reported
-  bulky_mediastinal_mass:
-    description: "Bulky Mediastinal Mass "
+  BULK_MED_MASS:
+    description: "Bulky Mediastinal Mass"
     enum:
       - "No"
       - "Yes"

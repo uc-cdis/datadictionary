@@ -49,45 +49,11 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_sct:
     description: "Age in Days at Stem Cell Transplant"
-    type:
-      - number
-  disease_phase:
-    description: "The stage or period of an individual's disease."
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Relapse/Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: ""
-    enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Delayed Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Interim Maintenance
-      - Palliative Treatment
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
-      - Investigational Agent
-      - Other
-  course_number:
-    description: ""
     type:
       - number
   sct_type:      

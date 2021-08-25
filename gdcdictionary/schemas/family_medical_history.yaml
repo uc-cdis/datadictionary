@@ -21,17 +21,11 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: family_medical_history
+    backref: family_medical_historys
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
-  - name: clinical_events
-    backref: family_medical_history
-    label: part of
-    target_type: clinical_event
-    multiplicity: many_to_one
-    required: false
 
 required:
   - submitter_id
@@ -49,7 +43,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   family_history:
@@ -78,8 +72,7 @@ properties:
 
   
 
-  clinical_events:
-    $ref: "_definitions.yaml#/to_one" 
+
   subjects:
     $ref: "_definitions.yaml#/to_one"  
   project_id:

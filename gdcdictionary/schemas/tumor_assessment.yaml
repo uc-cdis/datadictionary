@@ -49,38 +49,18 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal tumor ID"
     type:
       - string
   age_at_tumor_assessment:
     description: "Age in days at tumor assessment"
     type:
       - number
-  disease_phase:
-    description: "The stage or period of an individual's disease."
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Relapse/Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: "Protocol Treatment Course"
-    enum:
-      - Induction
-      - Consolidation
-      - Maintenance
-  course_number:
-    description: ""
-    type:
-      - number
   tumor_detection_method:
     description: ""
     enum:
+      - "X-Ray"
+      - "CT Scan"
       - "Imaging, Not Otherwise Specified"
       - PET
       - Unknown
@@ -92,15 +72,6 @@ properties:
       - Metastatic
       - Unknown
       - Not reported
-  tumor_laterality:
-    description: "Dominant use or manifestations of one side of the body versus the other; referring to a side of the body or of a structure."
-    enum: 
-      - Left
-      - Right
-      - Bilateral
-      - Midline
-      - Unknown
-      - Not Reported
   tumor_site:
     description: "Site of tumor"
     enum:
@@ -200,8 +171,8 @@ properties:
     type:
       - string
   tumor_laterality:
-    desciption: ""
-    enum:
+    description: "Dominant use or manifestations of one side of the body versus the other; referring to a side of the body or of a structure."
+    enum: 
       - Left
       - Right
       - Bilateral
@@ -268,16 +239,37 @@ properties:
       - Unknown
       - Not reported
   depth:
+    enum:
+      - Superficial
+      - Deep
+      - Unknown
+      - Not Reported
   necrosis:
+    enum:
+      - "Score 0: No Necrosis"
+      - "<50% Necrosis"
+      - ">=50% Necrosis"
+      - Unknown
+      - Not Reported
   necrosis_pct:
+    description: "Tumor Necrosis (%)"
+    type:
+      - number
   joint_involvement:
-  nodal_pathology:
-    description: Pathological determination of regional lymph node involvement
+    description: "Tumor Involvement into Surrounding Soft Tissues of Joint"
     enum:
       - "No"
       - "Yes"
       - Unknown
       - Not reported
+  nodal_pathology:
+    description: Pathological determination of regional lymph node involvement
+    enum:
+      - N0 Stage Finding
+      - N1 Stage FInding
+      - NX Stage Finding
+      - Unknown
+      - Not Reported
   nodal_clinical:
     description: "Clinical determination of regional lymph node involvement"
     enum:
@@ -341,10 +333,10 @@ properties:
   peritoneal_effusion:
     description: "Peritoneal Effusion"
     enum:
-      - Negative
-      - Positive
+      - "No"
+      - "Yes"
       - Unknown
-      - Not Reported  
+      - Not Reported   
   peritoneal_cytology:
     description: "Peritoneal Effusion Cytology"
     enum:

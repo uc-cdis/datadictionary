@@ -52,37 +52,16 @@ properties:
     description: ""
     type:
       - string
-      - "null"
   age_at_lab:
     description: "Age of subject (in days) when the laboratory test was performed."
     type:
       - number
-  disease_phase:
-    description: "Disease Phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: ""
-    enum:
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy        
-  course_number:
-    description: ""
-    type:
-    - number
   lab_cat:
     description: ""
     enum:
+      - Peripheral Blood Analysis
       - Cerebrospinal Fluid Analysis
+      - Bone Marrow Analysis
       - microRNA Sequencing
       - Other
       - Unknown 
@@ -129,6 +108,8 @@ properties:
       - Plasma
       - Cerebrospinal Fluid
       - Peritoneal Fluid
+      - Bone Marrow
+      - Other
       - Unknown
       - Not reported
   lab_result:
@@ -168,7 +149,7 @@ properties:
       - Unknown
       - Not Reported
   lab_seq_method:
-    description: ""
+    description: "Quantitative Sequencing Method "
     enum:
       - Relative
       - Absolute
@@ -183,7 +164,7 @@ properties:
     type:
       - number
   pmid_ref:
-    description: ""
+    description: "Normal Range Reference PMID Number"
     type:
       - number
   bm_morphology: 

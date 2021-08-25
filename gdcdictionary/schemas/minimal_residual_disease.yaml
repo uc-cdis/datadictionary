@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: minimal_residual_disease
+    backref: minimal_residual_diseases
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: minimal_residual_disease
+    backref: minimal_residual_diseases
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -49,38 +49,11 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_mrd_assessment:
     description: "Age in Days at Minimal Residual Disease Assessment"
-    type:
-      - number
-  disease_phase:
-    description: "The stage or period of an individual's disease."
-    enum:
-      - Initial Diagnosis
-      - Relapse
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: ""
-    enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Delayed Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Interim Maintenance
-      - Palliative Treatment
-      - Investigational Product
-      - Other
-  course_number:
-    description: ""
     type:
       - number
   mrd_method:

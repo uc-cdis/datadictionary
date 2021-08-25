@@ -44,40 +44,18 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "lesion_characteristics" ]
+    enum: [ "lesion_characteristic" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_lesion_assessment:
     description: "Age in Days at Lesion Assessment"
     type:
       - number
-  disease_phase:
-    description: "Disease Phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: "Protocol Treatment Course"
-    enum:
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy        
-  course_number:
-    description: ""
-    type:
-    - number
   lesion_assessment_review:
     description: "Institutional or Central Lesion Review"
     enum:
@@ -136,7 +114,7 @@ properties:
       - Spleen
       - Splenic Hilar Nodes
       - Supraclavicular Nodes
-      - Waldeyer's Ring: Nasopharynx, Tonsils
+      - "Waldeyer's Ring: Nasopharynx, Tonsils"
       - Other
       - Unknown
       - Not Reported

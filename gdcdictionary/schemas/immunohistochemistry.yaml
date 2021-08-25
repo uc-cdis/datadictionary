@@ -56,31 +56,6 @@ properties:
     description: ""
     type:
       - number
-  disease_phase:
-    description: "Disease Phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: ""
-    enum:
-      - Induction
-      - Consolidation
-      - Maintenance
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
-  course_number:
-    description: ""
-    type:
-    - number
   ihc_test:
     description: ""
     enum:

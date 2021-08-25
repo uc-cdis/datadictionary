@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: transfusion_medicine_procedure
+    backref: transfusion_medicine_procedures
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: transfusion_medicine_procedure
+    backref: transfusion_medicine_procedures
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -49,52 +49,22 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_tmp_start:
     description: "Age in Days at Start of Transfusion Medicine Procedure"
     type:
       - number
-  disease_phase:
-    description: "The stage or period of an individual's disease."
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: ""
-    enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Palliative Treatment
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
-      - Other
-  course_number:
-    description: ""
-    type:
-      - number
   tmp_type:
     description: "Transfusion Medicine Procedure Type"
     enum:
-    Exchange Transfusion
-    Therapeutic Apheresis
-    Simple Transfusion
-    Other
-    Unknown
-    Not Reported
+      - Exchange Transfusion
+      - Therapeutic Apheresis
+      - Simple Transfusion
+      - Other
+      - Unknown
+      - Not Reported
   tmp_product:
     description: "Transfusion Medicine Procedure Product"
     enum:
@@ -107,11 +77,11 @@ properties:
   tmp_product_type:
     description: "Transfusion Medicine Procedure Product Type"
     enum:
-    Pheresed
-    Random
-    Other
-    Unknown
-    Not Reported
+      - Pheresed
+      - Random
+      - Other
+      - Unknown
+      - Not Reported
   tmp_number_units:
     description: "Number of Units of Product Transfused"
     type:

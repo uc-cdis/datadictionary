@@ -49,44 +49,13 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_hist_assessment:
     description: "Age of subject (in days) at histology assessment"
     type:
       - number
-  disease_phase:
-    description: "Disease phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Relapse/Progression
-      - Refractory
-  disease_phase_number:
-    description: "Disease phase number"
-    type:
-      - number 
-  course:
-    description: "Protocol Treatment Course"
-    enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Palliative Treatment
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
-      - Other
-  course number:
-    description: "Course number"
-    type:
-      - number 
   hist_assessment_review:
     description: ""
     enum:
@@ -228,10 +197,6 @@ properties:
       - "%"
       - Unknown
       - Not Reported
-  hist_ICD_O_morph_code:
-    description: ""
-    type:
-      - string
   histology_grade:
     description: ""
     enum:
@@ -240,15 +205,16 @@ properties:
       - Grade 3
       - Undifferentiated or Poorly Differentiated
       - Differentiating
+      - FNCLCC Sarcoma Grade GX
+      - FNCLCC Sarcoma Grade 1
+      - FNCLCC Sarcoma Grade 2
+      - FNCLCC Sarcoma Grade 3
       - Unknown
       - Not Reported
-  histology_inpc:
-    description: "Revised INPC Prognostic Group (2003)"
-    enum:
-      - Favorable
-      - Unfavorable
-      - Unknown
-      - Not Reported
+  hist_ICD_O_morph_code:
+    description: ""
+    type:
+      - string
   mature_glial_implants:
     description: ""
     enum:
@@ -268,6 +234,14 @@ properties:
       - Other
       - Unknown
       - Not Reported
+  histology_inpc:
+    description: "Revised INPC Prognostic Group (2003)"
+    enum:
+      - Favorable
+      - Unfavorable
+      - Unknown
+      - Not Reported
+  
 
   
   clinical_events:

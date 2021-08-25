@@ -57,40 +57,6 @@ properties:
     description: ""
     type:
       - number
-  disease_phase:
-    description: "Disease Phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Relapse/Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: "Protocol Treatment Course"
-    enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Delayed Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Interim Maintenance
-      - Palliative Treatment
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
-      - Investigational Product
-      - Other
-  course_number:
-    description: ""
-    type:
-      - number
   vitals_test:
     description: ""
     enum:

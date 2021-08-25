@@ -49,8 +49,8 @@ properties:
     #   systemAlias: submitter_id
     type:
       - string
-
   sex:
+    description: "Biological Sex"
     enum:
       - Male
       - Female

@@ -21,17 +21,11 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: non_protocol_therapy
+    backref: non_protocol_therapys
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
-  - name: clinical_events
-    backref: non_protocol_therapy
-    label: part of
-    target_type: clinical_event
-    multiplicity: many_to_one
-    required: false
 
 required:
   - submitter_id
@@ -49,7 +43,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   npt_timing:
@@ -79,8 +73,8 @@ properties:
       - Unknown
       - Not Reported
 
-  clinical_events:
-    $ref: "_definitions.yaml#/to_one" 
+
+
   subjects:
     $ref: "_definitions.yaml#/to_one"  
   project_id:

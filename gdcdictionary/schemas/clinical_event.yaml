@@ -49,7 +49,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal event ID"
     type:
       - string
   clinical_event_type:
@@ -61,14 +61,26 @@ properties:
       - "Initial Diagnosis"
       - "Relapse"
       - "Progression"  
+      - "Relapse/Progression"
+      - "Refractory"
   course:
     description: "The type of protocol treatment course administered."
     enum:
       - "Prephase"
       - "Induction"
       - "Intensification"
+      - "Delayed Intensification"
       - "Consolidation"
+      - "Stem Cell Transplant Conditioning"
       - "Mainteinance"
+      - Interim Maintenance
+      - Palliative Treatment
+      - Chemotherapy
+      - Radiation Therapy
+      - Chemoimmunotherapy
+      - Immunotherapy
+      - Investigational Agent
+      - Other
   disease_phase_number:
     description: "The number of the disease phase."
     type:
@@ -91,6 +103,26 @@ properties:
       - number
   age_at_course_end:
     description: "Age of subject (in days) at the end of the course."
+    type:
+      - number
+  age_at_txassign:
+    description: "Age in Days at Treatment Assignment."
+    type:
+      - number
+  age_at_course_anc_500:
+    description: "Age in Days When Neutrophil Count Exceeded 500 (ANC/mm3)"
+    type:
+      - number
+  cycle_number:
+    description: "Cycle Number"
+    type:
+      - number
+  age_at_cycle_start:
+    description: "Age in Days at Cycle Start"
+    type:
+      - number
+  age_at_cycle_end:
+    description: "Age in Days at Cycle End"
     type:
       - number
   

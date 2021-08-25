@@ -49,42 +49,11 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_staging:
     description: "Age of the subject (in days) at staging assessment"
-    type:
-      - number
-
-  disease_phase:
-    description: "Disease Phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-      - Progression
-      - Refractory
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: "Protocol Treatment Course"
-    enum:
-      - Prephase
-      - Induction
-      - Intensification
-      - Consolidation
-      - Stem Cell Transplant Conditioning 
-      - Maintenance
-      - Palliative Treatment
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy
-      - Other
-  course_number:
-    description: ""
     type:
       - number
   stage_system:
@@ -96,6 +65,7 @@ properties:
       - INSS
       - INRGSS
       - EVANS
+      - Ann Arbor
       - Unknown
       - Not Reported
   stage:

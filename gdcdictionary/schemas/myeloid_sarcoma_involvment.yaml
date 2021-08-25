@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: myeloid_sarcoma_involvment
+    backref: myeloid_sarcoma_involvments
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: myeloid_sarcoma_involvment
+    backref: myeloid_sarcoma_involvments
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -52,30 +52,6 @@ properties:
     description: "PCDC internal person ID"
     type:
       - string
-  age_at_disease_assessment:
-    description: "Age in Days at Disease Phase"
-    type:
-      - number
-  disease_phase:
-    description: "Disease Phase"
-    enum:
-      - Initial Diagnosis
-      - Relapse
-  disease_phase_number:
-    description: ""
-    type:
-      - number
-  course:
-    description: "Protocol Treatment Course"
-    enum:
-      - Chemotherapy
-      - Radiation Therapy
-      - Chemoimmunotherapy
-      - Immunotherapy        
-  course_number:
-    description: ""
-    type:
-      - number
   myeloid_sarcoma:
     description: ""
     enum:
