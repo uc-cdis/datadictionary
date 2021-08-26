@@ -70,7 +70,7 @@ properties:
       - QTc
       - FVC
       - FEV1
-      - FEF at 25-75%
+      - "FEF at 25-75%"
       - Total lung capacity
       - DLCO
   function_result:
@@ -83,7 +83,7 @@ properties:
       - number
   function_result_unit:
     enum:
-      - %
+      - "%"
       - mL
       - interval/second
       - Unknown
