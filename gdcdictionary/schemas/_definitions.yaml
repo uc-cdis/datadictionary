@@ -285,8 +285,8 @@ clinical_event_type:
   term:
       $ref: "_terms.yaml#/clinical_event_type"
   enum:
-    - "disease phase"
-    - "course"
+    - "Disease Phase"
+    - "Course"
 
 
 
