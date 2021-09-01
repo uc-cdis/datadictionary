@@ -54,8 +54,13 @@ properties:
   consortium:
     description: "Consortium that governs use and release of data for the subject in a particular study"
     enum:
-      - INRG
       - INSTRuCT
+      - MaGIC
+      - INRG
+      - NODAL
+      - INTERACT
+      - HIBISCUS
+      - ALL
   data_contributor_id:
     description: "An identifier assigned to a data contributor source where subject records originated"
     enum:
@@ -74,7 +79,7 @@ properties:
       - SSG
       - FSG
       - UK
-      - EURO-EWING Consortium
+      - EURO-EWING
       - ISG
       - CRCTU
       - University College of London

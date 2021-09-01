@@ -7,7 +7,7 @@ namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Adverser Event"
+description: "Adverse Event"
 additionalProperties: false
 submittable: true
 validators: null
@@ -49,25 +49,81 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_ae:
     description: "Age in Days at Onset Adverse Event"
     type:
       - number
+  age_at_ae_resolved: 
+    description: "Age in Days at Resolved Adverse Event"
+    type:
+      - number
   adverse_event: 
     description: ""
     enum:
+      - Left Ventricular Systolic Dysfunction
+      - Infection
+      - Sinusoidal Obstruction Syndrome 
+      - Typhlitis 
+      - Multi Organ Failure
+      - Hyperbilirubinemia
+      - Hemorrhage
+      - Neurotoxicity Syndrome
+      - Graft Versus Host Disease
+      - Allergic reaction
+      - Mucositis
+      - Neutropenia
+      - Thrombocytopenia
       - Renal Toxicity
+      - Hepatic Toxicity
       - Neuropathy
+      - Cardiac Toxicity
       - Pulmonary Toxicity
+      - GI toxicity
+      - Rashes
+      - Endocrine toxicity
+      - Musculoskeletal toxicity
+      - Fatigue
+      - Psychiatric toxicity
       - Ototoxicity
       - Other
       - Unknown
       - Not Reported
-  ae_grade:
-    description: ""
+  ae_immune: 
+    description: "Immune Related Adverse Event"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  ae_infusion: 
+    description: "Infusion Related Adverse Event"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  ae_code: 
+    description: "Adverse Event Coded"
+    type:
+      - string
+  ae_system: 
+    description: "Adverse Event Grading System"
+    enum: 
+      - European Society for Blood and Marrow Transplantation (EBMT)
+      - CTCAE
+      - Balis Neuropathy Scale
+      - Other
+      - Unknown
+      - Not Reported
+  ae_system_version: 
+    description: "Adverse Event Grading System Version"
+    type:
+      - string
+  ae_grade: 
+    description: "Adverse Event Severity Grade"
     enum:
       - Grade 1 
       - Grade 2 
@@ -76,8 +132,15 @@ properties:
       - Grade 5
       - Unknown
       - Not Reported
+  ae_reported: 
+    description: "SAE Reported to Sponsor"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
   ae_attribution:
-    description: ""
+    description: "Adverse Event Attribution to Product or Procedure"
     enum:
       - Definite
       - Probable
@@ -87,7 +150,7 @@ properties:
       - Unknown
       - Not Reported
   ae_outcome:
-    description: ""
+    description: "Adverse Event Outcome"
     enum:
       - "Death, Contributory"
       - "Death, Noncontributory"
@@ -96,7 +159,143 @@ properties:
       - Recovered
       - Unknown
       - Not Reported
-
+  avn_joint: 
+    description: "Avascular Necrosis Joint Involvement."
+    enum:
+      - Ankle (distal tibia, intrinsic ankle bones) 
+      - Elbow (distal humerus, proximal radius, proximal ulna) 
+      - Heel (calcaneus)
+      - Hip (proximal femur) 
+      - Knee (distal femur, proximal tibia)
+      - Shoulder (proximal humerus) 
+      - Wrist (distal radius, distal ulna, intrinsic wrist bones) 
+      - Other
+      - Unknown
+      - Not Reported
+  avn_joint_laterality: 
+    description: "Avascular Necrosis Joint Laterality"
+    enum: 
+      - Left
+      - Right
+      - Bilateral
+      - Midline
+      - Unknown
+      - Not Reported
+  avn_method: 
+    description: "Avascular Necrosis Method of Evaluation"
+    enum: 
+      - Bone scan
+      - CT
+      - MRI (NMR)
+      - X-ray
+      - Other
+      - Unknown
+      - Not Reported
+  orthopedic_procedure: 
+    description: "Avascular Necrosis Orthopedic Procedures"
+    enum: 
+      - Arthroplasty, Hemi/Resurfacing
+      - Arthroplasty, Total
+      - Bone Graft, Free Vascularized
+      - Bone Graft, Nonvascularized 
+      - Chondroplasty
+      - Core Decompression
+      - Osteotomy
+      - Other
+      - Unknown
+      - Not Reported
+  ae_expected: 
+    description: "Adverse Event Expected"
+    enum: 
+      - Expected
+      - Unexpected
+      - Unknown
+      - Not Reported
+  ae_tx_mod: 
+    description: "Protocol Treatment Modifications"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  ae_hospitalization: 
+    description: "Adverse Event Associated with Hospitalization"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  ae_icu: 
+    description: "Admitted to ICU"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  ae_medication: 
+    description: "Adverse Event Supportive Care Medication"
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  ae_intervention: 
+    description: "Adverse Event Intervention"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  ae_intervention_detail: 
+    description: "Intervention or Medication Detail"
+    enum: 
+      - ACE-Inhibitor
+      - Ionotropic Support
+      - Heart Transplant
+      - Other
+      - Unknown
+      - Not Reported
+  ae_pathogen: 
+    description: "Pathogen Causing Infection"
+    enum: 
+      - Bacteria
+      - Virus
+      - Fungus
+      - Other
+      - Unknown
+      - Not Reported
+  ae_pathogen_status: 
+    description: "Pathogen Confirmation Indicator"
+    enum: 
+      - Confirmed
+      - Suspected
+      - Unknown
+      - Not Reported
+  infection_classification: 
+    description: "Infection Site Classification"
+    enum: 
+      - Clinically Documented
+      - Microbiologically Documented Non-Sterile Site
+      - Microbiologically Documented Sterile Site
+      - Unknown
+      - Not 
+  gvhd_acuity:
+    description: "Graft Versus Host Disease Acuity"
+    enum:
+      - Acute
+      - Chronic
+      - Unknown
+      - Not Reported
+  gvhd_organ:
+    description: "Graft Versus Host Disease Organ"
+    enum:
+      - Skin
+      - Liver
+      - Lung
+      - Gastrointestinal Tract
+      - Other
+      - Unknown
+      - Not Reported
   
 
   clinical_events:

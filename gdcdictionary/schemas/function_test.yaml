@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "cytology"
-title: Cytology
+id: "function_test"
+title: Function Tests
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Cytology"
+description: "Patient Tests"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,16 +21,16 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: cytologys 
+    backref: function_tests 
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: cytologys
-    label: part of
+    backref: function_tests 
+    label: of
     target_type: clinical_event
-    multiplicity: many_to_one
+    multiplicity: many_to_one    
     required: false
 
 required:
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "cytology" ]
+    enum: [ "function_test" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,31 +52,50 @@ properties:
     description: "PCDC internal ID"
     type:
       - string
-  age_at_cytology:
-    description: ""
+  age_at:
+    description: "Age of the subject (in days) at the time of test"
     type:
       - number
-  malignant_cells:
+  function_category:
     description: ""
     enum:
-      - Present
-      - Absent
-      - Unknown
-      - Not Reported
-  cytology_spec_type:
+      - Echocardiogram
+      - EKG
+      - Pulmonary Function Test
+  function_test:
     description: ""
     enum:
-      - Cerebrospinal Fluid
-      - Peritoneal Fluid
+      - Ejection Fraction
+      - Shortening Fraction
+      - QTc
+      - FVC
+      - FEV1
+      - "FEF at 25-75%"
+      - Total lung capacity
+      - DLCO
+  function_result:
+    description: "Result for qualitative results"
+    type:
+      - string
+  function_result_numeric:
+    description: "Result for quantitative results"
+    type:
+      - number
+  function_result_unit:
+    enum:
+      - "%"
+      - mL
+      - interval/second
       - Unknown
       - Not Reported
-
+  
   
 
+  
   clinical_events:
-    $ref: "_definitions.yaml#/to_one" 
+    $ref: "_definitions.yaml#/to_one"
   subjects:
-    $ref: "_definitions.yaml#/to_one"  
+    $ref: "_definitions.yaml#/to_one"   
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

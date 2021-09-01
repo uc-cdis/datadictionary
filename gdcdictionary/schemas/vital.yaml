@@ -62,6 +62,8 @@ properties:
     enum:
       - Weight
       - Height
+      - BMI
+      - BSA
   vitals_result:
     type:
       - string
@@ -72,6 +74,8 @@ properties:
     enum:
       - Kg
       - cm
+      - m2
+      - kg/m2
       - Unknown
       - Not Reported
   

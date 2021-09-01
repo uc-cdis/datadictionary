@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "cytology"
-title: Cytology
+id: "imaging"
+title: Imaging
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Cytology"
+description: "Imaging"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: cytologys 
+    backref: imagings
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: cytologys
+    backref: imagings
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "cytology" ]
+    enum: [ "imaging" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,26 +52,50 @@ properties:
     description: "PCDC internal ID"
     type:
       - string
-  age_at_cytology:
-    description: ""
+  age_at_imaging:
+    description: "Age in Days at Imaging"
     type:
       - number
-  malignant_cells:
+  imaging_method:
     description: ""
     enum:
-      - Present
-      - Absent
-      - Unknown
-      - Not Reported
-  cytology_spec_type:
-    description: ""
-    enum:
-      - Cerebrospinal Fluid
-      - Peritoneal Fluid
+      - PET
+      - Gallium
+      - CT
+      - PET-CT
+      - PET-MRI
+      - MRI
+      - X-ray
+      - Ultrasound
+      - Bone scan
       - Unknown
       - Not Reported
 
-  
+  imaging_result:
+    description: ""
+    enum:
+      - Positive
+      - Negative
+      - Equivocal
+      - Unknown
+      - Not Reported
+  deauville_score:
+    description: ""
+    enum:
+      - Score 1
+      - Score 2
+      - Score 3
+      - Score 4
+      - Score 5
+      - Unknown
+      - Not Reported
+  qpet_score:
+    description: ""
+    type:
+      - number
+
+
+
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 

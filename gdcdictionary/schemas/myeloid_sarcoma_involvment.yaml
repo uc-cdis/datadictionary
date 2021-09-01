@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "cytology"
-title: Cytology
+id: "myeloid_sarcoma_involvment"
+title: Myeloid Sarcoma Involvment
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Cytology"
+description: "Myeloid Sarcoma Involvment"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: cytologys 
+    backref: myeloid_sarcoma_involvments
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: cytologys
+    backref: myeloid_sarcoma_involvments
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,34 +44,35 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "cytology" ]
+    enum: [ "myeloid_sarcoma_involvment." ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal ID"
+    description: "PCDC internal person ID"
     type:
       - string
-  age_at_cytology:
-    description: ""
-    type:
-      - number
-  malignant_cells:
+  myeloid_sarcoma:
     description: ""
     enum:
-      - Present
-      - Absent
+      - "No"
+      - "Yes"
       - Unknown
       - Not Reported
-  cytology_spec_type:
+  myeloid_sarcoma_site:
     description: ""
     enum:
-      - Cerebrospinal Fluid
-      - Peritoneal Fluid
+      - Bone
+      - CNS
+      - Orbit
+      - Skin
+      - Testis
+      - Other
       - Unknown
       - Not Reported
 
-  
+
+
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 

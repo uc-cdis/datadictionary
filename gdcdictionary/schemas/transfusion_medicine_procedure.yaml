@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "cytology"
-title: Cytology
+id: "transfusion_medicine_procedure"
+title: Transfusion Medicine Procedure
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Cytology"
+description: "Transfusion Medicine Procedure"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: cytologys 
+    backref: transfusion_medicine_procedures
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: cytologys
+    backref: transfusion_medicine_procedures
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "cytology" ]
+    enum: [ "transfusion_medicine_procedure" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,26 +52,40 @@ properties:
     description: "PCDC internal ID"
     type:
       - string
-  age_at_cytology:
-    description: ""
+  age_at_tmp_start:
+    description: "Age in Days at Start of Transfusion Medicine Procedure"
     type:
       - number
-  malignant_cells:
-    description: ""
+  tmp_type:
+    description: "Transfusion Medicine Procedure Type"
     enum:
-      - Present
-      - Absent
+      - Exchange Transfusion
+      - Therapeutic Apheresis
+      - Simple Transfusion
+      - Other
       - Unknown
       - Not Reported
-  cytology_spec_type:
-    description: ""
+  tmp_product:
+    description: "Transfusion Medicine Procedure Product"
     enum:
-      - Cerebrospinal Fluid
-      - Peritoneal Fluid
+      - RBC
+      - Platelets
+      - WBC
+      - Other
       - Unknown
       - Not Reported
-
-  
+  tmp_product_type:
+    description: "Transfusion Medicine Procedure Product Type"
+    enum:
+      - Pheresed
+      - Random
+      - Other
+      - Unknown
+      - Not Reported
+  tmp_number_units:
+    description: "Number of Units of Product Transfused"
+    type:
+      - number
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 
@@ -86,4 +100,13 @@ properties:
 
   state:
     $ref: "_definitions.yaml#/state"
+
+
+
+
+
+
+
+
+
 

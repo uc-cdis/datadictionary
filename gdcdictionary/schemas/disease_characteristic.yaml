@@ -49,10 +49,9 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "Honest Broker ID"
+    description: "PCDC Internal ID"
     type:
       - string
-      - "null"
   fab_type:
     description: "A classification system for acute myeloid leukemias, acute lymphoblastic leukemias, and myelodysplastic syndromes. It is based on the morphologic and cytochemical evaluation of bone marrow and peripheral blood smears."
     enum:
@@ -66,7 +65,7 @@ properties:
       - M5
       - M6
       - M7
-      - AML,NOS
+      - AML, Not Otherwise Specified
       - Unknown
       - Not Reported
   who_aml:
@@ -125,21 +124,205 @@ properties:
       - Poor
       - Unknown
       - Not Reported
+  MKI:
+    description: "MKI (Revised INPC)"
+    enum:
+      - Low (<2% or <100/5,000 cells)
+      - Intermediate (2-4% or 100 to <200/5,000 cells)
+      - High (>4% or >200/5,000 cells)
+      - Unknown
+      - Not Reported
+  disease_site:
+    description: "Disease Involvement Site"
+    enum:
+      - Bone Marrow
+      - Central Nervous System
+      - Testes
+      - Other
+      - Unknown
+      - Not Reported
   detection_method:
     description: "The method used to detect the extent of the disease involvement."
     enum:
+      - Cerebrospinal Fluid Results
+      - Clinical Signs or Symptoms
       - Tumor Marker
       - Imaging
       - Unknown
+      - Other
       - Not Reported
-  mitosis_karyorrhexis_index:
-    description: "MKI (Revised INPC)"
+  CNS_disease_status:
+    description: "The status of central nervous system leukemia at the time of diagnosis."
     enum:
-      - "Low (<2% or <100/5,000 cells)"
-      - "Intermediate (2-4% or 100 to <200/5,000 cells)"
-      - "High (>4% or >200/5,000 cells)"
+      - CNS1
+      - CNS2
+      - CNS3
       - Unknown
       - Not Reported
+  CNS_disease_status_detail:
+    description: "CNS Status Detail"
+    enum:
+      - a
+      - b
+      - c
+      - Unknown
+      - Not Reported
+  lansky:
+    description: "Lansky Play Performance Status"
+    enum:
+      - "100"
+      - "90"
+      - "80"
+      - "70"
+      - "60"
+      - "50"
+      - "40"
+      - "30"
+      - "20"
+      - "10"
+      - "0"
+      - Unknown
+      - Not Reported
+  karnofsky:
+    description: "Karnofsky Performance Status"
+    enum:
+      - "100"
+      - "90"
+      - "80"
+      - "70"
+      - "60"
+      - "50"
+      - "40"
+      - "30"
+      - "20"
+      - "10"
+      - "0"
+      - Unknown
+      - Not Reported
+  GPOH_score:
+    description: ""
+    enum:
+      - "1 - Normal, no complaint"
+      - "2 - Mild complaints, but needs no assistance"
+      - "3 - Age-appropriate activity severely impaired"
+      - "4 - Confined to bed, needs nursing care"
+      - "5 - Needs intensive care, seriously ill, moribund"
+      - Unknown
+      - Not Reported
+  MPAL:
+    description: "An acute leukemia of ambiguous lineage"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  MLDS:
+    description: "Acute myeloid leukemia or myelodysplastic syndrome occurring in children with Down syndrome."
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  TAMDS:
+    description: "A myeloid proliferation occurring in newborns with Down syndrome."
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  secondary_AML:
+    description: "An acute myeloid leukemia secondary to a myelodysplastic syndrome or therapy-related. "
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  prior_steroids_week:
+    description: "Received Steroids within One Week Prior to Diagnosis "
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  prior_steroids_month:
+    description: "Received Steroids within One Month Prior to Diagnosis "
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  e_lesions:
+    description: "E-Lesions Present"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  bulk_disease:
+    description: ""
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  bulky_nodal_aggregate:
+    description: "Bulky Nodal Aggregate"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  BULK_MED_MASS:
+    description: "Bulky Mediastinal Mass"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported  
+  med_ratio:
+    description: "Mediastinal Ratio"
+    type:
+      - number
+  B_systems:
+    description: "B Symptoms"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  fever:
+    description: "Recurrent Fever >38 C"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported  
+  night_sweats:
+    description: "Drenching Night Sweats"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  weight_loss:
+    description: "Unexplained Weight Loss  >=10% of Body Weight"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  nodular_splenic:
+    description: "Nodular Splenic Involvement"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported  
+  
+  
+  
+  
+  
 
   
 

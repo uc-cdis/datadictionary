@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "test"
-title: Tests
+id: "non_protocol_therapy"
+title: Non-Protocol Therapy
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Patient Tests"
+description: "Non-Protocol Therapy"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,17 +21,11 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: tests 
+    backref: non_protocol_therapys
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
-  - name: clinical_events
-    backref: tests 
-    label: of
-    target_type: clinical_event
-    multiplicity: many_to_one    
-    required: false
 
 required:
   - submitter_id
@@ -44,30 +38,45 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "test" ]
+    enum: [ "non_protocol_therapy" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
-      - "null"
-  age_at:
-    description: "Age of the subject (in days) at the time of test"
-    type:
-      - number
-  result:
-    description: "Result for qualitative results"
-    type:
-      - string
-  result_numeric:
-    description: "Result for quantitative results"
-    type:
-      - number
-  
+  npt_timing:
+    description: "Non-Protocol Therapy Timing"
+    enum:
+      - Prior to Study
+      - After Study Completion
+      - Unknown
+      - Not Reported
+  npt_type:
+    description: "Non-Protocol Therapy Type"
+    enum:
+      - Chemotherapy
+      - Radiation Therapy
+      - Stem Cell Transplant
+      - Surgery
+      - Immunotherapy
+      - Other
+      - Unknown
+      - Not Reported
+  npt_sct_type:
+    description: "Stem Cell Transplant Type"
+    enum:
+      - Autologous
+      - Allogeneic
+      - Other
+      - Unknown
+      - Not Reported
+
+
+
   subjects:
-    $ref: "_definitions.yaml#/to_one"   
+    $ref: "_definitions.yaml#/to_one"  
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

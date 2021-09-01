@@ -49,15 +49,15 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_gts:
-    description: ""
+    description: "Age in Days at Growing Teratoma Syndrome"
     type:
       - number
   gts_treatment:
-    description: ""
+    description: "Growing Teratoma Syndrome Treatment"
     enum:
       - Surgery
       - Chemotherapy

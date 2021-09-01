@@ -49,7 +49,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_rt_start:
@@ -58,96 +58,89 @@ properties:
   age_at_rt_end:
     type:
       - number
-  rt_site_classification:
-    description: "Radiation Therapy Tumor classification"
+  tumor_classification:
+    description: "Tumor classification"
     enum:
       - Primary
-      - Regional
+      - Regional Nodes
       - Metastatic
+      - Unknown
+      - Not Reported
+  rt_tissue_type:
+    description: "Radiation Therapy Tissue Type"
+    enum:
+      - Bone
+      - Soft Tissue
+      - Unknown
+      - Not Reported
   rt_site:
     description: "Radiation Therapy Site"
     enum:
+      - Abdomen
+      - Axilla
+      - Bone
+      - Chest
+      - Cranium
+      - Epitrochlear and Brachial
+      - Frontal Cortex
+      - Head and Neck
+      - Heart/Pericardium
+      - Hilar
+      - Iliac
+      - Inguinal and Femoral
+      - Liver
+      - Lower Extremity
+      - Lung
+      - Mediastinum
+      - Mesenteric/Hepatic Porta
+      - Neck
+      - Occiptal Cortex
+      - Ovary
+      - Para-aortic
+      - Parietal Cortex
+      - Pelvis
+      - Pineal
+      - Pleura
+      - Popliteal
       - Retroperitoneum
       - Sacrococcygeal
-      - Spinal Cord
-      - Thalamus
-      - Testes
-      - Temporal Cortex
-      - Suprasellar/Neurohypophyseal and Pineal
-      - Suprasellar/Neurohypophyseal
-      - Pineal
-      - Parietal Cortex
-      - Occipital Cortex
-      - Mediastinum
-      - Frontal Cortex
-      - "Pelvis"
-      - Head and Neck
-      - "Neck"
-      - "Retroperitoneal"
-      - "Perineum"
-      - "Ovary"
-      - Paratesticular
-      - Abdomen
-      - Kidney
-      - Shoulder
       - Scalp
-      - "Upper arm"
-      - Forearm
-      - Hand
-      - Thigh
-      - Knee
-      - Leg
-      - "Lower Leg"
-      - Foot
-      - Brain
-      - Paraspinal
+      - Shoulder
+      - Spinal Cord
+      - Spine
+      - Spleen, Splenic Hilar
+      - Sternum/Chest Wall
+      - Suprasellar/Neurohypophyseal
+      - Temporal Cortex
+      - Testes
+      - Thalamus
+      - Upper Extremity
       - Vagina
-      - Eyelid
-      - Orbit
-      - Cheek
-      - Hypopharynx
-      - Larynx
-      - "Oral cavity"
-      - Oropharynx
-      - Parotid
-      - "Thyroid and Parathyroid"
-      - "Middle ear"
-      - "Nasal Cavity and Paranasal Sinuses"
-      - "Nasal Cavity"
-      - "Paranasal Sinuses"
-      - Nasopharynx
-      - "Infratemporal Fossa/Pterygopalatine and Parapharyngeal Area"
-      - "Infratemporal Fossa/Pterygopalatine"
-      - "Parapharyngeal Area"
-      - Bladder
-      - Prostate
-      - Bladder/Prostate
-      - Cervix
-      - Uterus
-      - Vulva
-      - Thorax
-      - "Anal/Perianal"
-      - Trunk
-      - "Bone or Bone Marrow"
-      - Bone
-      - "Bone Marrow"
-      - "Distant Lymph Nodes"
-      - "Pleural Effusion"
-      - "Soft Tissue"
-      - Liver
-      - "Liver/Biliary Tract"
-      - Lung
+      - Waldeyer's Ring
       - Other
       - Unknown
-      - "Not Reported"
+      - Not Reported
+  rt_laterality:
+    description: "Radiation Therapy Laterality"
+    enum:
+        - Left 
+        - Right
+        - Midline
+        - Bilateral
+        - Unknown
+        - Not Reported
   energy_type:
     description: Type of particles and energy
     enum:
+      - 3D Conformal
+      - Intensity-Modulated Radiation Therapy
+      - Proton Stereotactic Body Radiation Therapy
+      - Photon Stereotactic Body Radiation Therapy
       - Proton
-      - Photon
       - Brachytherapy
       - Electrons
       - Unknown
+      - Other
       - Not Reported
   rt_dose:
     description: "Total radiation dose"
@@ -160,14 +153,30 @@ properties:
       - Unknown
       - Not Reported
   boost:
+    description: "Boost given"
     enum:
       - "No"
       - "Yes"
       - Unknown
       - Not Reported
-  num_fraction:
+  boost_dose:
+    description: "Boost Dose"
     type:
       - number
+  num_fraction:
+    description: "Number of Fractions"
+    type:
+      - number
+  transposition_organ:
+    description: "Surgical Transposition of Organs"
+    enum:
+      - Ovaries
+      - Other
+      - Unknown
+      - Not Reported
+
+
+
 
   
 

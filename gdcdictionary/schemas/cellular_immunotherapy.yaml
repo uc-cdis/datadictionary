@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "cytology"
-title: Cytology
+id: "cellular_immunotherapy"
+title: Cellular Immunotherapy
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Cytology"
+description: "Cellular Immunotherapy"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: cytologys 
+    backref: cellular_immunotherapys
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: clinical_events
-    backref: cytologys
+    backref: cellular_immunotherapys
     label: part of
     target_type: clinical_event
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "cytology" ]
+    enum: [ "cellular_immunotherapy" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,25 +52,18 @@ properties:
     description: "PCDC internal ID"
     type:
       - string
-  age_at_cytology:
-    description: ""
+  age_at_cimt_start:
+    description: "Age in Days at Start of Cellular Immunotherapy"
     type:
       - number
-  malignant_cells:
-    description: ""
+  cimt_type:
+    description: "Cellular Immunotherapy Type"
     enum:
-      - Present
-      - Absent
+      - Donor Lymphocyte Infusion
+      - Chimeric Antigen Receptor T-cell Therapy
+      - Other
       - Unknown
       - Not Reported
-  cytology_spec_type:
-    description: ""
-    enum:
-      - Cerebrospinal Fluid
-      - Peritoneal Fluid
-      - Unknown
-      - Not Reported
-
   
 
   clinical_events:

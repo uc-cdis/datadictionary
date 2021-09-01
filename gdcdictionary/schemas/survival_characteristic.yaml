@@ -49,7 +49,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_lkss:
@@ -61,6 +61,17 @@ properties:
     enum:
       - Alive
       - Dead
+  lkss_with_disease:
+    description: "Subject's last known survival status with disease"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  age_lost_to_follow_up:
+    description: "Age in Days When Lost to Follow-up"
+    type:
+      - number
   cause_of_death:
     description: "The circumstance or condition that resulted in the death of the subject"
     type: array
@@ -71,17 +82,52 @@ properties:
         - Pre-Treatment Disease Complications
         - Post-Treatment Disease Complications
         - Treatment-Related Mortality
-        - Secondary Malignancy
+        - Development of SMN
         - Other
         - Unknown
         - Not Reported
+  cause_of_death_other:
+    description: ""
+    type: 
+      - string
+  TRM_type:
+    description: "Treatment-related Mortality Type"
+    enum:
+      - Stem Cell Transplant
+      - Immunotherapy 
+      - Other
+      - Unknown
+      - Not Reported
+  cause_of_death_detail:
+    description: ""
+    enum: 
+      - Acute Respiratory Distress Syndrome
+      - Bacterial Infection
+      - Cardiac Disease
+      - Cardiac Failure
+      - Fungal Infection
+      - Graft Versus Host Disease
+      - Hemorrhage
+      - Infection, Not Otherwise Specified
+      - Multi-Organ Failure
+      - Organ Failure, Not Otherwise Specified
+      - Pulmonary Disease
+      - Sinusoidal Obstruction Syndrome 
+      - Surgical Complication
+      - Viral Infection
+      - Immunotherapy-Related
+      - Other
+      - Unknown
+      - Not Reported
+  cause_of_death_ranking:
+    description: "Assigning a weighted relevance to the cause of death."
+    enum: 
+      - Primary
+      - Contributory
+      - Unknown
+      - Not Reported
 
-  
-  
 
-
-  
-  
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 
   subjects:

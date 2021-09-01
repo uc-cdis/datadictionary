@@ -49,22 +49,259 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_molecular_analysis:
     description: Age of the subject (in days) at molecular analysis
     type:
       - number
+  molecular_analysis_classification:
+    description: ""
+    enum:
+      - Primary
+      - Metastatic
+      - Unknown
+      - Not Reported
+  molecular_analysis_method:
+    description: ""
+    enum:
+      - Karyotype
+      - Fluorescence In Situ Hybridization
+      - Reverse Transcriptase-Polymerase Chain Reaction
+      - Next Generation Sequencing
+      - Capillary Electropheresis
+      - Gel Electropheresis
+      - Cytogenetics
+      - Polymerase Chain Reaction
+      - Genotyping
+      - Other
+      - Unknown
+      - Not Reported
+  molecular_analysis_sample_source:
+    description: ""
+    enum:
+      - Blood
+      - Bone marrow
+      - Unknown
+      - Not Reported
+  karyotype_status:
+    description: ""
+    enum:
+      - Normal Karyotype
+      - Abnormal Karyotype
+      - Unknown
+      - Not Reported
+  dna_index:
+    description: ""
+    enum:
+      - "DNA Index <= 1 (Hypodiploid, Diploid)"
+      - "DNA Index >1 (Hyperdiploid)"
+      - Unknown
+      - Not Reported
+  dna_index_numeric:
+    description: ""
+    type:
+      - number
+  iscn:
+    description: ""
+    type:
+      - string
+  num_chromosomes:
+    description: "Number of Chromosomes on Karyotype"
+    type:
+      - number
+  indepen_abb:
+    description: "Number of Independent Abberations in Karyotype"
+    type:
+      - number
+  num_metaphases:
+    description: "Number of Cells in Metaphase during Karyotyping"
+    type:
+      - number
   molecular_abnormality:
     description: "A molecular or cytogenic abnormality which occurs in either human disease states or disease models."
     enum:
-      - MYCN Amplification
-      - "FOXO1-PAX3 fusion"
-      - "FOXO1-PAX7 fusion"
-      - "FOXO1-Other fusion"
+      - ETV6-RUNX1 t(12;21)(p13;q22)(formerly TEL-AML1)
+      - t(8;14)(q24;q32) or other variant of B-ALL
+      - Trisomy 10
+      - Trisomy 17
+      - Trisomy 4
+      - E2A/PBX1 t(1;19)
+      - B-ALL variant
+      - iAMP21
+      - t(4;11)(q21;q23) / MLL-MLLT2(AF4)
+      - t(9;22)(q34;q11.2) ABL/BCR
+      - MLL rearrangement
+      - inv(16)(p13q22)
+      - t(16;16)(p13.1;q22)
+      - t(15;17)(q24;q21)
+      - t(9;11)(p22;q23) / MLL-MLLT3(AF9)
+      - t(10;11)(p12;q23) / MLL-MLLT10(AF10)
+      - t(10;11)(p11.2;q23)
+      - Monosomy 7
+      - Trisomy 8
+      - t(1;11)(q21;q23) / MLL-MLLT11(AF1Q)
+      - t(6;11)(q27;q23) / MLL-MLLT4(AF6)
+      - t(6;9)(p23;q34)
+      - t(11;19)(q23;p13) (MLL-ENL)/(MLL-ELL)
+      - t(11;19)(q23;p13.1) (MLL-ELL)
+      - t(11;19)(q23;p13.3) (MLL-ENL)
+      - t(11;17)(AF17)
+      - t(8;16)MOZ/CBP
+      - Monosomy 5
+      - der.12p
+      - t(2;12)
+      - t(5;11)(q35;p15) NSD1/NUP98
+      - t(7;12)(q36;p13) HLXB9(MNX1)/ETV6(TEL)
+      - inv(3)(q21;q21.2)
+      - t(3;3)(q21;q26.2), RPN1-EVI1
+      - t(3;12)(q23;p12.3)(ETV6/EVI1)
+      - del(5q)(5q31-q32)
+      - t(1;22)(RBM15-MKL1)
+      - del(13q) (13q 14 - 21)
+      - del(17p)
+      - inv(16)(p13.3q24.3)/CBFA2T3-GLIS2
+      - t(11;15)(p15;q35)/NUP98/JARID1A
+      - t(16;21)(q24;q22)RUNX1-CBFA2T3
+      - t(3;5)(p25;q34)NPM1/MLF1
+      - t(16;21)(p11;q22)FUS/ERG
+      - MLL Other partner
+      - CEBPA mutation - monoallelic
+      - CEBPA mutation - biallelic
+      - CEBPA mutation - mutation unspecified
+      - FLT3 internal tandem duplication (ITD)
+      - FLT3-TKD
+      - CKIT mutation - ex17
+      - Non-KMT2A MLLT10
+      - NPM1 mutation
+      - WT1 mutation
+      - CKIT mutation - ex8
+      - CKIT mutation - unspecified
+      - GATA1 mutation
+      - RUNX1 mutation
+      - PTPN11 mutation
+      - N-RAS mutation
+      - K-RAS mutation
+      - BRAF V600E
+      - t(11;22)(q24;q12)
+      - t(21;22)(q22;q12)
+      - t(7;22)(p22;q12)
+      - t(17;22)(q21;q12)
+      - t(2;22)(q33;q12)
+      - t(11;22)(p13;q12)
+      - t(1;22)(q23;q12)
+      - t(6;22)(p21;q12)
+      - t(19;22)(q13;q12)
+      - t(1;22)(p34;q12)
+      - t(9;22)(q22;q12)
+      - t(12;22)(q13.3;q12)
+      - t(12;22)(q13.12;q12)
+      - t(2;22)(q34;q12)
+      - t(21;16)(p11;q22)
+      - (t2;16)(q35;p11)
+      - t(1;16)(p34;p11)
+      - t(12;16)(q13;p11)
+      - t(4;19)(q25;q13)
+      - t(4;19)(q35;q13)
+      - t(10;19)(q26;q13)
+      - inv(X)(p11.4;p11.22)
+      - t(X;4)(p11;q31)
+      - t(X;22((p11;q13)
+      - t(9;17)(q22;q11)
+      - 8q gain
+      - 1q gain
+      - 12q gain
+      - 16q loss
+      - Other
+      - EWSR1 rearranged
+      - EWSR1-FLI1
+      - FUS rearranged
+      - CIC rearranged
+      - BCOR rearranged
+      - 8q gain
+      - 1q gain
+      - 12q gain
+      - 16q loss
+      - TP53
+      - STAG2
+      - CDKN2A
+      - Other
+      - 8q gain
+      - 1q gain
+      - 12q gain
+      - 16q loss
+      - TP53
+      - STAG2
+      - CDKN2A
+      - Other
+      - CIC-DUX4L10
+      - EWSR1 rearranged
+      - EWSR1-FLI1
+      - EWSR1-ERG
+      - EWSR1-ETV1
+      - EWSR1-ETV4
+      - EWSR1-FEV
+      - EWSR1-WT1
+      - EWSR1-PBX1
+      - EWSR1-POU5F1
+      - EWSR1-ZNF444
+      - EWSR1-KLF17
+      - EWSR1-NR4A3
+      - EWSR1-DDIT3
+      - EWSR1-ATF1
+      - EWSR1-CREB1
+      - FUS translocation present
+      - FUS-ERG (also known as TLS/ERG) present
+      - FUS-FEV (also known as TLS/FEV) present
+      - FUS-KLF17
+      - FUS-DDIT3
+      - CIC-DUX4
+      - CIC-DUX4L10
+      - CCNB3-BCOR
+      - BCOR-MAML3
+      - ZC3H7B-BCOR
+      - TAF15-NR4A3
+      - 8q gain
+      - 1q gain
+      - 12q gain
+      - 16q loss
+      - TP53
+      - STAG2
+      - CDKN2A
+      - Other
+      - None detected
+      - EWSR1 rearranged
+      - EWSR1-FLI1
+      - EWSR1-ERG
+      - EWSR1-ETV1
+      - EWSR1-ETV4
+      - EWSR1-FEV
+      - EWSR1-WT1
+      - EWSR1-PBX1
+      - EWSR1-POU5F1
+      - EWSR1-ZNF444
+      - EWSR1-KLF17
+      - EWSR1-NR4A3
+      - EWSR1-DDIT3
+      - EWSR1-ATF1
+      - EWSR1-CREB1
+      - FUS translocation present
+      - FUS-ERG (also known as TLS/ERG) present
+      - FUS-FEV (also known as TLS/FEV) present
+      - FUS-KLF17
+      - FUS-DDIT3
+      - CIC-DUX4
+      - CCNB3-BCOR
+      - BCOR-MAML3
+      - ZC3H7B-BCOR
+      - TAF15-NR4A3
+      - TP53 mutation
+      - STAG2
+      - CDKN2A
+      - Other
       - 45XO
-      - "45XO w/ Y Chromosomal Material"
+      - 45XO w/ Y chromosomal material
       - 46XX
       - 46XY
       - 47XYY
@@ -72,18 +309,29 @@ properties:
       - 47XXX
       - 48XXXY
       - 48XXXX
-      - "ALK p.F1174L mutation"
-      - "ALK rearranged"
-      - "ALK mutation"
-      - "ALK p.R1275L mutation"
-      - "11q deletion"
-      - "1p deletion"
-      - "17q gain"
-      - Other
-      - None
-      - Unknown
-      - Not Reported
-
+      - ALK p.F1174L mutation
+      - ALK rearranged
+      - ALK mutation
+      - ALK p.R1275L mutation
+      - 11q deletion
+      - 1p deletion
+      - 17q gain
+      - FOXO1 rearranged
+      - SMARCB1 deleted/mutated
+      - ETV6 rearranged
+      - SSX-SS18
+      - FUS-DDIT3
+      - FUS-CREB3L2
+      - TGFBR3-MGEA5
+      - ETV6-NTRK3
+      - NTRK Rearranged
+      - ROS1 rearranged
+      - VGLLA2 rearranged
+      - ASPSCR1-TFE3
+      - BCOR ITT rearranged ?
+      - FOXO1-PAX3 fusion
+      - FOXO1-PAX7 fusion
+      - FOXO1-Other fusion
   variant_type:
     description: "A variation in or modification of the molecular sequence of a gene or gene product."
     enum:
@@ -99,12 +347,20 @@ properties:
       - Other
       - Unknown
       - Not Reported
+  chromosome:
+    description: ""
+    type:
+      - string
   gene1:
-    description: "The gene symbol that represents either a single gene that has a mutation or the gene that comprises the 5' portion of the coding sequence involved in a fusion gene mutation."
+    description: "The gene symbol that represents either a single gene that has a mutation or the gene that comprises the 5' portion of the coding sequence involved in a fusion gene mutation"
     type:
       - string
   gene2:
     description: "The gene symbol that represents the gene that comprises the 3' portion of the coding sequence for a fusion gene."
+    type:
+      - string
+  genetic_seq:
+    description: "Genetic Sequence"
     type:
       - string
   aa_mutation:
@@ -119,6 +375,13 @@ properties:
       - Not Done
       - Not Reported
       - Unknown
+  translocation_status:
+    description: ""
+    enum:
+      - Balanced
+      - Unbalanced
+      - Unknown
+      - Not Reported
   anaplasia:
     description: "An indicator of whether anaplasia was present in the subject"
     enum:
@@ -133,47 +396,31 @@ properties:
       - Focal
       - Unknown
       - Not reported
-  molecular_analysis_method:
+  mutation_type:
     description: ""
     enum:
-      - Karyotype
-      - Cytogenetics
+      - Somatic
+      - Constitutional
       - Unknown
       - Not Reported
-  karyotype_status:
-    description: ""
-    enum:
-      - Normal Karyotype
-      - Abnormal Karyotype
+  cytodifferentiation:
+    description: "Cytodifferentiation Score"
+    enum: 
       - Unknown
       - Not Reported
-  iscn:
-    description: ""
-    type:
-      - string
-  num_chromosomes:
-    description: ""
-    type:
-      - number
-  indepen_abb:
-    description: ""
-    type:
-      - number
-  chromosome:
-    description: ""
-    type:
-      - string
-  dna_index:
-    enum:
-      - "DNA Index <= 1 (Hypodiploid, Diploid)"
-      - "DNA Index > 1 (Hyperdiploid)"
+  mitoses:
+    description: "Mitotic Count"
+    enum: 
+      - "Score 1: 0-9 Mitoses per 10 HPF"
+      - "Score 2: 10-19 Mitoses per 10 HPF"
+      - "Score 3: > 19 Mitoses per 10 HPF"
       - Unknown
       - Not Reported
   allelic_ratio:
     description: ""
     type:
       - number
-
+  
 
 
 

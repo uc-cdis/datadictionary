@@ -60,8 +60,20 @@ properties:
     description: ""
     enum:
       - CD30
-      - "β-catenin"
+      - β-catenin
       - GPC3
+      - CD20
+      - LMP1
+      - EBER
+      - PAS
+      - MIC2
+      - S100
+      - NSE
+      - Vimentin
+      - Desmin
+      - CD99
+      - FLI-1
+      - CD45
   ihc_result:
     description: ""
     type:

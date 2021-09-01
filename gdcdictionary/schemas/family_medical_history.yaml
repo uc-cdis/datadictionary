@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "cytology"
-title: Cytology
+id: "family_medical_history"
+title: Family Medical History
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Cytology"
+description: "Family Medical History"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,17 +21,11 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: cytologys 
+    backref: family_medical_historys
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
-  - name: clinical_events
-    backref: cytologys
-    label: part of
-    target_type: clinical_event
-    multiplicity: many_to_one
-    required: false
 
 required:
   - submitter_id
@@ -44,7 +38,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "cytology" ]
+    enum: [ "family_medical_history" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,29 +46,33 @@ properties:
     description: "PCDC internal ID"
     type:
       - string
-  age_at_cytology:
-    description: ""
+  family_history:
+    description: "Family History of Cancer in First Degree Relatives"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
+  relative:
+    description: "Relative with History of Cancer"
+    enum:
+      - Father
+      - Mother
+      - Brother
+      - Sister
+      - Son
+      - Daughter
+      - Other
+      - Unknown
+      - Not Reported
+  prior_cancer:
+    description: "Prior Cancer Type"
     type:
-      - number
-  malignant_cells:
-    description: ""
-    enum:
-      - Present
-      - Absent
-      - Unknown
-      - Not Reported
-  cytology_spec_type:
-    description: ""
-    enum:
-      - Cerebrospinal Fluid
-      - Peritoneal Fluid
-      - Unknown
-      - Not Reported
+      - string
 
   
 
-  clinical_events:
-    $ref: "_definitions.yaml#/to_one" 
+
   subjects:
     $ref: "_definitions.yaml#/to_one"  
   project_id:

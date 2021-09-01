@@ -49,37 +49,13 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_smn:
     description: "Age in days at secondary malignancy diagnosis"
     type:
       - number
-  smn_morph_icdo:
-    description: ""
-    type:
-      - string
-  smn_top_icdo:
-    description: ""
-    type:
-      - string
-  smn_top_txt:
-    description: ""
-    type:
-      - string
-  smn_top_sno:
-    description: ""
-    type:
-      - string
-  smn_morph_txt:
-    description: ""
-    type:
-      - string
-  smn_morph_sno:
-    description: ""
-    type:
-      - string
   smn_yn:
     description: "Secondary Malignancy"
     enum:
@@ -87,6 +63,63 @@ properties:
       - "Yes"
       - Unknown 
       - Not Reported
+  smn_morph_sno:
+    description: "SMN Morphology SNOMED Code"
+    type:
+      - string
+  smn_morph_icdo:
+    description: "SMN Morphology ICD-O Code"
+    type:
+      - string
+  smn_morph_txt:
+    description: "SMN Morphology Text"
+    type:
+      - string
+  smn_top_sno:
+    description: "SMN Topography SNOMED Code"
+    type:
+      - string
+  smn_top_icdo:
+    description: "SMN Topography ICD-O Code"
+    type:
+      - string
+  smn_top_txt:
+    description: "SMN Topography Text"
+    type:
+      - string
+  smn_site:
+    description: "SMN Site"
+    enum:
+      - Head and Neck
+      - Thorax
+      - Limbs
+      - Abdomen
+      - Pelvis
+      - Other
+      - Not Applicable
+      - Unknown
+      - Not Reported
+  smn_type:
+    description: "SMN type"
+    enum:
+      - Leukemia
+      - Sarcoma
+      - Carcinoma
+      - Other
+      - Unknown
+      - Not Reported
+  smn_field:
+    description: "Relation of SMN to Prior Radiation Therapy Field"
+    enum:
+      - In XRT Field
+      - Margin of XRT Field
+      - Out of XRT Field
+      - Unknown
+      - Not Reported
+
+
+
+
  
   
   

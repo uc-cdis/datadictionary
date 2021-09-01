@@ -51,11 +51,36 @@ properties:
   submitter_id:
     type:
       - string
+  age_off:
+    description: "Age in Days When Off Protocol Therapy or Study"
+    type:
+      - number
   off_type:
     description: "Off Protocol Therapy or Study"
     enum:
       - Protocol Therapy
       - Study
+  reason_off:
+    description: "Off Protocol Therapy or Study Reason"
+    enum:
+      - Death
+      - Lost to Follow-Up
+      - Completion of Follow-Up
+      - Completion of Planned Therapy
+      - Physician Decision
+      - Ineligible
+      - Withdrawal of Consent
+      - Subject/Guardian Refused Further Treatment
+      - Subject Non-Compliance
+      - Disease Progression
+      - Relapse
+      - Adverse Event
+      - Development of SMN
+      - Study Discontinuation
+      - Failure to Attain Remission
+      - Other
+      - Unknown
+      - Not Reported
   another_study:
     description: "Indicate if subject enrolled in Another Therapeutic Study After Off Study"
     enum:

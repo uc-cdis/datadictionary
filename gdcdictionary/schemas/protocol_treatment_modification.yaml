@@ -1,0 +1,208 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "protocol_treatment_modification"
+title: Protocol Treatment Modification
+type: object
+namespace: http://cri.uchicago.edu/
+category: clinical
+program: '*'
+project: '*'
+description: "Protocol Treatment Modification"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: protocol_treatment_modifications
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: clinical_events
+    backref: protocol_treatment_modifications
+    label: part of
+    target_type: clinical_event
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - subjects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "protocol_treatment_modification" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: "PCDC internal ID"
+    type:
+      - string
+  age_at_mod:
+    description: "Age in Days of Protocol Treatment Modification"
+    type:
+      - number
+  mod_type:
+    description: "Modification Type"
+    enum:
+      - Dose Reduction
+      - New Agent Added
+      - Substitution
+      - Discontinued
+      - Delayed
+      - Not given
+      - Other
+      - Unknown
+      - Not Reported
+  mod_rationale:
+    description: "Treatment Modification Rationale"
+    enum:
+      - Per Protocol
+      - Clinical Indication
+      - Unknown
+      - Not Reported
+  mod_reason:
+    description: "Treatment Modification Reason"
+    enum:
+      - Hematologic Toxicity
+      - Non-hematologic Toxicity
+      - Surgical Complications
+      - Scheduling Issues
+      - Drug Not Available
+      - Subject Non-Compliance
+      - Pre-existing Organ Dysfunction
+      - Other
+      - Unknown
+      - Not Reported
+  toxicity_details:
+    description: "Toxicity Details"
+    enum:
+      - Allergic Reaction
+      - Infection
+      - Mucositis
+      - Neutropenia
+      - Thrombocytopenia
+      - Renal Toxicity
+      - Hepatic Toxicity
+      - Neuropathy
+      - Cardiac Toxicity
+      - Pulmonary Toxicity
+      - GI Toxicity
+      - Rashes
+      - Endocrine Toxicity
+      - Musculoskeletal Toxicity
+      - Psychiatric Toxicity
+      - Other
+      - Unknown
+      - Not Reported
+  toxicity_immune:
+    description: "Immune Related Toxicity"
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+      - Not Reported
+  toxicity_infusion:
+    description: "Infusion Related Toxicity"
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+      - Not Reported
+  original_agent:
+    description: "Original Agent"
+    enum:
+      - Bendamustine
+      - Bleomycin
+      - Brentuximab vedotin
+      - Busulfan
+      - Carboplatin
+      - Carmustine
+      - Cisplatin
+      - Cyclophosphamide
+      - Cytarabine
+      - Dacarbazine
+      - Dexamethasone
+      - Doxorubicin
+      - Etoposide
+      - Etoposide phosphate
+      - Fludarabine
+      - Gemcitabine
+      - Ifosfamide
+      - Melphalan
+      - Methotrexate
+      - Nitrogen Mustard
+      - Nivolumab
+      - Pembroluzimab
+      - Prednisone
+      - Procarbazine
+      - Thiotepa
+      - Venoreline
+      - Vinblastine
+      - Vincristine
+      - Other
+      - Unknown
+      - Not Reported
+  sub_agent:
+    description: "Substitution Agent"
+    enum:
+      - Bendamustine
+      - Bleomycin
+      - Brentuximab vedotin
+      - Busulfan
+      - Carboplatin
+      - Carmustine
+      - Cisplatin
+      - Cyclophosphamide
+      - Cytarabine
+      - Dacarbazine
+      - Dexamethasone
+      - Doxorubicin
+      - Etopophos
+      - Etoposide
+      - Fludarabine
+      - Gemcitabine
+      - Ifosfamide
+      - Melphalan
+      - Methotrexate
+      - Nitrogen Mustard
+      - Nivolumab
+      - Pembroluzimab
+      - Prednisone
+      - Procarbazine
+      - Thiotepa
+      - Venoreline
+      - Vinblastine
+      - Vincristine
+      - Other
+      - Unknown
+      - Not Reported
+
+  clinical_events:
+    $ref: "_definitions.yaml#/to_one" 
+  subjects:
+    $ref: "_definitions.yaml#/to_one"  
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+

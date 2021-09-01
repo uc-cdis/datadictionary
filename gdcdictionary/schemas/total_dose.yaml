@@ -49,7 +49,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal ID"
     type:
       - string
   age_at_total_dose_start:
@@ -60,37 +60,111 @@ properties:
     description: ""
     type:
       - number
-  antineoplastic_agent:
-    description: ""
-    enum:
-      - Amifostine
-      - Bleomycin
-      - Carboplatin
-      - Cisplatin
-      - Cyclophosphamide
-      - Dactinomycin
-      - Etoposide
-      - Etoposide Phosphate
-      - Gemcitabine
-      - Ifosfamide
-      - Melphalan
-      - Paclitaxel
-      - Vinblastine
-      - Vincristine
-  total_dose_administered:
-    description: ""
+  cycle_number:
+    description:
     type:
       - number
-  total_dose_unit:
+  route:
+    description: "Route of Administration"
+    enum:
+      - Systemic
+      - Intrathecal
+      - Unknown
+      - Not Reported
+  route_detail:
+    description: "Route of Administration Detail"
+    enum:
+      - Parenteral
+      - Oral
+      - Unknown
+      - Not Reported
+  antineoplastic_agent:
+    description: "Antineoplastic Agent"
+    enum:
+      - 5-fluorouracil
+      - Amifostine
+      - Amsacrine
+      - Arsenic Trioxide
+      - Bendamustine
+      - Bleomycin
+      - Bortezomib
+      - Brentuximab Vedotin
+      - Busulfan
+      - Carboplatin
+      - Carmustine
+      - Cisplatin
+      - Cladribine
+      - Clofarabine
+      - Cyclophosphamide
+      - Cytarabine
+      - Dacarbazine
+      - Dactinomycin
+      - Daunorubicin
+      - Daunorubicin (Liposomal)
+      - Daunorubicin and Cytarabine (Liposomal)
+      - Dexamethasone
+      - Doxorubicin
+      - Etoposide
+      - Etoposide Phosphate
+      - Fludarabine
+      - Gemcitabine
+      - Gemtuzumab Ozogamicin
+      - Gilteritinib 
+      - Hydrocortisone Sodium Succinate
+      - Idarubicin
+      - Ifosfamide
+      - Melphalan
+      - Methotrexate
+      - Midostaurin
+      - Mitoxantrone
+      - Mylotarg
+      - Nitrogen Mustard
+      - Nivolumab
+      - Paclitaxel
+      - Pembrolizumab
+      - Prednisone
+      - Procarbazine
+      - Quizartinib 
+      - Sorafenib
+      - Thiotepa
+      - Tretinoin
+      - Vinblastine
+      - Vincristine
+      - Vinorelbine
+      - Other
+      - Unknown
+      - Not Reported
+  number_doses:
+    description: "Number of Doses"
+    type:
+      - number
+  total_dose_administered:
+    description: "Total Dose Administered"
+    type:
+      - number
+  normalization_basis:
+    description: "Normalization Basis"
+    enum:
+      - Weight
+      - BSA
+      - Flat
+      - Unknown
+      - Not Reported
+  total_dose_intended:
+    description: "Total Dose Intended"
+    type:
+      - number
+  total_dose_units:
     description: ""
     enum:
       - mg/m2
       - mg/kg
       - mg
       - IU
+      - IU/m2
       - Unknown
-      - Not reported
-  
+      - Not Reported
+
 
   clinical_events:
     $ref: "_definitions.yaml#/to_one" 

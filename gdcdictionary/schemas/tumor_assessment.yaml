@@ -49,7 +49,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "PCDC internal person ID"
+    description: "PCDC internal tumor ID"
     type:
       - string
   age_at_tumor_assessment:
@@ -59,6 +59,8 @@ properties:
   tumor_detection_method:
     description: ""
     enum:
+      - "X-Ray"
+      - "CT Scan"
       - "Imaging, Not Otherwise Specified"
       - PET
       - Unknown
@@ -70,15 +72,6 @@ properties:
       - Metastatic
       - Unknown
       - Not reported
-  tumor_laterality:
-    description: "Dominant use or manifestations of one side of the body versus the other; referring to a side of the body or of a structure."
-    enum: 
-      - Left
-      - Right
-      - Bilateral
-      - Midline
-      - Unknown
-      - Not Reported
   tumor_site:
     description: "Site of tumor"
     enum:
@@ -177,6 +170,32 @@ properties:
     description: "Text description for tumor site if it is not one of the categorical values"
     type:
       - string
+  tumor_laterality:
+    description: "Dominant use or manifestations of one side of the body versus the other; referring to a side of the body or of a structure."
+    enum: 
+      - Left
+      - Right
+      - Bilateral
+      - Midline
+      - Unknown
+      - Not Reported
+  site_within_bone:
+    description: ""
+    enum: 
+      - Distal
+      - Proximal
+      - Epiphysis
+      - Metaphysis
+      - Diaphysis
+      - Unknown
+      - Not Reported
+  facture:
+    description: ""
+    enum: 
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported
   longest_diam_dim1:
     description: "The longest diameter of the Tumor Dimension 1 (in centimeters)"
     type:
@@ -189,6 +208,21 @@ properties:
     description: "The longest diameter of the Tumor Dimension 3 (in centimeters)"
     type:
       - number
+  computed_volume:
+    description: "Computed Volume (mL)"
+    type:
+      - number
+  estimated_volume:
+    description: "Estimated Volume (mL)"
+    type:
+      - number
+  tumor_volume:
+    description: "Categorical (binned) value for tumor volume"
+    enum:
+      - "<200 mL"
+      - ">=200 mL"
+      - Unknown
+      - Not Reported
   tumor_size:
     description: "Categorical (binned) value for tumor size"
     enum:
@@ -204,13 +238,38 @@ properties:
       - TX Stage Finding
       - Unknown
       - Not reported
-  nodal_pathology:
-    description: Pathological determination of regional lymph node involvement
+  depth:
+    enum:
+      - Superficial
+      - Deep
+      - Unknown
+      - Not Reported
+  necrosis:
+    enum:
+      - "Score 0: No Necrosis"
+      - "<50% Necrosis"
+      - ">=50% Necrosis"
+      - Unknown
+      - Not Reported
+  necrosis_pct:
+    description: "Tumor Necrosis (%)"
+    type:
+      - number
+  joint_involvement:
+    description: "Tumor Involvement into Surrounding Soft Tissues of Joint"
     enum:
       - "No"
       - "Yes"
       - Unknown
       - Not reported
+  nodal_pathology:
+    description: Pathological determination of regional lymph node involvement
+    enum:
+      - N0 Stage Finding
+      - N1 Stage FInding
+      - NX Stage Finding
+      - Unknown
+      - Not Reported
   nodal_clinical:
     description: "Clinical determination of regional lymph node involvement"
     enum:
@@ -243,6 +302,104 @@ properties:
       - "Yes"
       - Unknown
       - Not Reported 
+  skip_lesion:
+    description: "Skip Lesion Present"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported  
+  ipsilateral_nodules:
+    description: "Ipsilateral Pleural-based Secondary Tumor Nodules Present"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported   
+  pleural_effusion:
+    description: "pleural effusion"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported   
+  pleural_cytology:
+    description: "Pleural Effusion Cytologyn"
+    enum:
+      - Negative
+      - Positive
+      - Unknown
+      - Not Reported   
+  peritoneal_effusion:
+    description: "Peritoneal Effusion"
+    enum:
+      - "No"
+      - "Yes"
+      - Unknown
+      - Not Reported   
+  peritoneal_cytology:
+    description: "Peritoneal Effusion Cytology"
+    enum:
+      - Negative
+      - Positive
+      - Unknown
+      - Not Reported
+  extension_site:
+    description: ""
+    enum:
+    - Abdominal Wall
+    - Acetabulum
+    - Ankle
+    - Axilla
+    - Buttock
+    - Calcaneum
+    - Carpal Bone
+    - Cervical Vertebra
+    - Chest Wall
+    - Clavicle
+    - Dorsal Vertebra
+    - Elbow
+    - Face
+    - Femur
+    - Fibula
+    - Finger
+    - Foot
+    - Forearm
+    - Hand
+    - Hip/Inguinal Region
+    - Humerus
+    - Intra-abdominal
+    - Intraspinal
+    - Ischium
+    - Kidney
+    - Knee
+    - Leg
+    - Lumbar Vertebra
+    - Mandible
+    - Maxilla
+    - Metacarpus
+    - Metatarsus
+    - Neck
+    - Pelvis
+    - Radius Bone
+    - Retroperitoneal
+    - Rib
+    - Sacral Region
+    - Scalp
+    - Scapula
+    - Shoulder
+    - Skull
+    - Sternum
+    - Talus
+    - Thigh
+    - Tibia
+    - Toe
+    - Ulna
+    - Upper Arm
+    - Wrist
+    - Other
+    - Unknown
+    - Not Reported
 
   
   clinical_events:
