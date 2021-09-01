@@ -7,7 +7,7 @@ namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Adverser Event"
+description: "Adverse Event"
 additionalProperties: false
 submittable: true
 validators: null

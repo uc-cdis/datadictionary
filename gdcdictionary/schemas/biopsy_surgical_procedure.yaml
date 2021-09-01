@@ -77,13 +77,15 @@ properties:
       - Abdomen
       - Abdominal Wall
       - Acetabulum
+      - "Anal/Perianal"
       - Ankle
       - Axilla
       - Axillary Nodes
-      - Suprasellar/Neurohypophyseal and Pineal
+      - "Bladder/Prostate"
       - Bone
       - Bone Marrow
       - Brain
+      - Brachial Nodes
       - Buttock
       - Calcaneus
       - Carpus
@@ -95,8 +97,9 @@ properties:
       - Clavicle
       - Coccyx
       - Dorsal Vertebra
+      - Eyelid
       - Elbow
-      - Epitrochlear or Brachial Nodes
+      - Epitrochlear
       - Ethmoid Bone
       - Face
       - Femur
@@ -131,12 +134,18 @@ properties:
       - Mesenteric Nodes
       - Metacarpus
       - Metatarsus
+      - Middle Ear
       - Nasal Bone
+      - Nasal Cavity
+      - Nasopharynx
       - Neck
       - Occipital Bone
       - Occiptal Cortex
       - Ovary
       - Para-aortic Nodes, Portal, Retrocrural
+      - Paranasal Sinuses
+      - Parapharyngeal Area
+      - Paraspinal
       - Parietal Bone
       - Parietal Cortex
       - Patella
@@ -144,6 +153,7 @@ properties:
       - Pelvis
       - "Pelvis: Iliac"
       - Pineal
+      - Pleural Effusion
       - Popliteal Nodes
       - Pre-auricular Nodes
       - Radius

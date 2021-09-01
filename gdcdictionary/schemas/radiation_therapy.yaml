@@ -78,7 +78,6 @@ properties:
     enum:
       - Abdomen
       - Axilla
-      - Suprasellar/Neurohypophyseal and Pineal
       - Bone
       - Chest
       - Cranium
