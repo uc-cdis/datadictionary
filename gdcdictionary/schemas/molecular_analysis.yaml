@@ -316,6 +316,7 @@ properties:
       - 11q deletion
       - 1p deletion
       - 17q gain
+      - MYCN amplification
       - FOXO1 rearranged
       - SMARCB1 deleted/mutated
       - ETV6 rearranged
@@ -328,7 +329,7 @@ properties:
       - ROS1 rearranged
       - VGLLA2 rearranged
       - ASPSCR1-TFE3
-      - BCOR ITT rearranged ?
+      - BCOR ITT rearranged
       - FOXO1-PAX3 fusion
       - FOXO1-PAX7 fusion
       - FOXO1-Other fusion

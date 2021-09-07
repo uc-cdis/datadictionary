@@ -66,29 +66,21 @@ properties:
   histology:
     description: "The study of the structure of the cells and their arrangement to constitute tissues and, finally, the association among these to form organs.  In pathology, the microscopic process of identifying normal and abnormal morphologic characteristics in tissues, by employing various cytochemical and immunocytochemical stains."
     enum:
-      - Germinoma
-      - Dysgerminoma
-      - Seminoma
       - "Seminoma/Dysgerminoma/Germinoma"
-      - Malignant Teratoma
-      - Mixed Germ Cell Tumor
-      - "Teratoma, Not Otherwise Specified"
-      - Necrotic Tumor
-      - Somatic Malignancy
-      - Gonadoblastoma
-      - Immature Teratoma
-      - Mature Teratoma
-      - Choriocarcinoma
-      - Yolk Sac Tumor
       - Embryonal Carcinoma
-      - "Alveolar rhabdomyosarcoma (ARMS)"
-      - "Botryoid rhabdomyosarcoma (BRMS)"
-      - "Embryonal rhabdomyosarcoma (ERMS)"
-      - "Pleomorphic rhabdomyosarcoma (PRMS)"
-      - "Rhabdomyosarcoma (RMS), not classifiable"
-      - "Rhabdomyosarcoma (RMS), inadequate tissue for classification"
-      - "Rhabdomyosarcoma (RMS), with Mixed Embryonal and Alveolar Features"
-      - Spindle cell
+      - Yolk Sac Tumor
+      - Choriocarcinoma
+      - Mature Teratoma
+      - Immature Teratoma
+      - Gonadoblastoma
+      - Somatic Malignancy
+      - Necrotic Tumor
+      - "Teratoma, Not Otherwise Specified"
+      - Mixed Germ Cell Tumor
+      - Malignant Teratoma
+      - Seminoma
+      - Dysgerminoma
+      - Germinoma
       - "Neuroblastoma (Schwannian Stroma-Poor)"
       - "Ganglioneuroblastoma, Intermixed (Schwannian Stroma-Rich)"
       - "Ganglioneuroma (Schwannian Stroma-Dominant), Maturing Subtype"
@@ -102,12 +94,20 @@ properties:
       - Hodgkin Lymphoma, Lymphocyte Depletion, Not Otherwise Specified
       - Hodgkin Lymphoma, Nodular Lymphocyte Predominance
       - Hodgkin Lymphoma, Nodular Sclerosis, Not Otherwise Specified
+      - "Alveolar rhabdomyosarcoma (ARMS)"
+      - "Botryoid rhabdomyosarcoma (BRMS)"
+      - "Embryonal rhabdomyosarcoma (ERMS)"
+      - "Pleomorphic rhabdomyosarcoma (PRMS)"
+      - "Rhabdomyosarcoma (RMS), not classifiable"
+      - "Rhabdomyosarcoma (RMS), inadequate tissue for classification"
+      - "Rhabdomyosarcoma (RMS), with Mixed Embryonal and Alveolar Features"
+      - Spindle cell
       - Atypical Lipomatous Tumour (8850/1)
       - Well differentiated Liposarcoma (8850/3)
       - Dedifferentiated Liposarcoma (8858/3)
       - Myxoid Liposarcoma (8852/3)
       - Pleomorphic Liposarcoma (8854/3)
-      - Liposrcoma, Not Otherwise Specified (8850/3)
+      - Liposarcoma, Not Otherwise Specified (8850/3)
       - Palmar/plantar Fibromatosis (8813/1)
       - Desmoid-type Fibromatosis (8821/1)
       - Lipofibromatosis (8851/1)
