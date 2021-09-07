@@ -61,7 +61,7 @@ properties:
     enum:
       - "X-Ray"
       - "CT Scan"
-      - "Imaging, Not Otherwise Specified"
+      - "Imaging"
       - PET
       - Unknown
       - Not Reported
@@ -70,106 +70,170 @@ properties:
     enum:
       - Primary
       - Metastatic
+      - Regional
       - Unknown
       - Not reported
   tumor_site:
     description: "Site of tumor"
     enum:
-      - Abdominal
-      - Lungs
-      - Buttocks
-      - Thalamus
-      - Testis
-      - Temporal Cortex
-      - Pineal
-      - Suprasellar/Neurohypophyseal and Pineal
-      - Suprasellar/Neurohypophyseal
-      - Spine
-      - Spinal Cord
-      - Sacrococcygeal
-      - Parietal Cortex
-      - Omentum/Peritoneum
-      - Occipital Cortex
-      - Mediastinum
-      - Head and Neck
-      - Frontal Cortex
-      - Cerebrospinal Fluid
-      - Ascitic Fluid
-      - Pelvis
-      - Neck
-      - Retroperitoneum
-      - Perineum
-      - Ovary
-      - Paratesticular
       - Abdomen
-      - Kidney
-      - Shoulder
-      - Scalp
-      - Upper arm
-      - Forearm
-      - Hand
-      - Thigh
-      - Knee
-      - Leg
-      - Lower Leg
-      - Foot
-      - Brain
-      - Buttock
-      - Paraspinal
-      - Vagina
-      - Eyelid
-      - Orbit
-      - Cheek
-      - Hypopharynx
-      - Larynx
-      - Oral cavity
-      - Oropharynx
-      - Parotid
-      - Thyroid and parathyroid
-      - Middle ear
-      - Nasal cavity and paranasal sinuses
-      - Nasal cavity
-      - Paranasal sinuses
-      - Nasopharynx
-      - Infratemporal fossa/pterygopalatine and parapharyngeal area
-      - Infratemporal fossa/pterygopalatine
-      - Parapharyngeal area
-      - Bladder
-      - Prostate
-      - Bladder/prostate
-      - Cervix
-      - Uterus
-      - Upper Arm
-      - Vulva
-      - Thorax
+      - Abdominal Wall
+      - Acetabulum
+      - Adrenal Gland
       - Anal/Perianal
-      - Trunk
-      - Bone or bone marrow
+      - Ankle
+      - Ascitic Fluid
+      - Axilla
+      - Suprasellar/Neurohypophyseal
+      - Bladder
+      - Bladder/Prostate
+      - Bone or Bone Marrow
       - Bone
       - Bone Marrow
-      - Distant Lymph Nodes
-      - Pleural effusion
-      - Soft tissue
-      - Liver/Biliary tract
-      - Liver
-      - Lung
-      - Skin
+      - Brain
+      - Brain/Leptomeninges
+      - Breast
+      - Buttock
+      - Calcaneum
+      - Carpal Bone
       - Central Nervous System
-      - Adrenal Gland
-      - Other
-      - Unknown
-      - Not reported
-      - Other Extremity
+      - Cervical Vertebra
+      - Cervix
+      - Cheek
+      - Chest
+      - Chest Wall
+      - Clavicle
+      - Coccyx
+      - Cerebrospinal Fluid
+      - Dorsal Vertebra
+      - Elbow
+      - Ethmoid Bone
+      - Eyelid
+      - Face
+      - Femur
+      - Fibula
+      - Fibular Head
+      - Finger
+      - Foot
+      - Forearm
+      - Frontal Bone
+      - Frontal Cortex
+      - Hand
+      - Head
+      - Head and Neck
+      - Hip
+      - Hip/Inguinal Region
+      - Humerus
+      - Hypopharynx
+      - Ilium
+      - Infratemporal fossa/Pterygopalatine and Parapharyngeal Area
+      - Infratemporal fossa/Pterygopalatine
+      - Intra-abdominal
+      - Intraperitoneal
+      - Intrathoracic
+      - Ischium
+      - Kidney
+      - Knee
+      - Lacrimal Bone
+      - Larynx
+      - Leg
+      - Liver
+      - Liver/Biliary Tract
+      - Lower Arm
+      - Lower Extremity
+      - Lower Leg
+      - Lumbar Vertebra
+      - Lung
+      - Lymph Nodes
+      - Mandible
+      - Maxilla
+      - Mediastinum
+      - Metacarpus
+      - Metatarsus
+      - Middle Ear
+      - Nasal Bone
+      - Nasal Cavity
+      - Nasal Cavity and Paranasal Sinuses
+      - Nasopharynx
+      - Neck
+      - Occipital Bone
+      - Occiptal Cortex
+      - Omentum/Peritoneum
+      - Oral Cavity
+      - Orbit
+      - Oropharynx
+      - Ovary
+      - Paranasal Sinuses
+      - Parapharyngeal Area
+      - Paraspinal
+      - Paratesticular
+      - Parietal Bone
+      - Parietal Cortex
+      - Parotid
+      - Patella
+      - Pelvis
+      - Perineum
+      - Peritoneum
+      - Pineal
+      - Pleura
+      - Pleural Effusion
+      - Prostate
+      - Radius Bone
+      - Retroperitoneum
+      - Rib
+      - Sacral Region
+      - Sacrococcygeal
+      - Scalp
+      - Scapula
+      - Shoulder
+      - Skin
+      - Skull
+      - Soft Tissue
+      - Spheniod Bone
+      - Spinal Cord
+      - Spine
+      - Sternum
+      - Suprasellar/Neurohypophyseal
+      - Talus
+      - Tarsal Bone
+      - Temporal Bone
+      - Temporal Cortex
+      - Testis
+      - Thalamus
+      - Thigh
+      - Thoracic Vertebra
+      - Thorax
+      - Thyroid and Parathyroid
+      - Tibia
+      - Trunk
+      - Ulna
+      - Upper Arm
+      - Upper Extremity
+      - Urogenital
+      - Uterus
+      - Vagina
+      - Vulva
+      - Wrist
+      - Zygomatic Bone
+      - Other Orbit
+      - Other Face
       - Other Head and Neck
       - Other Parameningeal
       - Other GU Non-Bladder/Prostate
-      - Other Orbit
-      - Other Face
+      - Other Extremity
+      - Other
+      - Unknown
       - Not Reported
   tumor_site_other:
     description: "Text description for tumor site if it is not one of the categorical values"
     type:
       - string
+  tumor_state:
+    description: "A condition or state of a tumor at a particular time and a particular tumor site."
+    enum:
+      - Present
+      - Absent
+      - Unknown
   tumor_laterality:
     description: "Dominant use or manifestations of one side of the body versus the other; referring to a side of the body or of a structure."
     enum: 
@@ -273,10 +337,11 @@ properties:
   nodal_clinical:
     description: "Clinical determination of regional lymph node involvement"
     enum:
-      - "No"
-      - "Yes"
+      - N0 Stage Finding
+      - N1 Stage FInding
+      - NX Stage Finding
       - Unknown
-      - Not reported
+      - Not Reported
   nodal_involvement:
     description: "A finding indicating that a malignant neoplasm has spread to regional lymph nodes."
     enum:

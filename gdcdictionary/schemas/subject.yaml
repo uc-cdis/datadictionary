@@ -119,6 +119,10 @@ properties:
       - "Subject is censored (i.e. has had no event(s))"
       - "Subject has had one or more events"
       - Unknown
+  age_at_censor_status:
+    description: "Age of subject (in days) when the subject enrolled in the study."
+    type:
+      - number
 
 
 
