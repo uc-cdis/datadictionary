@@ -31,6 +31,8 @@ required:
   # - honest_broker_subject_id
   - submitter_id
   - persons
+  - honest_broker_subject_id
+  - data_contributor_id
 
 uniqueKeys:
   - [ id ]
@@ -46,9 +48,13 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
-    description: "honest_broker_subject_id"
+    description: "{data_contributor_id}_{honest_broker_subject_id}"
     # honest_broker_subject_id:
     #   systemAlias: submitter_id
+    type:
+      - string
+  honest_broker_subject_id:
+    description: "honest_broker_subject_id"
     type:
       - string
   consortium:
