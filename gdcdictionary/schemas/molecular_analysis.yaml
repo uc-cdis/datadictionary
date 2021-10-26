@@ -96,7 +96,7 @@ properties:
     description: ""
     enum:
       - "DNA Index <= 1 (Hypodiploid, Diploid)"
-      - "DNA Index >1 (Hyperdiploid)"
+      - "DNA Index > 1 (Hyperdiploid)"
       - Unknown
       - Not Reported
   dna_index_numeric:
