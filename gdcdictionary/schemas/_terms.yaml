@@ -740,7 +740,7 @@ file_state: # TOREVIEW
   description: >
     The current state of the data file object.
 
-clinical_event_type:
+timing_type:
   description: >
     The time frame or phase the patient got a treatment or data have been collected
 

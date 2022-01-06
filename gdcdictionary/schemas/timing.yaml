@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "clinical_event"
-title: Clinical Events
+id: "timing"
+title: Timing
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Clinical Events"
+description: "Timing"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,15 +21,15 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: clinical_events 
+    backref: timings 
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
-  - name: clinical_events
-    backref: clinical_events
+  - name: timings
+    backref: timings
     label: part of
-    target_type: clinical_event
+    target_type: timing
     multiplicity: many_to_one
     required: false
 
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "clinical_event" ]
+    enum: [ "timing" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -52,8 +52,8 @@ properties:
     description: "PCDC internal event ID"
     type:
       - string
-  clinical_event_type:
-    $ref: "_definitions.yaml#/clinical_event_type"
+  timing_type:
+    $ref: "_definitions.yaml#/timing_type"
     
   disease_phase:
     description: "The stage or period of an individual's disease."
@@ -129,7 +129,7 @@ properties:
 
   
 
-  clinical_events:
+  timings:
     $ref: "_definitions.yaml#/to_one" 
   subjects:
     $ref: "_definitions.yaml#/to_one"   

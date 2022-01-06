@@ -281,9 +281,9 @@ ubiquitous_properties:
   updated_datetime:
     $ref: "#/datetime"
 
-clinical_event_type:
+timing_type:
   term:
-      $ref: "_terms.yaml#/clinical_event_type"
+      $ref: "_terms.yaml#/timing_type"
   enum:
     - "Disease Phase"
     - "Course"

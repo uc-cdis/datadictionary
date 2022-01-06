@@ -26,16 +26,16 @@ links:
     target_type: subject
     multiplicity: many_to_one    
     required: true
-  - name: clinical_events
+  - name: timings
     backref: late_effects 
     label: of
-    target_type: clinical_event
+    target_type: timing
     multiplicity: many_to_one    
     required: false
 
 required:
   - submitter_id
-  - clinical_events
+  - subjects
 
 uniqueKeys:
   - [ id ]
@@ -160,7 +160,7 @@ properties:
       - string
 
 
-  clinical_events:
+  timings:
     $ref: "_definitions.yaml#/to_one"   
   subjects:
     $ref: "_definitions.yaml#/to_one" 
