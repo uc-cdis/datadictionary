@@ -87,9 +87,9 @@ properties:
       - "%"
       - Unknown
       - Not Reported
-  mrd_sensitivty:
+  mrd_sensitivity:
     description: "Minimal Residual Disease Method Sensitivity"
-    tyoe:
+    type:
       - number
   mrd_sample_source:
     description: "Minimal Residual Disease Sample Source"
