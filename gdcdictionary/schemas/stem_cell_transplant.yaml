@@ -156,10 +156,10 @@ properties:
   sct_cycles:
     description: ""
     enum:
-      - 1
-      - 2
-      - 3
-      - 4
+      - "1"
+      - "2"
+      - "3"
+      - "4"
   sct_cd34_coll:
     description: "Number of Stem Cells Collected in SCT Apheresis (10^6 CD34+/kg)"
     type:
@@ -183,24 +183,4 @@ properties:
 
   state:
     $ref: "_definitions.yaml#/state"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
