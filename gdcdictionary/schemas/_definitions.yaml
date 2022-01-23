@@ -281,6 +281,7 @@ ubiquitous_properties:
   updated_datetime:
     $ref: "#/datetime"
 
+
 timing_type:
   term:
       $ref: "_terms.yaml#/timing_type"
