@@ -92,10 +92,10 @@ properties:
       - Stage 3
       - Stage 4
       - Stage 4s
-      - L1
-      - L2
-      - M
-      - MS
+      - Stage L1
+      - Stage L2
+      - Stage M
+      - Stage MS
       - Unknown
       - Not Reported
   AB:
