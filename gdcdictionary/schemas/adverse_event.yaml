@@ -28,7 +28,7 @@ links:
     required: true
   - name: timings
     backref: adverse_events
-    label: part of
+    label: part_of
     target_type: timing
     multiplicity: many_to_one
     required: false
