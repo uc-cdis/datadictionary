@@ -318,6 +318,17 @@ properties:
       - "Yes"
       - Unknown
       - Not Reported  
+  initial_treatment_category:
+    description: "The category of initial treatment that the patient receive for their disease."
+    enum:
+      - "None (observation)"
+      - "Surgery alone"
+      - "Conventional-dose chemotherapy (2-8 cycles) plus surgery"
+      - "Intensive multi-modality therapy: specific type unknown"
+      - "Intensive multi-modality therapy: no stem cell or bone marrow transplant"
+      - "Intensive multi-modality therapy: plus stem cell or bone marrow transplant"
+      - "Intensive multi-modality therapy: plus stem cell or bone marrow transplant and anti-GD2 antibody"
+      - "Unknown"
   
   
   
