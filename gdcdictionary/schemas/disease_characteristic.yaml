@@ -124,11 +124,11 @@ properties:
       - Poor
       - Unknown
       - Not Reported
-  MKI:
+  mki:
     description: "MKI (Revised INPC)"
     enum:
       - Low (<2% or <100/5,000 cells)
-      - Intermediate (2-4% or 100 to <200/5,000 cells)
+      - Intermediate (2-4% or 100-200/5,000 cells)
       - High (>4% or >200/5,000 cells)
       - Unknown
       - Not Reported
