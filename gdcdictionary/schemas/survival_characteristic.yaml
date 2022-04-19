@@ -61,6 +61,7 @@ properties:
     enum:
       - Alive
       - Dead
+      - Unknown
   lkss_with_disease:
     description: "Subject's last known survival status with disease"
     enum:

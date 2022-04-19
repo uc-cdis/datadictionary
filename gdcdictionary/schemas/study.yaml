@@ -120,6 +120,10 @@ properties:
       - CWS96
       - CWS2002p
       - RMS95
+      - RMS96
+      - "RMS4.99"
+      - RMS2005
+      - "MTS2008_RMS"
       - ARST08P1
       - ANBL0531
       - ANBL00B1
