@@ -19,7 +19,7 @@ def get_version():
 
 setup(
     name='gen3dictionary',
-    version=get_version(),
+    version="1.0.0", #get_version(),
     description="Gen3 generic data dictionary",
     license="Apache",
     packages=find_packages(),
