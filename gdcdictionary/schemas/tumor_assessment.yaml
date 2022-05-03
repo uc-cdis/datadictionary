@@ -330,7 +330,7 @@ properties:
     description: Pathological determination of regional lymph node involvement
     enum:
       - N0 Stage Finding
-      - N1 Stage FInding
+      - N1 Stage Finding
       - NX Stage Finding
       - Unknown
       - Not Reported
@@ -338,7 +338,7 @@ properties:
     description: "Clinical determination of regional lymph node involvement"
     enum:
       - N0 Stage Finding
-      - N1 Stage FInding
+      - N1 Stage Finding
       - NX Stage Finding
       - Unknown
       - Not Reported
