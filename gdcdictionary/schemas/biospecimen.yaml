@@ -1,0 +1,90 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "biospecimen"
+title: Biospecimen
+type: object
+namespace: http://cri.uchicago.edu/
+category: clinical
+program: '*'
+project: '*'
+description: "Biospecimen"
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: subjects
+    backref: biospecimens 
+    label: of
+    target_type: subject
+    multiplicity: many_to_one    
+    required: true
+  - name: timings
+    backref: biospecimens
+    label: of
+    target_type: timing
+    multiplicity: many_to_one
+    required: false
+
+required:
+  - submitter_id
+  - subjects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    description: "Default system-assigned property for each node"
+    enum: [ "biospecimen" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    description: "PCDC internal ID"
+    type:
+      - string
+  age_at_specimen_collection:
+    description: "Age of subject (in days) when the biospecimen was collected"
+    type:
+      - number
+  biospecimen_media:
+    description: "The type of media for the biospecimen (e.g. 'EDTA', 'Red Top')"
+    type:
+      - string
+  biospecimen_container_type:
+    description: "The type of container that holds the biospecimen (e.g. 'Vial', 'Slide')"
+    type:
+      - string
+  biospecimen_type:
+    description: "The type of biospecimen stored (e.g. 'Serum Frozen', 'Paraffin Unstained Primary')"
+    type:
+      - string
+  current_qty_value:
+    description: "The quantity of biospecimen currently available."
+    type:
+      - number
+  current_qty_unit:
+    description: "The units for the quantity of biospecimen currently available"
+    type:
+      - string
+  
+  subjects:
+    $ref: "_definitions.yaml#/to_one"   
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
