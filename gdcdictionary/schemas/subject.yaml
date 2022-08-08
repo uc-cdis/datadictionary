@@ -32,12 +32,12 @@ required:
   - persons
   - honest_broker_subject_id
   - data_contributor_id
-  - consortium
+  # - consortium
 
 uniqueKeys:
   - [ id ]
   - [ project_id, submitter_id ]
-  - [ project_id, honest_broker_subject_id, data_contributor_id, consortium]
+  # - [ project_id, honest_broker_subject_id, data_contributor_id, consortium]
 
 
 
