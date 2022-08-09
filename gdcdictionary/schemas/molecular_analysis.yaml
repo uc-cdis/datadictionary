@@ -372,8 +372,8 @@ properties:
   molecular_abnormality_result:
     description: "An indicator for whether a molecular analysis procedure was performed and whether the assay detected a molecular abnormality."
     enum:
-      - Positive
-      - Negative
+      - Present
+      - Absent
       - Not Done
       - Not Reported
       - Unknown
