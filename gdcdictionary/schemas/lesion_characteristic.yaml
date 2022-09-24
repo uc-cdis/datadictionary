@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "lesion_characteristics"
+id: "lesion_characteristic"
 title: Lesion Characteristics
 type: object
 namespace: http://cri.uchicago.edu/

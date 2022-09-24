@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "myeloid_sarcoma_involvment"
-title: Myeloid Sarcoma Involvment
+id: "myeloid_sarcoma_involvement"
+title: Myeloid Sarcoma Involvement
 type: object
 namespace: http://cri.uchicago.edu/
 category: clinical
 program: '*'
 project: '*'
-description: "Myeloid Sarcoma Involvment"
+description: "Myeloid Sarcoma Involvement"
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subjects
-    backref: myeloid_sarcoma_involvments
+    backref: myeloid_sarcoma_involvements
     label: of
     target_type: subject
     multiplicity: many_to_one    
     required: true
   - name: timings
-    backref: myeloid_sarcoma_involvments
+    backref: myeloid_sarcoma_involvements
     label: part_of
     target_type: timing
     multiplicity: many_to_one
@@ -44,7 +44,7 @@ uniqueKeys:
 properties:
   type:
     description: "Default system-assigned property for each node"
-    enum: [ "myeloid_sarcoma_involvment." ]
+    enum: [ "myeloid_sarcoma_involvement" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id

@@ -77,6 +77,8 @@ properties:
     type:
       - string
   
+  timings:
+    $ref: "_definitions.yaml#/to_one"
   subjects:
     $ref: "_definitions.yaml#/to_one"   
   project_id:
