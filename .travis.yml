@@ -11,12 +11,12 @@ install:
   - poetry install -vv
 
 script:
-- cd dictionaryutils; ./run_tests.sh; cd ..
+  - poetry run pytest -vv --cov=fence --cov=migrations/versions --cov-report xml tests
 
-before_deploy:
-- if [ ! -z $TRAVIS_TAG ]; then sed -i.bak "s/=get_version()/='$TRAVIS_TAG'/g" setup.py; fi
-- if [ ! -z $TRAVIS_TAG ]; then cat setup.py; fi
-- if [ ! -z $TRAVIS_TAG ]; then if [ $(python setup.py --version) == '0.0.0' ]; then travis_terminate 1; fi; fi
+# before_deploy:
+# - if [ ! -z $TRAVIS_TAG ]; then sed -i.bak "s/=get_version()/='$TRAVIS_TAG'/g" setup.py; fi
+# - if [ ! -z $TRAVIS_TAG ]; then cat setup.py; fi
+# - if [ ! -z $TRAVIS_TAG ]; then if [ $(python setup.py --version) == '0.0.0' ]; then travis_terminate 1; fi; fi
 
 deploy:
   - provider: s3
