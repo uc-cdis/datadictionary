@@ -11,7 +11,7 @@ install:
   - poetry install -vv
 
 script:
-  - poetry run pytest -vv --cov=fence --cov=migrations/versions --cov-report xml tests
+  - poetry run pytest -vv
 
 # before_deploy:
 # - if [ ! -z $TRAVIS_TAG ]; then sed -i.bak "s/=get_version()/='$TRAVIS_TAG'/g" setup.py; fi
