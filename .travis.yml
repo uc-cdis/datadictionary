@@ -4,8 +4,8 @@ python:
 - '3.9'
 
 install:
-  - brew install openssl --upgrade
   - pip install --upgrade pip
+  - sudo apt-get install libssl-dev --upgrade
   - pip install poetry
   - poetry install -vv
 
