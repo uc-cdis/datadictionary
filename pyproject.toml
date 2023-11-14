@@ -5,6 +5,7 @@ description = ""
 authors = ["CTDS UChicago <cdis@uchicago.edu>"]
 license = "Apache-2.0"
 readme = "README.md"
+packages = [{include = "gdcdictionary"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
