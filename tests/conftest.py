@@ -10,13 +10,8 @@ from tests.utils import load_yaml
 
 @pytest.fixture(scope="session")
 def dictionary():
-    # return GDCDictionary(root_dir=SCHEMA_DIR)
-    gdcictionary = GDCDictionary(root_dir=SCHEMA_DIR)
-    # print(f"CONFTEST Len = {len(gdcdictionary.schema.keys())}")
-    # keys = list(gdcdictionary.schema.keys())
-    # keys.sort()
-    # print(f"Schemas {keys}")
-    return gdcictionary
+    return GDCDictionary(root_dir=SCHEMA_DIR)
+
 
 @pytest.fixture(scope="session")
 def definitions(dictionary):
