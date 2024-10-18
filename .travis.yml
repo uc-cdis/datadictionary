@@ -18,7 +18,7 @@ install:
   - poetry install -vv
 
 script:
-  - poetry run pytest -vv
+  - poetry run pytest -vv tests
   
 before_deploy:
 - poetry config pypi-token.pypi $PYPI_API_TOKEN
