@@ -15,7 +15,6 @@ def dictionary():
 
 @pytest.fixture(scope="session")
 def definitions(dictionary):
-    # TODO why not pkg_resources
     return load_yaml(os.path.join(SCHEMA_DIR, '_definitions.yaml'))
 
 
