@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gen3Dictionary"
-version = "2.1.0"
+version = "3.0.0"
 description = ""
 authors = ["CTDS UChicago <cdis@uchicago.edu>"]
 license = "Apache-2.0"
@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "gdcdictionary"}]
 
 [tool.poetry.dependencies]
-python = ">=3.9, <4"
+python = ">=3.13, <4"
 PyYAML = "*"
 jsonschema = "*"
 dictionaryutils = "*"
