@@ -23,26 +23,10 @@ jobs:
       python-version: '3.13'
       use-cache: true
 
-  # this creates linter settings and uploads to an artifact so the configs can be pulled and used across jobs
-  LintConfig:
-    name: Get Lint Config
-    uses: uc-cdis/.github/.github/workflows/lint-create-config.yaml@master
-    with:
-      python-module-name: "gen3Dictionary"
-
   RequiredLint:
     name: Run Required Linters
-    needs: [ LintConfig ]
+    needs: [ ]
     uses: uc-cdis/.github/.github/workflows/required_lint_check.yaml@master
     with:
       python-version: '3.13'
       use-cache: true
-
-  InformationalLint:
-   name: Run Informational Linters
-   needs: [ LintConfig ] #TODO Add UnitTest
-   if: github.ref != 'refs/heads/main'
-   uses: uc-cdis/.github/.github/workflows/optional_lint_check.yaml@master
-   with:
-     python-version: '3.13'
-     use-cache: true
